@@ -108,6 +108,34 @@ namespace App.Database.Project
                 
             return res;
         }
-        
+
+        public async Task<bool> RemoveProjectFromUser(int projectId, int userId)
+        {
+            var user = await _databaseContext.Users.Include(u => u.Projects).FirstOrDefaultAsync(u => u.Id == userId);
+            var project = await _databaseContext.Projects.Include(p => p.Users).FirstOrDefaultAsync(p => p.Id == projectId);
+            user.Projects.Remove(project);
+            await _databaseContext.SaveChangesAsync();
+            /*if (project.Users.Count == 0)
+            {
+                await DeleteProject(projectId);
+            }*/
+
+            await _databaseContext.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> DeleteProject(int projectId)
+        {
+            var project = await _databaseContext.Projects.Include(p => p.Columns)
+                .FirstOrDefaultAsync(p => p.Id == projectId);
+            foreach (var column in project.Columns)
+            {
+                await _columnRepository.DeleteColumn(column.Id);
+            }
+
+            _databaseContext.Projects.Remove(project);
+            await _databaseContext.SaveChangesAsync();
+            return true;
+        }
     }
 }

@@ -7,5 +7,6 @@ namespace App.Services.Project
         Task<int> AddProject(Database.Models.Project project);
         Task<Database.Models.Project> GetProjectById(int id);
         Task<bool> AddUserToProject(Database.Models.User user, Database.Models.Project project);
+        Task<bool> RemoveProjectFromTheUser(int projectId, int userId);
     }
 }

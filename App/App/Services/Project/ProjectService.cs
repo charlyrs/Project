@@ -14,6 +14,7 @@ namespace App.Services.Project
         public ProjectService(IProjectRepository projectRepository, ICheckInputService checkInputService )
         {
             _projectRepository = projectRepository;
+            
             _checkInputService = checkInputService;
         }
 
@@ -28,6 +29,7 @@ namespace App.Services.Project
         public async Task<Database.Models.Project> GetProjectById(int id)
         {
             var project = await _projectRepository.GetProjectByIdAsync(id);
+            project.Users = await _projectRepository.GetUsers(project);
             project.Columns = await _projectRepository.GetColumns(id);
             return project;
         }
@@ -36,6 +38,13 @@ namespace App.Services.Project
         {
             await _projectRepository.AddUserToProjectAsync(user.Id, project.Id);
             return true;
+        }
+
+        public async Task<bool> RemoveProjectFromTheUser(int projectId, int userId)
+        {
+            await _projectRepository.RemoveProjectFromUser(projectId, userId);
+            return true;
+
         }
     }
 }

@@ -77,5 +77,15 @@ namespace App.Database.Column
             };
             return result;
         }
+
+        public async Task<bool> DeleteColumn(int columnId)
+        {
+            var column = await _databaseContext.Columns.Include(c=>c.Tasks).FirstOrDefaultAsync(c => c.Id == columnId);
+            _databaseContext.Tasks.RemoveRange(column.Tasks);
+            _databaseContext.Columns.Remove(column);
+            await _databaseContext.SaveChangesAsync();
+            return true;
+
+        }
     }
 }

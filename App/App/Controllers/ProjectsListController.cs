@@ -28,7 +28,7 @@ namespace App.Controllers
         }
         
         [HttpPost]
-        public async Task<IActionResult> Index(string title, string description)
+        public async Task<IActionResult> Add(string title, string description)
         {
             var project = new Project()
             {

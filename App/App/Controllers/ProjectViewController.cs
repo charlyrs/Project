@@ -9,6 +9,7 @@ namespace App.Controllers
     {
         private readonly IProjectService _projectService;
         private static ProjectViewModel _projectViewModel;
+        private static int _projectId;
 
         public ProjectViewController(IProjectService projectService)
         {
@@ -20,6 +21,7 @@ namespace App.Controllers
         {
             var project = await _projectService.GetProjectById(projectId);
             var projectViewModel = new ProjectViewModel(project);
+            _projectId = projectId;
             _projectViewModel = projectViewModel;
             return View(projectViewModel);
         }
@@ -27,6 +29,15 @@ namespace App.Controllers
         public async Task<IActionResult> ProjectInfo( )
         {
             return View(_projectViewModel);
+        }
+        
+        [HttpPost]
+        public async Task<IActionResult> ProjectInfo(bool post)
+        {
+            var id = int.Parse(HttpContext.Request.Cookies["currentUserId"]);
+            await _projectService.RemoveProjectFromTheUser(_projectId, id);
+            return RedirectToAction("Index", "ProjectsList");
+
         }
         
     }

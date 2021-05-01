@@ -11,5 +11,6 @@ namespace App.Database.Column
         Task<Models.Column> GetColumnById(int id);
         Task<bool> AddTaskToColumn(ProjectTask task, int columnId);
         Task<Models.Project> GetColumnsProject(int columnId);
+        Task<bool> DeleteColumn(int columnId);
     }
 }
