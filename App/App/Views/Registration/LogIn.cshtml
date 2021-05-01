@@ -1,0 +1,43 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Log in";
+    Layout = "_Layout";
+}
+<style>
+body{
+    background-color:  #C0DCEC;
+    color: white;
+    size: landscape;
+    
+   }
+   
+   text {
+   color: white;
+   }
+   form{
+   width: 400px;
+   }
+   .container {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+     
+       
+   }
+   </style>
+<body>
+<div class="" style="margin-top: 50px">
+<form method="post">
+    <div class="form-group">
+        <input style="border-radius: 12px" type="text" name="username" class="form-control" id="exampleInputName1" placeholder="Username">
+    </div>
+    <div class="form-group">
+
+        <input style="border-radius: 12px" type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+
+    <button style="background-color: #5EB7CA; width: 200px; border-color: darkturquoise; border-radius: 12px " type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+</body>

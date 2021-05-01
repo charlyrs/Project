@@ -1,0 +1,65 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Add task";
+    Layout = "_Layout";
+}
+
+<style>
+    body{
+    background-color: #C0DCEC;
+    }
+</style>
+<body>
+@*<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #C0DCEC; ">
+                <h5 class="modal-title" id="staticBackdropLabel">Add project</h5>
+                   
+            </div>
+            <form method="post">
+                <div class="modal-body"  >
+
+
+                    <div class="form-group">
+                    
+                        <input style="border-radius: 12px; " type="text" name="title" class="form-control" placeholder="Title">
+                    </div>
+                    
+                    <div class="form-group">
+                        <h4 style="color: white">Deadline</h4>
+                        <input style="border-radius: 12px" type="date" id="date" name="deadline"/>
+                    </div>
+
+                </div>
+                <div class="modal-footer" >
+                    <button style=" background-color:lightgrey ;width: 150px; border-radius: 12px; border-color: white" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                    <button style="background-color: #86cfda; width: 200px; border-color: teal; border-radius: 12px " type="submit" class="btn btn-primary">Submit</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>*@
+<form method="post">
+    <div class="form-group">
+
+        <input style="border-radius: 12px; " type="text" name="title" class="form-control" placeholder="Title">
+    </div>
+
+    <div class="form-group">
+        <h4 style="color: white">Deadline</h4>
+        <input style="border-radius: 12px" type="date" id="date" name="deadline"/>
+    </div>
+
+    <button style="background-color: #a4dfed; width: 200px; border-color: #a4dfed; border-radius: 12px " type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+</body>
+<script>
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+</script>

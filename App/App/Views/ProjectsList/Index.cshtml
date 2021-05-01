@@ -1,0 +1,103 @@
+﻿@model App.ViewModels.UserViewModel
+
+@{
+    ViewBag.Title = "Projects";
+    Layout = "_Layout";
+}
+
+<style >
+  body{
+  background-color: #60bcdc;
+  
+  color: white;
+  }
+  text {
+  color: white;
+  }
+  .container {
+         display: flex;
+        
+         
+     }
+     nav{
+     height: 45px;
+     }
+    
+     
+  
+  
+  
+</style>
+
+<body >
+
+<div class="container" >
+    <div class="mycontainer" style="margin-top: 20px;">
+        <form method="post">
+            <div class="container">
+                @foreach (var project in Model.Projects)
+                {
+                    <div class="card" style="width: 12rem; margin-left: 15px">
+                        <div class="card-body">
+                            <a href='@Url.Action("Index", "ProjectView", new {projectId = project.Id})'>
+                                <h5 class="card-title" style="color: #60bcdc">@project.Title</h5>
+                            </a>
+                            <p class="card-text" style="color: #60bcdc ">@project.Description</p>
+
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </form>
+        
+    </div>
+    <button style="background-color: #60bcdc; margin-top: 15px; width: 200px; border-radius: 12px; border-color:#C0DCEC" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+              + Add Project
+            </button>
+</div>
+
+
+
+</body>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #a4dfed; ">
+                    <h5 class="modal-title" id="staticBackdropLabel">Add project</h5>
+                   
+                  </div>
+            <form method="post">
+                <div class="modal-body"  >
+
+
+                    <div class="form-group">
+
+                        <input style="border-radius: 12px; " type="text" name="title" class="form-control" placeholder="Title">
+                    </div>
+                    <div class="form-group">
+
+                        <input style="border-radius: 12px" type="text" name="description" class="form-control" placeholder="Description">
+                    </div>
+
+                </div>
+                <div class="modal-footer" >
+                    <button style=" background-color:lightgrey ;width: 150px; border-radius: 12px; border-color: white" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                    <button style="background-color: #60bcdc; width: 150px; border-radius: 12px; border-color:#C0DCEC" type="submit" class="btn btn-primary">Add </button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+</script>

@@ -1,0 +1,12 @@
+D:\Git\Project\App\App.Database\bin\Debug\net5.0\App.Database.deps.json
+D:\Git\Project\App\App.Database\bin\Debug\net5.0\App.Database.dll
+D:\Git\Project\App\App.Database\bin\Debug\net5.0\ref\App.Database.dll
+D:\Git\Project\App\App.Database\bin\Debug\net5.0\App.Database.pdb
+D:\Git\Project\App\App.Database\obj\Debug\net5.0\App.Database.csprojAssemblyReference.cache
+D:\Git\Project\App\App.Database\obj\Debug\net5.0\App.Database.GeneratedMSBuildEditorConfig.editorconfig
+D:\Git\Project\App\App.Database\obj\Debug\net5.0\App.Database.AssemblyInfoInputs.cache
+D:\Git\Project\App\App.Database\obj\Debug\net5.0\App.Database.AssemblyInfo.cs
+D:\Git\Project\App\App.Database\obj\Debug\net5.0\App.Database.csproj.CoreCompileInputs.cache
+D:\Git\Project\App\App.Database\obj\Debug\net5.0\App.Database.dll
+D:\Git\Project\App\App.Database\obj\Debug\net5.0\ref\App.Database.dll
+D:\Git\Project\App\App.Database\obj\Debug\net5.0\App.Database.pdb
