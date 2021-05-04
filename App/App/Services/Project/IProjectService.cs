@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace App.Services.Project
 {
@@ -8,5 +9,6 @@ namespace App.Services.Project
         Task<Database.Models.Project> GetProjectById(int id);
         Task<bool> AddUserToProject(Database.Models.User user, Database.Models.Project project);
         Task<bool> RemoveProjectFromTheUser(int projectId, int userId);
+        Task<List<Database.Models.User>> GetUsers(int projectId);
     }
 }

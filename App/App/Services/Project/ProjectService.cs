@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 using App.Database.Project;
 using App.Database.User;
@@ -45,6 +46,13 @@ namespace App.Services.Project
             await _projectRepository.RemoveProjectFromUser(projectId, userId);
             return true;
 
+        }
+
+        public async Task<List<Database.Models.User>> GetUsers(int projectId)
+        {
+            var project = await _projectRepository.GetProjectByIdAsync(projectId);
+            var result = await _projectRepository.GetUsers(project);
+            return result;
         }
     }
 }

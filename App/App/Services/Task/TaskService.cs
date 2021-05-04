@@ -16,5 +16,17 @@ namespace App.Services.Task
             var id = await _taskRepository.AddTask(task);
             return id;
         }
+
+        public async Task<ProjectTask> FindTaskById(int id)
+        {
+            var task = await _taskRepository.GetTaskById(id);
+            return task;
+        }
+
+        public async Task<bool> AddUserToTask(int userId, int taskId)
+        {
+            await _taskRepository.AddUserToTask(userId, taskId);
+            return true;
+        }
     }
 }

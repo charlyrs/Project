@@ -10,7 +10,11 @@ namespace App.Database.User
 {
     public class UserRepository : IUserRepository
     {
-        private readonly ApplicationContext _databaseContext = new ApplicationContext();
+        private readonly ApplicationContext _databaseContext ;
+        public UserRepository(ApplicationContext applicationContext)
+        {
+            _databaseContext = applicationContext;
+        }
         public async Task<List<Models.Project>> GetProjects(Models.User user)
         {
             var projects =  _databaseContext.Projects.
@@ -28,7 +32,7 @@ namespace App.Database.User
         }
         public async Task<Models.User> GetUserByNickname(string name)
         {
-            var users = _databaseContext.Users.Where(u => u.Nickname == name).Include(u => u.Projects);
+            var users = _databaseContext.Users.Where(u => u.Nickname == name).Include(u => u.Projects).Include(u => u.AssignedTasks);
             var foundUser = users.FirstOrDefault();
             if (foundUser == null) return null;
             var result = new Models.User()
@@ -42,6 +46,11 @@ namespace App.Database.User
                     Id = p.Id,
                     Description = p.Description,
                     Title = p.Title
+                }).ToList(),
+                AssignedTasks = foundUser.AssignedTasks.Select(t => new ProjectTask()
+                {
+                    Id = t.Id,
+                    Title = t.Title
                 }).ToList()
             };
             return result;
@@ -50,14 +59,19 @@ namespace App.Database.User
 
         public async Task<Models.User> GetUserByIdAsync(int id)
         {
-            var dbUser = await _databaseContext.Users.FindAsync(id);
+            var dbUser = await _databaseContext.Users.Include(u => u.AssignedTasks).FirstOrDefaultAsync(u => u.Id == id);
 
             var user = new Models.User
             {
                 Id = dbUser.Id,
                 Email = dbUser.Email,
                 Nickname = dbUser.Nickname,
-                Password = dbUser.Password
+                Password = dbUser.Password,
+                AssignedTasks = dbUser.AssignedTasks.Select(t => new ProjectTask()
+                                {
+                                    Id = t.Id,
+                                    Title = t.Title
+                                }).ToList()
             };
             user.Projects = await GetProjects(user);
 
@@ -71,7 +85,8 @@ namespace App.Database.User
                 Email = user.Email,
                 Password = user.Password,
                 Nickname = user.Nickname,
-                Projects = new List<ProjectDB>()
+                Projects = new List<ProjectDB>(),
+                AssignedTasks = new List<ProjectTaskDB>()
             };
             await _databaseContext.Users.AddAsync(dbUser);
             await _databaseContext.SaveChangesAsync();

@@ -1,5 +1,6 @@
 ﻿@model App.ViewModels.ProjectViewModel
 
+
 @{
     ViewBag.Title = "Projects";
     Layout = "_Layout";
@@ -43,9 +44,12 @@
                 }
                 @foreach (var task in column.Tasks)
                 {
-                    <li>
-                        <h6 style="color:#60bcdc;">@task.Title</h6>
-                    </li>
+                    
+                    <a href='@Url.Action("Index","TaskView", new {taskId = task.Id})' >
+                       
+                        <h5 style="color: #60bcdc">@task.Title</h5>
+                    </a>
+                    
                 }
 
 
@@ -57,6 +61,36 @@
 <a href='@Url.Action("ProjectInfo")'>
     <button style="background-color: #a4dfed; margin-top: 20px; margin-left: 50px; width: 200px; border-color: #a4dfed; border-radius: 12px " type="submit" class="btn btn-primary">Project Info</button>
 </a>
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #a4dfed; ">
+                <h5 class="modal-title" id="staticBackdropLabel">Add project</h5>
+                   
+            </div>
+            @using (Html.BeginForm("Add", "ProjectsList", FormMethod.Post))
+            {
+
+
+               
+                    <div class="modal-body">
+
+
+                        
+
+                    </div>
+                    <div class="modal-footer">
+                        <button style=" background-color:lightgrey ;width: 150px; border-radius: 12px; border-color: white" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        
+
+                            <button style="background-color: #60bcdc; width: 150px; border-radius: 12px; border-color:#C0DCEC" type="submit" class="btn btn-primary" >Add </button>
+                       
+                    </div>
+                
+            }
+        </div>
+    </div>
+</div>
 </body>
 <script>
 $('#myModal').on('shown.bs.modal', function () {

@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using App.Database.Models;
-using App.Database.User;
 using App.Services.User;
-using App.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace App.Controllers
@@ -35,18 +33,15 @@ namespace App.Controllers
                 Nickname = username,
                 Projects = new List<Project>()
             };
-            int id = await _registrationService.AddUser(user);
-            var userViewModel = new UserViewModel(user){};
+            var id = await _registrationService.AddUser(user);
             HttpContext.Response.Cookies.Append("currentUserId",id.ToString());
             CurrentUserService.currentUserId = id;
             CurrentUserService.loggedIn = true;
-            var check = HttpContext.Request.Cookies["currentUserId"];
-
             return RedirectToAction("Index", "ProjectsList");
         }
 
         [HttpGet]
-        public async Task<IActionResult> LogIn()
+        public IActionResult LogIn()
         {
             return View();
         }

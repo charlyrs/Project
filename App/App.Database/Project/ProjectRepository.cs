@@ -11,11 +11,12 @@ namespace App.Database.Project
 {
     public class ProjectRepository : IProjectRepository
     {
-        private readonly ApplicationContext _databaseContext = new ApplicationContext();
+        private readonly ApplicationContext _databaseContext;
         private readonly IColumnRepository _columnRepository;
 
-        public ProjectRepository(IColumnRepository columnRepository)
+        public ProjectRepository(IColumnRepository columnRepository, ApplicationContext applicationContext)
         {
+            _databaseContext = applicationContext;
             _columnRepository = columnRepository;
         }
         public async Task<Models.Project> GetProjectByIdAsync(int projectId)
@@ -49,23 +50,28 @@ namespace App.Database.Project
         public async Task<bool> AddUserToProjectAsync(int userId, int projectId)
         {
             var user = await _databaseContext.Users.FindAsync(userId);
-            var project = await _databaseContext.Projects.Where(p=> p.Id==projectId).Include(p => p.Users).FirstOrDefaultAsync();
+            var project = await _databaseContext.Projects.Include(p => p.Users).FirstOrDefaultAsync(p=> p.Id==projectId);
             project.Users.Add(user);
             await _databaseContext.SaveChangesAsync();
             return true;
         }
         public async Task<List<Models.User>> GetUsers(Models.Project project)
         {
-            var users = _databaseContext.Users.Where(u => u.Projects.Any(p => p.Id == project.Id));
+            var users = _databaseContext.Users.Include(u=> u.AssignedTasks).Where(u => u.Projects.Any(p => p.Id == project.Id));
             var usersList = await users.ToListAsync();
             var result = usersList.Select(u => new Models.User()
             {
                 Id = u.Id,
                 Email = u.Email,
                 Nickname = u.Nickname,
-                Password = u.Password
+                Password = u.Password,
+                AssignedTasks = u.AssignedTasks.Select(t => new ProjectTask()
+                {
+                    Id = t.Id,
+                    Title = t.Title
+                }).ToList()
 
-                }).ToList();
+            }).ToList();
                 return result;
         }
         public async Task<bool> AddDefaultColumnsToProject(int projectId)

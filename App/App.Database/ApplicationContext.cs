@@ -17,6 +17,7 @@ namespace App.Database
         public DbSet<ProjectDB> Projects { get; set; }
         public DbSet<ColumnDB> Columns { get; set; }
         public DbSet<ProjectTaskDB> Tasks { get; set; }
+        public DbSet<NotificationDB> Notifications { get; set; }
 
         public ApplicationContext()
         {

@@ -17,10 +17,6 @@ namespace App
     {
         public static void Main(string[] args)
         {
-            
-            var userRepository = new UserRepository();
-            
-            
             CreateHostBuilder(args).Build().Run();
         }
 

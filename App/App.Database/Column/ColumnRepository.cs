@@ -11,6 +11,10 @@ namespace App.Database.Column
     {
         private readonly ApplicationContext _databaseContext = new ApplicationContext();
         
+        public ColumnRepository(ApplicationContext applicationContext)
+        {
+            _databaseContext = applicationContext;
+        }
         public async Task<List<ProjectTask>> GetColumnTasks(int columnId)
         {
             var column = _databaseContext.Columns.Where(c => c.Id == columnId).Include(c => c.Tasks).FirstOrDefault();

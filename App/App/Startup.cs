@@ -46,6 +46,7 @@ namespace App
             services.AddTransient<IColumnService, ColumnService>();
             services.AddTransient<ITaskRepository, TaskRepository>();
             services.AddTransient<ITaskService, TaskService>();
+            services.AddSingleton<ApplicationContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

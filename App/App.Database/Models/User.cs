@@ -11,5 +11,6 @@ namespace App.Database.Models
         public string Password { get; set; }
         public string Nickname { get; set; }
         public  List<Project> Projects { get; set; }
+        public List<ProjectTask> AssignedTasks { get; set; }
     }
 }

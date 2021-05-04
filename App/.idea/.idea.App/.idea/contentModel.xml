@@ -17,6 +17,7 @@
           <e p="ProjectsListController.cs" t="Include" />
           <e p="ProjectViewController.cs" t="Include" />
           <e p="RegistrationController.cs" t="Include" />
+          <e p="TaskViewController.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
           <e p="ErrorViewModel.cs" t="Include" />
@@ -40,9 +41,16 @@
         </e>
         <e p="Services" t="Include">
           <e p="CheckInputService.cs" t="Include" />
-          <e p="ColumnService.cs" t="Include" />
+          <e p="Column" t="Include">
+            <e p="ColumnService.cs" t="Include" />
+            <e p="IColumnService.cs" t="Include" />
+          </e>
+          <e p="CurrentProjectService.cs" t="Include" />
           <e p="ICheckInputService.cs" t="Include" />
-          <e p="IColumnService.cs" t="Include" />
+          <e p="Notification" t="Include">
+            <e p="INotificationService.cs" t="Include" />
+            <e p="NotificationService.cs" t="Include" />
+          </e>
           <e p="Project" t="Include">
             <e p="IProjectService.cs" t="Include" />
             <e p="ProjectService.cs" t="Include" />
@@ -62,12 +70,14 @@
         <e p="Startup.cs" t="Include" />
         <e p="ViewModels" t="Include">
           <e p="ProjectViewModel.cs" t="Include" />
+          <e p="TaskViewModel.cs" t="Include" />
           <e p="UserViewModel.cs" t="Include" />
         </e>
         <e p="Views" t="Include">
           <e p="_ViewImports.cshtml" t="Include" />
           <e p="_ViewStart.cshtml" t="Include" />
           <e p="Account" t="Include">
+            <e p="AllTasks.cshtml" t="Include" />
             <e p="EditPassword.cshtml" t="Include" />
             <e p="EditUserData.cshtml" t="Include" />
             <e p="Index.cshtml" t="Include" />
@@ -94,6 +104,9 @@
             <e p="_Layout.cshtml" t="Include" />
             <e p="_ValidationScriptsPartial.cshtml" t="Include" />
             <e p="Error.cshtml" t="Include" />
+          </e>
+          <e p="TaskView" t="Include">
+            <e p="Index.cshtml" t="Include" />
           </e>
         </e>
         <e p="wwwroot" t="Include">
@@ -170,15 +183,21 @@
         </e>
         <e p="DatabaseModels" t="Include">
           <e p="ColumnDB.cs" t="Include" />
+          <e p="NotificationDB.cs" t="Include" />
           <e p="ProjectDB.cs" t="Include" />
           <e p="ProjectTaskDB.cs" t="Include" />
           <e p="UserDB.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
           <e p="Column.cs" t="Include" />
+          <e p="Notification.cs" t="Include" />
           <e p="Project.cs" t="Include" />
           <e p="ProjectTask.cs" t="Include" />
           <e p="User.cs" t="Include" />
+        </e>
+        <e p="Notification" t="Include">
+          <e p="INotificationRepository.cs" t="Include" />
+          <e p="NotificationRepository.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

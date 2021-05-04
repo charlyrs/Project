@@ -22,6 +22,7 @@ namespace App.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
+            
             var user = await _userService.GetUserById(CurrentUserService.currentUserId);
             _userViewModel = new UserViewModel(user);
             return View(_userViewModel);
@@ -40,10 +41,7 @@ namespace App.Controllers
             return RedirectToAction("Index", "ProjectsList");
         }
 
-        /*[HttpPost]
-        public IActionResult Index(bool post)
-        {
-            return RedirectToAction("Index", "AddProject");
-        }*/
+       
+
     }
 }

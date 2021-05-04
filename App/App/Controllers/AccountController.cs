@@ -17,7 +17,7 @@ namespace App.Controllers
         public async Task<IActionResult> Index()
         {
             if (!CurrentUserService.loggedIn) return RedirectToAction("Index", "Registration");
-            var id = int.Parse(HttpContext.Request.Cookies["currentUserId"]);
+            var id = CurrentUserService.currentUserId;
             var user = await _userService.GetUserById(id);
             var userViewModel = new UserViewModel(user);
             
@@ -28,7 +28,7 @@ namespace App.Controllers
         [HttpGet]
         public async Task<IActionResult> EditUserData()
         {
-            var id = int.Parse(HttpContext.Request.Cookies["currentUserId"]);
+            var id = CurrentUserService.currentUserId;
             var user = await _userService.GetUserById(id);
             var userViewModel = new UserViewModel(user);
             return View(userViewModel);
@@ -37,7 +37,7 @@ namespace App.Controllers
         [HttpPost]
         public async Task<IActionResult> EditUserData(string username, string email)
         {
-            var id = int.Parse(HttpContext.Request.Cookies["currentUserId"]);
+            var id = CurrentUserService.currentUserId;
             var user = await _userService.GetUserById(id);
             user.Nickname = username;
             user.Email = email;
@@ -58,9 +58,17 @@ namespace App.Controllers
         [HttpPost]
         public async Task<IActionResult> EditPassword(string password, string newPassword)
         {
-            var id = int.Parse(HttpContext.Request.Cookies["currentUserId"] ?? throw new InvalidOperationException());
+            var id = CurrentUserService.currentUserId;
             await _userService.UpdateUserPassword(password, newPassword, id);
             return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> AllTasks()
+        {
+            var id = CurrentUserService.currentUserId;
+            var user = await _userService.GetUserById(id);
+            var model = new UserViewModel(user);
+            return View(model);
         }
     }
 }

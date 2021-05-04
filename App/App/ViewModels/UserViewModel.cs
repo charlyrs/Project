@@ -9,12 +9,14 @@ namespace App.ViewModels
         
         public string Nickname { get; set; }
         public  List<Project> Projects { get; set; }
+        public List<ProjectTask> AssignedTasks { get; set; }
 
         public UserViewModel(User user)
         {
             Email = user.Email;
             Nickname = user.Nickname;
             Projects = user.Projects;
+            AssignedTasks = user.AssignedTasks;
 
         }
     }
