@@ -51,7 +51,6 @@ D:\Git\Project\App\App\obj\Debug\net5.0\Razor\Views\Registration\Index.cshtml.g.
 D:\Git\Project\App\App\obj\Debug\net5.0\Razor\Views\ProjectsList\Index.cshtml.g.cs
 D:\Git\Project\App\App\obj\Debug\net5.0\Razor\Views\ProjectView\Index.cshtml.g.cs
 D:\Git\Project\App\App\obj\Debug\net5.0\Razor\Views\AddTask\Index.cshtml.g.cs
-D:\Git\Project\App\App\obj\Debug\net5.0\Razor\Pages\AddUserToProject\Index.cshtml.g.cs
 D:\Git\Project\App\App\obj\Debug\net5.0\Razor\Views\Account\Index.cshtml.g.cs
 D:\Git\Project\App\App\obj\Debug\net5.0\Razor\Views\Registration\LogIn.cshtml.g.cs
 D:\Git\Project\App\App\obj\Debug\net5.0\Razor\Views\Account\EditPassword.cshtml.g.cs

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using App.Database.DatabaseModels;
 
 namespace App.Database.Notification
@@ -18,7 +19,8 @@ namespace App.Database.Notification
             {
                 Link = notification.Link,
                 Id = notification.Id,
-                Text = notification.Text
+                Text = notification.Text,
+                
             };
             await _databaseContext.Notifications.AddAsync(dbModel);
             await _databaseContext.SaveChangesAsync();

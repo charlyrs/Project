@@ -27,7 +27,6 @@ namespace App.Services.User
             var user = await _userRepository.GetUserByNickname(name);
             //var userViewModel = new UserViewModel(user);
             return user;
-
         }
 
         public  async Task<bool> UpdateUserData(Database.Models.User user)

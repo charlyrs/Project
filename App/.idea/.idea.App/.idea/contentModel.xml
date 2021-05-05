@@ -30,11 +30,6 @@
             </e>
           </e>
         </e>
-        <e p="Pages" t="Include">
-          <e p="AddUserToProject" t="Include">
-            <e p="Index.cshtml" t="Include" />
-          </e>
-        </e>
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />

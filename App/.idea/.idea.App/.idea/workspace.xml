@@ -28,7 +28,6 @@
     <changedPaths>
       <option value="$PROJECT_DIR$/App.Database/User/IUserRepository.cs" />
       <option value="$PROJECT_DIR$/App/Services/User/IUserService.cs" />
-      <option value="$PROJECT_DIR$/App/Services/User/UserService.cs" />
       <option value="$PROJECT_DIR$/App/Controllers/AddProjectController.cs" />
       <option value="$PROJECT_DIR$/App/Controllers/HomeController.cs" />
       <option value="$PROJECT_DIR$/App/Views/Registration/Index.cshtml" />
@@ -63,20 +62,21 @@
       <option value="$PROJECT_DIR$/App.Database/Column/ColumnRepository.cs" />
       <option value="$PROJECT_DIR$/App.Database/User/UserRepository.cs" />
       <option value="$PROJECT_DIR$/App/Program.cs" />
-      <option value="$PROJECT_DIR$/App.Database/DatabaseModels/NotificationDB.cs" />
-      <option value="$PROJECT_DIR$/App.Database/Models/Notification.cs" />
       <option value="$PROJECT_DIR$/App.Database/Notification/INotificationRepository.cs" />
-      <option value="$PROJECT_DIR$/App.Database/ApplicationContext.cs" />
-      <option value="$PROJECT_DIR$/App.Database/Notification/NotificationRepository.cs" />
       <option value="$PROJECT_DIR$/App/Services/Notification/INotificationService.cs" />
-      <option value="$PROJECT_DIR$/App/Services/Notification/NotificationService.cs" />
       <option value="$PROJECT_DIR$/App/Services/CurrentProjectService.cs" />
-      <option value="$PROJECT_DIR$/App/Controllers/ProjectViewController.cs" />
       <option value="$PROJECT_DIR$/App/Services/Project/IProjectService.cs" />
       <option value="$PROJECT_DIR$/App/Services/Project/ProjectService.cs" />
       <option value="$PROJECT_DIR$/App.Database/Project/ProjectRepository.cs" />
-      <option value="$PROJECT_DIR$/App/Controllers/TaskViewController.cs" />
+      <option value="$PROJECT_DIR$/App/Services/User/UserService.cs" />
+      <option value="$PROJECT_DIR$/App/Controllers/ProjectViewController.cs" />
       <option value="$PROJECT_DIR$/App/Views/TaskView/Index.cshtml" />
+      <option value="$PROJECT_DIR$/App/Controllers/TaskViewController.cs" />
+      <option value="$PROJECT_DIR$/App/Services/Notification/NotificationService.cs" />
+      <option value="$PROJECT_DIR$/App.Database/DatabaseModels/NotificationDB.cs" />
+      <option value="$PROJECT_DIR$/App.Database/Models/Notification.cs" />
+      <option value="$PROJECT_DIR$/App.Database/Notification/NotificationRepository.cs" />
+      <option value="$PROJECT_DIR$/App.Database/ApplicationContext.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rOlePqmrhZBxXy0wA2B6oTP2Kf" />
@@ -92,6 +92,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="threadsIsVisibleKey" value="false" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.App">
@@ -164,7 +165,8 @@
       <workItem from="1620025205359" duration="9986000" />
       <workItem from="1620041192536" duration="734000" />
       <workItem from="1620107367830" duration="2501000" />
-      <workItem from="1620110280631" duration="303000" />
+      <workItem from="1620110280631" duration="948000" />
+      <workItem from="1620209033931" duration="5269000" />
     </task>
     <servers />
   </component>
@@ -365,23 +367,23 @@
           <line>41</line>
           <properties documentPath="D:\Git\Project\App\App\Controllers\TaskViewController.cs" initialLine="30" containingFunctionPresentation="method 'AssignUserToTask'">
             <startOffsets>
-              <option value="1451" />
+              <option value="1544" />
             </startOffsets>
             <endOffsets>
-              <option value="1502" />
+              <option value="1595" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/App/Controllers/TaskViewController.cs</url>
-          <line>28</line>
+          <line>29</line>
           <properties documentPath="D:\Git\Project\App\App\Controllers\TaskViewController.cs" initialLine="28" containingFunctionPresentation="method 'Index'">
             <startOffsets>
-              <option value="871" />
+              <option value="970" />
             </startOffsets>
             <endOffsets>
-              <option value="922" />
+              <option value="1021" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="32" />

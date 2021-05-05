@@ -26,11 +26,11 @@ namespace App.Controllers
         // GET
         public async Task<IActionResult> Index(int taskId)
         {
+            var link = new string($"{HttpContext.Request.Path}{HttpContext.Request.QueryString}");
             var task = await _taskService.FindTaskById(taskId);
-            
             var users = await _projectService.GetUsers(CurrentProjectService.currentProjectId);
             _taskId = taskId;
-            ViewBag.projectUsers = users.Where(u => u.AssignedTasks.Any(t => t.Id !=_taskId));
+            ViewBag.projectUsers = users.Where(u => u.AssignedTasks.TrueForAll(t => t.Id !=_taskId));
             var taskViewModel = new TaskViewModel(task);
             return View(taskViewModel);
         }

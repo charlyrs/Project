@@ -9,10 +9,8 @@
     body{
     background-color:  #C0DCEC;
     color: white;
-    size: landscape;
-    
+    size: landscape;    
    }
-   
    text {
    color: white;
    }
@@ -21,10 +19,6 @@
    }
    .container {
        display: flex;
-      
-       
-     
-       
    }
   
 </style>
@@ -33,39 +27,38 @@
     
     <div >
         <h1 class="display-3" style="margin-bottom: 20px">@Model.Title</h1>
-        
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
+        @if (Model.AssignedUsers.Count!=0)
+        {
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
                 
-                @foreach (var user in Model.AssignedUsers)
-                {
-                    <h6 style="color: #60bcdc">@user.Nickname</h6>
-                }
-                @*
-                Not assigned users
-                *@
-                @foreach (var user in ViewBag.projectUsers)
-                {
-                    <a href='@Url.Action("AssignUserToTask", "TaskView", new {username = user.Nickname})'>
-                        <h5 style="color: black;"> @user.Nickname</h5>
-
-                    </a>
-
-                }
-                @*@using (Html.BeginForm("AssignUserToTask","TaskView",FormMethod.Post))
-                                {
-                                    <div class="form-group" style="margin-top: 10px; ">
-                
-                                        <input style="border-radius: 12px; width: 15rem;  height: 35px" type="text" name="username" class="form-control" placeholder="Add user" >
-                
-                                    </div>
-                                }*@
-           
+                    @foreach (var user in Model.AssignedUsers)
+                    {
+                        <h6 style="color: #60bcdc">@user.Nickname</h6>
+                    }
+                </div>
             </div>
-        </div>
-            
-      
+        }
         
+            <div class="card" style="width: 18rem; margin-top: 25px">
+                <div class="card-body">
+
+                    <h6 style="color: #60bcdc">Add user</h6>
+
+                    @foreach (var user in ViewBag.projectUsers)
+                    {
+                        <a style="color: #60bcdc" href='@Url.Action("AssignUserToTask", "TaskView", new {username = user.Nickname})'>
+                            <h6 style="color: #C0DCEC;"> @user.Nickname</h6>
+
+                        </a>
+                    }
+
+                </div>
+            </div>
+
+
+
+
     </div>
     <img style="margin-left: 200px" src="https://www.pinclipart.com/picdir/big/67-672993_asana-timeline-asana-timeline-asana-timeline-asana-illustration.png" width="400">
     @*

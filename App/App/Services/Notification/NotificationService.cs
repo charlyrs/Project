@@ -20,6 +20,7 @@ namespace App.Services.Notification
         public  async Task<bool> FormNotification(string sender, string action, string link)
         {
             var text = new string($"{sender} {action}");
+            
             var notification = new Database.Models.Notification()
             {
                 Text = text,
