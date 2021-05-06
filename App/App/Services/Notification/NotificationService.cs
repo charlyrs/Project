@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using App.Database.Notification;
+using App.Services.User;
 
 namespace App.Services.Notification
 {
@@ -17,16 +18,17 @@ namespace App.Services.Notification
             
         }*/
 
-        public  async Task<bool> FormNotification(string sender, string action, string link)
+        public  async Task<bool> FormNotification(string text, string link, int recieverId)
         {
-            var text = new string($"{sender} {action}");
+            //var text = new string($"{sender} {action}");
             
             var notification = new Database.Models.Notification()
             {
                 Text = text,
                 Link = link
             };
-            await _notificationRepository.AddNotification(notification);
+            var id = await _notificationRepository.AddNotification(notification);
+            await _notificationRepository.AddNotificationToUser(recieverId, id);
             return true;
         }
     }

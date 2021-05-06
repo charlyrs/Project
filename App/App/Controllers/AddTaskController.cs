@@ -18,7 +18,6 @@ namespace App.Controllers
         public AddTaskController(IColumnService columnService)
         {
             _columnService = columnService;
-            //_taskService = taskService;
         }
         public async Task<IActionResult> Index(int columnId)
         {

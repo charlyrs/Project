@@ -10,6 +10,7 @@ namespace App.ViewModels
         public string Nickname { get; set; }
         public  List<Project> Projects { get; set; }
         public List<ProjectTask> AssignedTasks { get; set; }
+        public List<Notification> Notifications { get; set; }
 
         public UserViewModel(User user)
         {
@@ -17,6 +18,7 @@ namespace App.ViewModels
             Nickname = user.Nickname;
             Projects = user.Projects;
             AssignedTasks = user.AssignedTasks;
+            Notifications = user.Notifications;
 
         }
     }

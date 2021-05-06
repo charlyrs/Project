@@ -33,7 +33,7 @@ namespace App.Database.User
         public async Task<Models.User> GetUserByNickname(string name)
         {
             var users = _databaseContext.Users.Where(u => u.Nickname == name).Include(u => u.Projects).Include(u => u.AssignedTasks);
-            var foundUser = users.FirstOrDefault();
+            var foundUser = await users.FirstOrDefaultAsync();
             if (foundUser == null) return null;
             var result = new Models.User()
             {
@@ -59,7 +59,7 @@ namespace App.Database.User
 
         public async Task<Models.User> GetUserByIdAsync(int id)
         {
-            var dbUser = await _databaseContext.Users.Include(u => u.AssignedTasks).FirstOrDefaultAsync(u => u.Id == id);
+            var dbUser = await _databaseContext.Users.Include(u => u.AssignedTasks).Include(u=> u.Notifications).FirstOrDefaultAsync(u => u.Id == id);
 
             var user = new Models.User
             {
@@ -71,7 +71,13 @@ namespace App.Database.User
                                 {
                                     Id = t.Id,
                                     Title = t.Title
-                                }).ToList()
+                                }).ToList(),
+                Notifications = dbUser.Notifications.Select(n => new Models.Notification()
+                {
+                    Id = n.Id,
+                    Link = n.Link,
+                    Text = n.Text
+                }).ToList()
             };
             user.Projects = await GetProjects(user);
 

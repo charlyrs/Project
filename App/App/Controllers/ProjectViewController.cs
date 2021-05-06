@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using App.Database.Models;
 using App.Services;
+using App.Services.Notification;
 using App.Services.Project;
 using App.Services.User;
 using App.ViewModels;
@@ -12,24 +13,25 @@ namespace App.Controllers
     public class ProjectViewController : Controller
     {
         private readonly IProjectService _projectService;
-       
         private readonly IUserService _userService;
-        private static int _projectId;
+        private readonly INotificationService _notificationService;
+        private static string _path;
 
-        public ProjectViewController(IProjectService projectService, IUserService userService)
+        public ProjectViewController(IProjectService projectService, IUserService userService, INotificationService notificationService)
         {
             _projectService = projectService;
             _userService = userService;
+            _notificationService = notificationService;
             //_projectId = projectId;
         }
         [HttpGet]
         public async Task <IActionResult> Index(int projectId)
         {
-            
+            _path = new string($"{HttpContext.Request.Path}{HttpContext.Request.QueryString}");
             var project = await _projectService.GetProjectById(projectId);
             CurrentProjectService.currentProjectId = projectId;
             var projectViewModel = new ProjectViewModel(project);
-            _projectId = projectId;
+            
             return View(projectViewModel);
         }
         [HttpGet]
@@ -46,7 +48,7 @@ namespace App.Controllers
                 ViewBag.messageColor = "#60bcdc";
             }
             
-            var project = await _projectService.GetProjectById(_projectId);
+            var project = await _projectService.GetProjectById(CurrentProjectService.currentProjectId);
             var projectViewModel = new ProjectViewModel(project);
             return View(projectViewModel);
         }
@@ -55,29 +57,29 @@ namespace App.Controllers
         [HttpPost]
         public async Task<IActionResult> ProjectInfo()
         {
-            var id = int.Parse(HttpContext.Request.Cookies["currentUserId"] ?? throw new InvalidOperationException());
-            await _projectService.RemoveProjectFromTheUser(_projectId, id);
+            var id = CurrentUserService.currentUserId;
+            await _projectService.RemoveProjectFromTheUser(CurrentProjectService.currentProjectId, id);
             return RedirectToAction("Index", "ProjectsList");
 
         }
 
         [HttpPost]
         public async Task<IActionResult> AddUserToProject(string username)
-        {
+        {  
             var user = await _userService.GetUserByNickname(username);
             if (user == null)
             {
                 return RedirectToAction("ProjectInfo", new {message = true});
             }
-            var project = await _projectService.GetProjectById(_projectId);
-            await _projectService.AddUserToProject(user, project);
+            var project = await _projectService.GetProjectById(CurrentProjectService.currentProjectId);
+            var added = await _projectService.AddUserToProject(user, project);
+            if (added)
+            {
+                
+                await _notificationService.FormNotification("You were added to new project", _path, user.Id);
+            }
             return RedirectToAction("ProjectInfo");
-        }
-        public IActionResult SetTaskView(ProjectTask task)
-        {
-            ViewBag.task = task;
-            return RedirectToAction("Index");
-        }
-        
+        } 
+
     }
 }

@@ -5,6 +5,7 @@ namespace App.Database.Notification
     public interface INotificationRepository
     {
 
-        public Task<bool> AddNotification(Models.Notification notification);
+        public Task<int> AddNotification(Models.Notification notification);
+        Task<bool> AddNotificationToUser(int userId, int noteId);
     }
 }

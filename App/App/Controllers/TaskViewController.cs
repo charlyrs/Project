@@ -42,5 +42,6 @@ namespace App.Controllers
             await _taskService.AddUserToTask(user.Id, _taskId);
             return RedirectToAction("Index", new {taskId = _taskId});
         }
+        
     }
 }

@@ -20,7 +20,7 @@ namespace App.Database
         public DbSet<NotificationDB> Notifications { get; set; }
 
         public ApplicationContext()
-        {
+        { 
             //Database.EnsureDeleted();
             Database.EnsureCreated();
         }

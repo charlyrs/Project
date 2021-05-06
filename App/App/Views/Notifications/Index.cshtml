@@ -1,0 +1,44 @@
+﻿@model App.ViewModels.UserViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<style >
+    body{
+    background-color:  #C0DCEC;
+    color: white;
+    size: landscape;
+    
+   }
+   
+   text {
+   color: white;
+   }
+   form{
+   width: 400px;
+   }
+   .container {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+     
+       
+   }
+  
+</style>
+
+<body>
+@foreach (var n in Model.Notifications)
+{<div class="card" style="width: 40rem; height: 48px; margin-top: 5px">
+     <div class="card-body">
+         <a href='@Url.Action("RedirectController", new {path = n.Link})'>
+         
+         <h6 style="color: #60bcdc ">@n.Text</h6>
+         </a>
+
+     </div>
+ </div>
+    
+}
+</body>

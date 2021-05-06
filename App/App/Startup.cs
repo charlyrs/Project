@@ -2,12 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using App.Controllers;
 using App.Database;
 using App.Database.Column;
+using App.Database.Notification;
 using App.Database.Project;
 using App.Database.Task;
 using App.Database.User;
 using App.Services;
+using App.Services.Notification;
 using App.Services.Project;
 using App.Services.Task;
 using App.Services.User;
@@ -47,6 +50,8 @@ namespace App
             services.AddTransient<ITaskRepository, TaskRepository>();
             services.AddTransient<ITaskService, TaskService>();
             services.AddSingleton<ApplicationContext>();
+            services.AddTransient<INotificationRepository, NotificationRepository>();
+            services.AddTransient<INotificationService, NotificationService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using App.Database.DatabaseModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace App.Database.Notification
 {
@@ -13,7 +14,7 @@ namespace App.Database.Notification
             _databaseContext = databaseContext;
         }
 
-        public async Task<bool> AddNotification(Models.Notification notification)
+        public async Task<int> AddNotification(Models.Notification notification)
         {
             var dbModel = new NotificationDB()
             {
@@ -24,8 +25,17 @@ namespace App.Database.Notification
             };
             await _databaseContext.Notifications.AddAsync(dbModel);
             await _databaseContext.SaveChangesAsync();
-            return true;
+            return dbModel.Id;
+        }
 
+        public async Task<bool> AddNotificationToUser(int userId, int noteId)
+        {
+            var user = await _databaseContext.Users.Include(u => u.Notifications)
+                .FirstOrDefaultAsync(u => u.Id == userId);
+            var notification = await _databaseContext.Notifications.FindAsync(noteId);
+            user.Notifications.Add(notification);
+            await _databaseContext.SaveChangesAsync();
+            return true;
         }
     }
 }
