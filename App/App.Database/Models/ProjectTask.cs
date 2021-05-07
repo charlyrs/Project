@@ -11,5 +11,7 @@ namespace App.Database.Models
         public DateTime Deadline { get; set; }
         public  List<User> AssignedUsers { get; set; }
         public Column Column { get; set; }
+        public RMStep RmStep { get; set; }
+
     }
 }

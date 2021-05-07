@@ -9,7 +9,7 @@ namespace App.Database.Project
         Task<int> AddProjectAsync(Models.Project project);
         Task<bool> AddUserToProjectAsync(int userId, int projectId);
         Task<List<Models.User>> GetUsers(Models.Project project);
-        Task<bool> AddDefaultColumnsToProject(int projectId);
+        
         Task<List<Models.Column>> GetColumns(int projectId);
         Task<bool> RemoveProjectFromUser(int projectId, int userId);
         Task<bool> DeleteProject(int projectId);

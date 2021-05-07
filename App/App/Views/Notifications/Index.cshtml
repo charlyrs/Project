@@ -18,19 +18,13 @@
    form{
    width: 400px;
    }
-   .container {
-       display: flex;
-       align-items: center;
-       justify-content: center;
-     
-       
-   }
+  
   
 </style>
 
 <body>
 @foreach (var n in Model.Notifications)
-{<div class="card" style="width: 40rem; height: 48px; margin-top: 5px">
+{<div class="card" style="width: 40rem; height: 52px; margin-top: 5px">
      <div class="card-body">
          <a href='@Url.Action("RedirectController", new {path = n.Link})'>
          

@@ -18,6 +18,8 @@ namespace App.Database
         public DbSet<ColumnDB> Columns { get; set; }
         public DbSet<ProjectTaskDB> Tasks { get; set; }
         public DbSet<NotificationDB> Notifications { get; set; }
+        public DbSet<RMStepDB> RoadMapSteps { get; set; }
+        public DbSet<RoadMapDB> RoadMaps { get; set; }
 
         public ApplicationContext()
         { 

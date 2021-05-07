@@ -13,5 +13,6 @@ namespace App.Database.DatabaseModels
         public  List<ProjectDB> Projects { get; set; }
         public List<ProjectTaskDB> AssignedTasks { get; set; }
         public List<NotificationDB> Notifications { get; set; }
+       
     }
 }

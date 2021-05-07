@@ -8,8 +8,8 @@ namespace App.Database.DatabaseModels
         public int Id { get; set; } 
         public string Title { get; set; }
         public DateTime Deadline { get; set; }
-        
         public  List<UserDB> AssignedUsers { get; set; }
+        public RMStepDB RmStep { get; set; }
         public ColumnDB Column { get; set; }
     }
 }

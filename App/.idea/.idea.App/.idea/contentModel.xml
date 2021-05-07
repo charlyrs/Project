@@ -185,6 +185,8 @@
           <e p="NotificationDB.cs" t="Include" />
           <e p="ProjectDB.cs" t="Include" />
           <e p="ProjectTaskDB.cs" t="Include" />
+          <e p="RMStepDB.cs" t="Include" />
+          <e p="RoadMapDB.cs" t="Include" />
           <e p="UserDB.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
@@ -192,6 +194,8 @@
           <e p="Notification.cs" t="Include" />
           <e p="Project.cs" t="Include" />
           <e p="ProjectTask.cs" t="Include" />
+          <e p="RMStep.cs" t="Include" />
+          <e p="RoadMap.cs" t="Include" />
           <e p="User.cs" t="Include" />
         </e>
         <e p="Notification" t="Include">
@@ -208,6 +212,12 @@
         <e p="Project" t="Include">
           <e p="IProjectRepository.cs" t="Include" />
           <e p="ProjectRepository.cs" t="Include" />
+        </e>
+        <e p="RoadMap" t="Include">
+          <e p="IRMStepRepository.cs" t="Include" />
+          <e p="IRoadMapRepository.cs" t="Include" />
+          <e p="RMStepRepository.cs" t="Include" />
+          <e p="RoadMapRepository.cs" t="Include" />
         </e>
         <e p="Task" t="Include">
           <e p="ITaskRepository.cs" t="Include" />

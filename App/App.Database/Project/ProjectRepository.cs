@@ -39,11 +39,13 @@ namespace App.Database.Project
                 Description = project.Description,
                 Title = project.Title,
                 Users = new List<UserDB>(),
-                Columns = new List<ColumnDB>()
+                Columns = new List<ColumnDB>(),
+                RoadMap = new RoadMapDB()
             };
             await _databaseContext.Projects.AddAsync(dbProject);
             await _databaseContext.SaveChangesAsync();
             await AddDefaultColumnsToProject(dbProject.Id);
+            await AddRoadMap(dbProject.Id);
             return dbProject.Id;
            
         }
@@ -52,6 +54,7 @@ namespace App.Database.Project
             var user = await _databaseContext.Users.FindAsync(userId);
             var project = await _databaseContext.Projects.Include(p => p.Users).FirstOrDefaultAsync(p=> p.Id==projectId);
             project.Users.Add(user);
+            //project.Role.Add(user);
             await _databaseContext.SaveChangesAsync();
             return true;
         }
@@ -74,7 +77,7 @@ namespace App.Database.Project
             }).ToList();
                 return result;
         }
-        public async Task<bool> AddDefaultColumnsToProject(int projectId)
+        private async Task<bool> AddDefaultColumnsToProject(int projectId)
         {
            
             var project = await _databaseContext.Projects.FindAsync(projectId);
@@ -88,7 +91,15 @@ namespace App.Database.Project
             await _databaseContext.Columns.AddAsync(column3);
             await _databaseContext.SaveChangesAsync();
             return true;
+        }
 
+        private async Task<bool> AddRoadMap(int projectId)
+        {
+            var project = await _databaseContext.Projects.FindAsync(projectId);
+            var roadMap = new RoadMapDB() {Steps = new List<RMStepDB>(), Project = project, ProjectDBId = projectId};
+            await _databaseContext.RoadMaps.AddAsync(roadMap);
+            await _databaseContext.SaveChangesAsync();
+            return true;
         }
         public async Task<List<Models.Column>> GetColumns(int projectId)
         {

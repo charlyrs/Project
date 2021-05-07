@@ -9,5 +9,7 @@ namespace App.Database.DatabaseModels
         public string Description { get; set; }
         public  List<UserDB> Users { get; set; }
         public List<ColumnDB> Columns { get; set; }
+        public RoadMapDB RoadMap { get; set; }
+        //public List<UserDB> Role { get; set; }
     }
 }
