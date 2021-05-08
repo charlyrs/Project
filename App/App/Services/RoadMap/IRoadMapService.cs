@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 using App.Database.Models;
 
-namespace App.Database.RoadMap
+namespace App.Services.RoadMap
 {
-    public interface IRMStepRepository
+    public interface IRoadMapService
     {
         Task<bool> AddStep(RMStep step);
     }

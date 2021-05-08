@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using App.Database.Column;
 using App.Database.DatabaseModels;
 using App.Database.Models;
+using App.Database.RoadMap;
 using Microsoft.EntityFrameworkCore;
 
 namespace App.Database.Project
@@ -13,11 +14,13 @@ namespace App.Database.Project
     {
         private readonly ApplicationContext _databaseContext;
         private readonly IColumnRepository _columnRepository;
+        private readonly IRoadMapRepository _roadMapRepository;
 
-        public ProjectRepository(IColumnRepository columnRepository, ApplicationContext applicationContext)
+        public ProjectRepository(IColumnRepository columnRepository, ApplicationContext applicationContext, IRoadMapRepository roadMapRepository)
         {
             _databaseContext = applicationContext;
             _columnRepository = columnRepository;
+            _roadMapRepository = roadMapRepository;
         }
         public async Task<Models.Project> GetProjectByIdAsync(int projectId)
         {
@@ -40,7 +43,6 @@ namespace App.Database.Project
                 Title = project.Title,
                 Users = new List<UserDB>(),
                 Columns = new List<ColumnDB>(),
-                RoadMap = new RoadMapDB()
             };
             await _databaseContext.Projects.AddAsync(dbProject);
             await _databaseContext.SaveChangesAsync();
@@ -54,7 +56,6 @@ namespace App.Database.Project
             var user = await _databaseContext.Users.FindAsync(userId);
             var project = await _databaseContext.Projects.Include(p => p.Users).FirstOrDefaultAsync(p=> p.Id==projectId);
             project.Users.Add(user);
-            //project.Role.Add(user);
             await _databaseContext.SaveChangesAsync();
             return true;
         }
@@ -77,6 +78,7 @@ namespace App.Database.Project
             }).ToList();
                 return result;
         }
+        
         private async Task<bool> AddDefaultColumnsToProject(int projectId)
         {
            
@@ -153,6 +155,25 @@ namespace App.Database.Project
             _databaseContext.Projects.Remove(project);
             await _databaseContext.SaveChangesAsync();
             return true;
+        }
+
+        public async Task<Models.RoadMap> GetRoadMap(int projectId)
+        {
+            var roadMap = await _databaseContext.RoadMaps.Include(m=>m.Steps).Include(m=>m.Project).FirstOrDefaultAsync(m => m.ProjectDBId == projectId);
+            var result = new Models.RoadMap
+            {
+                Id = roadMap.Id,
+                Project = new Models.Project()
+                {
+                    Id = roadMap.ProjectDBId,
+                    Title = roadMap.Project.Title,
+                    Description = roadMap.Project.Description
+                },
+                
+                Steps = await _roadMapRepository.GetSteps(roadMap.Id),
+                
+            };
+            return result;
         }
     }
 }

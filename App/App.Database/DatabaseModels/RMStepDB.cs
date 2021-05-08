@@ -5,6 +5,8 @@ namespace App.Database.DatabaseModels
     public class RMStepDB
     {
         public int Id { get; set; } 
+        public string Title { get; set; }
+        
         public RoadMapDB RoadMap { get; set; }
         public List<ProjectTaskDB> LinkedTasks { get; set; }
     }

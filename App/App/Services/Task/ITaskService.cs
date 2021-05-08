@@ -8,5 +8,6 @@ namespace App.Services.Task
         Task<int> AddTask(ProjectTask task);
         Task<ProjectTask> FindTaskById(int id);
         Task<bool> AddUserToTask(int userId, int taskId);
+        Task<bool> LinkTaskToRoadMapStep(int taskId, int stepId);
     }
 }

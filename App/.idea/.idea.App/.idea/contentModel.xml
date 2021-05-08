@@ -17,6 +17,7 @@
           <e p="ProjectsListController.cs" t="Include" />
           <e p="ProjectViewController.cs" t="Include" />
           <e p="RegistrationController.cs" t="Include" />
+          <e p="RoadMapController.cs" t="Include" />
           <e p="TaskViewController.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
@@ -30,7 +31,6 @@
             </e>
           </e>
         </e>
-        <e p="Pages" t="Include" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
@@ -51,6 +51,10 @@
             <e p="IProjectService.cs" t="Include" />
             <e p="ProjectService.cs" t="Include" />
           </e>
+          <e p="RoadMap" t="Include">
+            <e p="IRoadMapService.cs" t="Include" />
+            <e p="RoadMapService.cs" t="Include" />
+          </e>
           <e p="Task" t="Include">
             <e p="ITaskService.cs" t="Include" />
             <e p="TaskService.cs" t="Include" />
@@ -66,6 +70,7 @@
         <e p="Startup.cs" t="Include" />
         <e p="ViewModels" t="Include">
           <e p="ProjectViewModel.cs" t="Include" />
+          <e p="RoadMapViewModel.cs" t="Include" />
           <e p="TaskViewModel.cs" t="Include" />
           <e p="UserViewModel.cs" t="Include" />
         </e>
@@ -98,6 +103,9 @@
           <e p="Registration" t="Include">
             <e p="Index.cshtml" t="Include" />
             <e p="LogIn.cshtml" t="Include" />
+          </e>
+          <e p="RoadMap" t="Include">
+            <e p="Index.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
             <e p="_Layout.cshtml" t="Include" />

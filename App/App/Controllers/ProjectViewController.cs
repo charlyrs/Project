@@ -28,7 +28,7 @@ namespace App.Controllers
         public async Task <IActionResult> Index(int projectId)
         {
             _path = new string($"{HttpContext.Request.Path}{HttpContext.Request.QueryString}");
-            var project = await _projectService.GetProjectById(projectId);
+            var project = await _projectService.GetProjectByIdWithAllFields(projectId);
             CurrentProjectService.currentProjectId = projectId;
             var projectViewModel = new ProjectViewModel(project);
             
@@ -48,7 +48,7 @@ namespace App.Controllers
                 ViewBag.messageColor = "#60bcdc";
             }
             
-            var project = await _projectService.GetProjectById(CurrentProjectService.currentProjectId);
+            var project = await _projectService.GetProjectByIdWithAllFields(CurrentProjectService.currentProjectId);
             var projectViewModel = new ProjectViewModel(project);
             return View(projectViewModel);
         }
@@ -71,7 +71,7 @@ namespace App.Controllers
             {
                 return RedirectToAction("ProjectInfo", new {message = true});
             }
-            var project = await _projectService.GetProjectById(CurrentProjectService.currentProjectId);
+            var project = await _projectService.GetProjectByIdWithAllFields(CurrentProjectService.currentProjectId);
             var added = await _projectService.AddUserToProject(user, project);
             if (added)
             {

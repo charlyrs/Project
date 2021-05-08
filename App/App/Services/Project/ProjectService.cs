@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using App.Database.Models;
 using App.Database.Project;
 using App.Database.User;
 using App.Services.User;
@@ -27,11 +28,12 @@ namespace App.Services.Project
             return id;
         }
 
-        public async Task<Database.Models.Project> GetProjectById(int id)
+        public async Task<Database.Models.Project> GetProjectByIdWithAllFields(int id)
         {
             var project = await _projectRepository.GetProjectByIdAsync(id);
             project.Users = await _projectRepository.GetUsers(project);
             project.Columns = await _projectRepository.GetColumns(id);
+            project.RoadMap = await _projectRepository.GetRoadMap(id);
             return project;
         }
 
@@ -53,6 +55,12 @@ namespace App.Services.Project
             var project = await _projectRepository.GetProjectByIdAsync(projectId);
             var result = await _projectRepository.GetUsers(project);
             return result;
+        }
+
+        public async Task<Database.Models.RoadMap> GetRoadMap(int projectId)
+        {
+            var rm =  await _projectRepository.GetRoadMap(projectId);
+            return rm;
         }
     }
 }

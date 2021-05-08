@@ -30,5 +30,11 @@ namespace App.Services.Task
             await _taskRepository.AddUserToTask(userId, taskId);
             return true;
         }
+
+        public async Task<bool> LinkTaskToRoadMapStep(int taskId, int stepId)
+        {
+            await _taskRepository.LinkTaskToRoadMapStep(taskId, stepId);
+            return true;
+        }
     }
 }

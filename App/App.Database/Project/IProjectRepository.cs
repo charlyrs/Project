@@ -13,5 +13,6 @@ namespace App.Database.Project
         Task<List<Models.Column>> GetColumns(int projectId);
         Task<bool> RemoveProjectFromUser(int projectId, int userId);
         Task<bool> DeleteProject(int projectId);
+        Task<Models.RoadMap> GetRoadMap(int projectId);
     }
 }

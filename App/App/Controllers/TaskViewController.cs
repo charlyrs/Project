@@ -17,12 +17,14 @@ namespace App.Controllers
         private readonly IUserService _userService;
         private readonly IProjectService _projectService;
         private static int _taskId;
+
         public TaskViewController(ITaskService taskService, IUserService userService, IProjectService projectService)
         {
             _taskService = taskService;
             _userService = userService;
             _projectService = projectService;
         }
+
         // GET
         public async Task<IActionResult> Index(int taskId)
         {
@@ -30,8 +32,10 @@ namespace App.Controllers
             var task = await _taskService.FindTaskById(taskId);
             var users = await _projectService.GetUsers(CurrentProjectService.currentProjectId);
             _taskId = taskId;
-            ViewBag.projectUsers = users.Where(u => u.AssignedTasks.TrueForAll(t => t.Id !=_taskId));
+            ViewBag.projectUsers = users.Where(u => u.AssignedTasks.TrueForAll(t => t.Id != _taskId));
             var taskViewModel = new TaskViewModel(task);
+            var roadMap = await _projectService.GetRoadMap(CurrentProjectService.currentProjectId);
+            ViewBag.Steps = roadMap.Steps;
             return View(taskViewModel);
         }
 
@@ -42,6 +46,12 @@ namespace App.Controllers
             await _taskService.AddUserToTask(user.Id, _taskId);
             return RedirectToAction("Index", new {taskId = _taskId});
         }
-        
-    }
+
+        public async Task<IActionResult> LinkTaskToStep(int stepId)
+        {
+            await _taskService.LinkTaskToRoadMapStep(_taskId, stepId);
+            return RedirectToAction("Index", new {taskId = _taskId});
+        }
+
+}
 }
