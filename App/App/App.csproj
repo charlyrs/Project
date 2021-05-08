@@ -16,6 +16,7 @@
     <ItemGroup>
       <_ContentIncludedByDefault Remove="Views\AddProject\Index.cshtml" />
       <_ContentIncludedByDefault Remove="Pages\AddUserToProject\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\AddTask\Index.cshtml" />
     </ItemGroup>
 
 </Project>

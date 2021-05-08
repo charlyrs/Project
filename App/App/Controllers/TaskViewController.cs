@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using App.Services;
 using App.Services.Notification;
@@ -58,6 +59,12 @@ namespace App.Controllers
         {
            
             await _taskService.LinkTaskToRoadMapStep(_taskId, stepId);
+            return RedirectToAction("Index", new {taskId = _taskId});
+        }
+
+        public async Task<IActionResult> SetDeadline(DateTime deadline)
+        {
+            await _taskService.SetDeadline(deadline, _taskId);
             return RedirectToAction("Index", new {taskId = _taskId});
         }
 

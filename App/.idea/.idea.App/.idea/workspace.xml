@@ -26,18 +26,12 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/App.Database/Models/User.cs" />
-      <option value="$PROJECT_DIR$/App/Pages/Notifications/Index.cshtml" />
-      <option value="$PROJECT_DIR$/App/ViewModels/UserViewModel.cs" />
-      <option value="$PROJECT_DIR$/App.Database/Notification/INotificationRepository.cs" />
-      <option value="$PROJECT_DIR$/App.Database/Notification/NotificationRepository.cs" />
       <option value="$PROJECT_DIR$/App/Services/Notification/INotificationService.cs" />
       <option value="$PROJECT_DIR$/App/Services/Notification/NotificationService.cs" />
       <option value="$PROJECT_DIR$/App/Controllers/NotificationsController.cs" />
       <option value="$PROJECT_DIR$/App.Database/User/UserRepository.cs" />
       <option value="$PROJECT_DIR$/App.Database/DatabaseModels/UserDB.cs" />
       <option value="$PROJECT_DIR$/App/Controllers/AccountController.cs" />
-      <option value="$PROJECT_DIR$/App/Views/Account/Index.cshtml" />
       <option value="$PROJECT_DIR$/App.Database/DatabaseModels/RoadMap.cs" />
       <option value="$PROJECT_DIR$/App.Database/DatabaseModels/ProjectTaskDB.cs" />
       <option value="$PROJECT_DIR$/App.Database/Models/ProjectTask.cs" />
@@ -66,17 +60,23 @@
       <option value="$PROJECT_DIR$/App.Database/Project/ProjectRepository.cs" />
       <option value="$PROJECT_DIR$/App.Database/RoadMap/RoadMapRepository.cs" />
       <option value="$PROJECT_DIR$/App/ViewModels/TaskViewModel.cs" />
-      <option value="$PROJECT_DIR$/App/Views/ProjectView/Index.cshtml" />
       <option value="$PROJECT_DIR$/App/Controllers/ProjectViewController.cs" />
-      <option value="$PROJECT_DIR$/App/Views/ProjectView/RoadMap.cshtml" />
-      <option value="$PROJECT_DIR$/App/Views/TaskView/Index.cshtml" />
       <option value="$PROJECT_DIR$/App/Views/Shared/_Layout.cshtml" />
-      <option value="$PROJECT_DIR$/App/Views/Notifications/Index.cshtml" />
       <option value="$PROJECT_DIR$/App.Database/Task/ITaskRepository.cs" />
-      <option value="$PROJECT_DIR$/App.Database/Task/TaskRepository.cs" />
       <option value="$PROJECT_DIR$/App/Services/Task/ITaskService.cs" />
       <option value="$PROJECT_DIR$/App/Services/Task/TaskService.cs" />
+      <option value="$PROJECT_DIR$/App.Database/Task/TaskRepository.cs" />
       <option value="$PROJECT_DIR$/App/Controllers/TaskViewController.cs" />
+      <option value="$PROJECT_DIR$/App/Views/Account/EditPassword.cshtml" />
+      <option value="$PROJECT_DIR$/App/Views/Account/EditUserData.cshtml" />
+      <option value="$PROJECT_DIR$/App/Views/Account/Index.cshtml" />
+      <option value="$PROJECT_DIR$/App/Views/Notifications/Index.cshtml" />
+      <option value="$PROJECT_DIR$/App/Views/ProjectView/Index.cshtml" />
+      <option value="$PROJECT_DIR$/App/Views/ProjectView/ProjectInfo.cshtml" />
+      <option value="$PROJECT_DIR$/App/Views/ProjectView/RoadMap.cshtml" />
+      <option value="$PROJECT_DIR$/App/Views/Registration/Index.cshtml" />
+      <option value="$PROJECT_DIR$/App/Views/Registration/LogIn.cshtml" />
+      <option value="$PROJECT_DIR$/App/Views/TaskView/Index.cshtml" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rOlePqmrhZBxXy0wA2B6oTP2Kf" />
@@ -172,7 +172,7 @@
       <workItem from="1620288866732" duration="3983000" />
       <workItem from="1620370209403" duration="12774000" />
       <workItem from="1620452549094" duration="4330000" />
-      <workItem from="1620475392610" duration="9275000" />
+      <workItem from="1620475392610" duration="11840000" />
     </task>
     <servers />
   </component>
@@ -357,13 +357,13 @@
         </line-breakpoint>
         <line-breakpoint type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/App/Controllers/TaskViewController.cs</url>
-          <line>51</line>
+          <line>52</line>
           <properties documentPath="D:\Git\Project\App\App\Controllers\TaskViewController.cs" initialLine="30" containingFunctionPresentation="method 'AssignUserToTask'">
             <startOffsets>
-              <option value="2094" />
+              <option value="2108" />
             </startOffsets>
             <endOffsets>
-              <option value="2145" />
+              <option value="2159" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="31" />
@@ -461,16 +461,29 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/App/Controllers/TaskViewController.cs</url>
-          <line>34</line>
+          <line>35</line>
           <properties documentPath="D:\Git\Project\App\App\Controllers\TaskViewController.cs" initialLine="31" containingFunctionPresentation="method 'Index'">
             <startOffsets>
-              <option value="1178" />
+              <option value="1192" />
             </startOffsets>
             <endOffsets>
-              <option value="1229" />
+              <option value="1243" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/App/Services/Task/TaskService.cs</url>
+          <line>48</line>
+          <properties documentPath="D:\Git\Project\App\App\Services\Task\TaskService.cs" initialLine="48" containingFunctionPresentation="method 'SetDeadline'">
+            <startOffsets>
+              <option value="1417" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1470" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

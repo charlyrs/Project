@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using App.Database.Models;
 
 namespace App.Services.Task
@@ -10,5 +11,6 @@ namespace App.Services.Task
         Task<bool> AddUserToTask(int userId, int taskId);
         Task<bool> LinkTaskToRoadMapStep(int taskId, int stepId);
         Task<Database.Models.Project> GetTasksProject(ProjectTask task);
+        Task<bool> SetDeadline(DateTime deadline, int taskId);
     }
 }

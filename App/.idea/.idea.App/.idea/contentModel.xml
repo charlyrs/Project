@@ -82,9 +82,6 @@
             <e p="EditUserData.cshtml" t="Include" />
             <e p="Index.cshtml" t="Include" />
           </e>
-          <e p="AddTask" t="Include">
-            <e p="Index.cshtml" t="Include" />
-          </e>
           <e p="Home" t="Include">
             <e p="Index.cshtml" t="Include" />
             <e p="Privacy.cshtml" t="Include" />

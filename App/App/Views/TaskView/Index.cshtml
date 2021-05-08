@@ -20,6 +20,9 @@
    .container {
        display: flex;
    }
+   nav{
+        height: 45px;
+        }
   
 </style>
 <body>
@@ -27,10 +30,33 @@
     
     <div >
         <h1 class="display-3" style="margin-bottom: 20px">@Model.Title</h1>
+        @if (Model.Deadline == DateTime.MinValue)
+        {
+            @using(Html.BeginForm("SetDeadline", "TaskView", FormMethod.Get))
+            {
+                <p>
+                    <input type="date" id="date" name="deadline"/>
+                </p>
+                <button style="background-color: #60bcdc; width: 200px; border-color: darkturquoise; border-radius: 12px " type="submit" class="btn btn-primary">Submit</button>
+            }
+        }
+        else
+        {
+            <div class="card" style="width: 18rem; height: 45px">
+                <div class="card-body">
+                    
+                        <h6 style="color: #60bcdc">@Model.Deadline.Date</h6>
+                   
+                </div>
+            </div>
+            
+        }
+
+
         @if (Model.AssignedUsers.Count!=0)
         {
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
+            <div class="card" style="width: 18rem; margin-top: 10px">
+                <div class="card-body" >
                 
                     @foreach (var user in Model.AssignedUsers)
                     {
@@ -79,7 +105,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header" style="background-color: #a4dfed; ">
-                <h5 class="modal-title" id="staticBackdropLabel">Add project</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Set roadmap step</h5>
             </div>
             <div class="modal-body">
                 @foreach (var step in ViewBag.Steps)

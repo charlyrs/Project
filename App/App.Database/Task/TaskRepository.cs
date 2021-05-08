@@ -95,5 +95,13 @@ namespace App.Database.Task
             };
             return result;
         }
+
+        public async Task<bool> UpdateTaskDeadline(ProjectTask task)
+        {
+            var dbTask = await _databaseContext.Tasks.FindAsync(task.Id);
+            dbTask.Deadline = task.Deadline;
+            await _databaseContext.SaveChangesAsync();
+            return true;
+        }
     }
 }

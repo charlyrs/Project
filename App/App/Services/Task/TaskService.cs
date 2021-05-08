@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using App.Database.Models;
 using App.Database.Task;
 
@@ -42,5 +43,15 @@ namespace App.Services.Task
             var project = await _taskRepository.GetTasksProject(task);
             return project;
         }
+
+        public  async Task<bool> SetDeadline(DateTime deadline, int taskId)
+        {
+            var task = await _taskRepository.GetTaskById(taskId);
+            task.Deadline = deadline;
+            await _taskRepository.UpdateTaskDeadline(task);
+            return true;
+        }
+
+        
     }
 }

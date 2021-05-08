@@ -10,6 +10,7 @@ namespace App.Database.Task
         Task<bool> AddUserToTask(int userId, int taskId);
         Task<bool> LinkTaskToRoadMapStep(int taskId, int stepId);
         Task<Models.Project> GetTasksProject(ProjectTask task);
+        Task<bool> UpdateTaskDeadline(ProjectTask task);
 
     }
 }
