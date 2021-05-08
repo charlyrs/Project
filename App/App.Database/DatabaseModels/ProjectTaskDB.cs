@@ -11,5 +11,6 @@ namespace App.Database.DatabaseModels
         public  List<UserDB> AssignedUsers { get; set; }
         public RMStepDB RmStep { get; set; }
         public ColumnDB Column { get; set; }
+        public List<TagDB> Tags { get; set; }
     }
 }

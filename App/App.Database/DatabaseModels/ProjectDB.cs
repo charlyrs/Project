@@ -10,6 +10,7 @@ namespace App.Database.DatabaseModels
         public  List<UserDB> Users { get; set; }
         public List<ColumnDB> Columns { get; set; }
         public RoadMapDB RoadMap { get; set; }
+        public List<TagDB> Tags { get; set; }
         //public List<UserDB> Role { get; set; }
     }
 }

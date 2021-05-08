@@ -12,6 +12,7 @@ namespace App.Database.Models
         public  List<User> AssignedUsers { get; set; }
         public Column Column { get; set; }
         public RMStep RmStep { get; set; }
+        public List<Tag> Tags { get; set; }
 
     }
 }

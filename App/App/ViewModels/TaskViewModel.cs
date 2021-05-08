@@ -11,6 +11,7 @@ namespace App.ViewModels
         public  List<User> AssignedUsers { get; set; }
         public Column Column { get; set; }
         public RMStep RmStep { get; set; }
+        public List<Tag> Tags { get; set; }
 
         public TaskViewModel(ProjectTask task)
         {
@@ -19,6 +20,7 @@ namespace App.ViewModels
             AssignedUsers = task.AssignedUsers;
             Column = task.Column;
             RmStep = task.RmStep;
+            Tags = task.Tags;
         }
     }
 }

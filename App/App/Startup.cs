@@ -8,6 +8,7 @@ using App.Database.Column;
 using App.Database.Notification;
 using App.Database.Project;
 using App.Database.RoadMap;
+using App.Database.Tag;
 using App.Database.Task;
 using App.Database.User;
 using App.Services;
@@ -51,12 +52,13 @@ namespace App
             services.AddTransient<IColumnService, ColumnService>();
             services.AddTransient<ITaskRepository, TaskRepository>();
             services.AddTransient<ITaskService, TaskService>();
-            services.AddSingleton<ApplicationContext>();
+            services.AddScoped<ApplicationContext>();
             services.AddTransient<INotificationRepository, NotificationRepository>();
             services.AddTransient<INotificationService, NotificationService>();
             services.AddTransient<IRoadMapRepository, RoadMapRepository>();
             services.AddTransient<IRMStepRepository, RMStepRepository>();
             services.AddTransient<IRoadMapService, RoadMapService>();
+            services.AddTransient<ITagRepository, TagRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

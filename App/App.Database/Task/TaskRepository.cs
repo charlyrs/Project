@@ -37,19 +37,28 @@ namespace App.Database.Task
 
         public async Task<ProjectTask> GetTaskById(int id)
         {
-            var task = await _databaseContext.Tasks.Include(t => t.AssignedUsers).Include(t => t.RmStep).Include(t => t.RmStep).FirstOrDefaultAsync(t => t.Id ==id);
-            var result = new ProjectTask()
+            var task = await _databaseContext.Tasks.
+                Include(t => t.AssignedUsers).
+                Include(t => t.Tags).
+                Include(t => t.RmStep).
+                Include(t => t.RmStep).
+                FirstOrDefaultAsync(t => t.Id == id);
+            var result = new ProjectTask
             {
                 Id = task.Id,
                 Title = task.Title,
-                AssignedUsers = task.AssignedUsers.Select(u =>new Models.User()
+                AssignedUsers = task.AssignedUsers.Select(u => new Models.User
                 {
                     Id = u.Id,
                     Email = u.Email,
                     Nickname = u.Nickname
-
                 }).ToList(),
-                Deadline = task.Deadline
+                Deadline = task.Deadline,
+                Tags = task.Tags.Select(tag => new Models.Tag()
+                {
+                    Id = tag.Id,
+                    Text = tag.Text
+                }).ToList()
             };
             if (task.RmStep != null)
             {

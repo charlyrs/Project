@@ -12,5 +12,6 @@ namespace App.Services.Project
         Task<bool> RemoveProjectFromTheUser(int projectId, int userId);
         Task<List<Database.Models.User>> GetUsers(int projectId);
         Task<Database.Models.RoadMap> GetRoadMap(int projectId);
+        Task<Database.Models.Project> GetProjectById(int id);
     }
 }

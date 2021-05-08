@@ -79,18 +79,35 @@
                     </a>
                 }
                 <button style="background-color: #60bcdc; margin-top: 15px; width: 200px; border-radius: 12px; border-color:#C0DCEC" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                              @if (Model.RmStep == null)
-                              {
-                                  <h5>Choose step</h5>
-                              }
-                              else
-                              {
-                                  <h5>@Model.RmStep.Title</h5>
-                              }
-                            </button>
+                    @if (Model.RmStep == null)
+                    {
+                        <h5>Choose step</h5>
+                    }
+                    else
+                    {
+                        <h5>@Model.RmStep.Title</h5>
+                    }
+                </button>
+                
+                @using(Html.BeginForm("AddTag", "TaskView", FormMethod.Get))
+                {
+                    <div class="input-group mb-3" style="width: 200px;">
+                        <span class="input-group-text" id="basic-addon1">#</span>
+                        <input type="text" class="form-control" name="tagText" placeholder="Add tag"  aria-describedby="basic-addon1">
+                    </div>
+                    <button style="background-color: #60bcdc; width: 200px; border-color: darkturquoise; border-radius: 12px " type="submit" class="btn btn-primary">Submit</button>
+                }
+                
+                
 
             </div>
         </div>
+        <div class="container">
+                        @foreach (var tag in Model.Tags)
+                        {
+                            <h6 style="color: #60bcdc">#@tag.Text</h6>
+                        }
+                        </div>
     </div>
     @*
     <img style="margin-left: 200px" src="https://www.pinclipart.com/picdir/big/67-672993_asana-timeline-asana-timeline-asana-timeline-asana-illustration.png" width="400">

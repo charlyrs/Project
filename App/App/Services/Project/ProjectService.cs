@@ -62,5 +62,11 @@ namespace App.Services.Project
             var rm =  await _projectRepository.GetRoadMap(projectId);
             return rm;
         }
+
+        public async Task<Database.Models.Project> GetProjectById(int id)
+        {
+            var project = await _projectRepository.GetProjectByIdAsync(id);
+            return project;
+        }
     }
 }

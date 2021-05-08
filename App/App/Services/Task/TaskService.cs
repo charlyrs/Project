@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using App.Database.Models;
+using App.Database.Tag;
 using App.Database.Task;
 
 namespace App.Services.Task
@@ -8,9 +9,11 @@ namespace App.Services.Task
     public class TaskService : ITaskService
     {
         private readonly ITaskRepository _taskRepository;
-        public TaskService(ITaskRepository taskRepository)
+        private readonly ITagRepository _tagRepository;
+        public TaskService(ITaskRepository taskRepository, ITagRepository tagRepository)
         {
             _taskRepository = taskRepository;
+            _tagRepository = tagRepository;
         }
         public async Task<int> AddTask(ProjectTask task)
         {
@@ -52,6 +55,11 @@ namespace App.Services.Task
             return true;
         }
 
-        
+        public async Task<bool> AddTagToTask(Tag tag, int taskId)
+        {
+            var tagId = await _tagRepository.AddTag(tag);
+            await _tagRepository.AddTagToTask(tagId, taskId);
+            return true;
+        }
     }
 }

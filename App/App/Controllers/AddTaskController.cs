@@ -19,11 +19,7 @@ namespace App.Controllers
         {
             _columnService = columnService;
         }
-        public async Task<IActionResult> Index(int columnId)
-        {
-            _columnId = columnId;
-            return View();
-        }
+        
 
         [HttpPost]
         public async Task<IActionResult> Index(string title, int columnId)
@@ -32,7 +28,7 @@ namespace App.Controllers
             var task = new ProjectTask()
             {
                 Title = title,
-                //Deadline = deadline,
+                
             };
             await _columnService.AddTaskToColumn(task, _columnId);
             var column = await _columnService.GetColumnById(_columnId);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using App.Database.Models;
 using App.Services;
 using App.Services.Notification;
 using App.Services.Project;
@@ -65,6 +66,17 @@ namespace App.Controllers
         public async Task<IActionResult> SetDeadline(DateTime deadline)
         {
             await _taskService.SetDeadline(deadline, _taskId);
+            return RedirectToAction("Index", new {taskId = _taskId});
+        }
+
+        public async Task<IActionResult> AddTag(string tagText)
+        {
+            var tag = new Tag()
+            {
+                Project = await _projectService.GetProjectById(CurrentProjectService.currentProjectId),
+                Text = tagText
+            };
+            await _taskService.AddTagToTask(tag, _taskId);
             return RedirectToAction("Index", new {taskId = _taskId});
         }
 

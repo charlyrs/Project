@@ -12,5 +12,7 @@ namespace App.Services.Task
         Task<bool> LinkTaskToRoadMapStep(int taskId, int stepId);
         Task<Database.Models.Project> GetTasksProject(ProjectTask task);
         Task<bool> SetDeadline(DateTime deadline, int taskId);
+
+        Task<bool> AddTagToTask(Tag tag, int taskId);
     }
 }
