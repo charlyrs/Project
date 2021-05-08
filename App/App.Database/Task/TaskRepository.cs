@@ -81,5 +81,19 @@ namespace App.Database.Task
             await _databaseContext.SaveChangesAsync();
             return true;
         }
+
+        public async Task<Models.Project> GetTasksProject(ProjectTask task)
+        {
+            var dbTask = await _databaseContext.Tasks.Include(t => t.Column).FirstOrDefaultAsync(t => t.Id == task.Id);
+            var project = await _databaseContext.Projects.Include(p => p.Columns)
+                .FirstOrDefaultAsync(p => p.Columns.Any(c => c.Id == dbTask.Column.Id));
+            var result = new Models.Project()
+            {
+                Id = project.Id,
+                Title = project.Title,
+                Description = project.Description
+            };
+            return result;
+        }
     }
 }

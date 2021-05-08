@@ -36,5 +36,11 @@ namespace App.Services.Task
             await _taskRepository.LinkTaskToRoadMapStep(taskId, stepId);
             return true;
         }
+
+        public async Task<Database.Models.Project> GetTasksProject(ProjectTask task)
+        {
+            var project = await _taskRepository.GetTasksProject(task);
+            return project;
+        }
     }
 }

@@ -36,7 +36,6 @@
       <option value="$PROJECT_DIR$/App/Controllers/NotificationsController.cs" />
       <option value="$PROJECT_DIR$/App.Database/User/UserRepository.cs" />
       <option value="$PROJECT_DIR$/App.Database/DatabaseModels/UserDB.cs" />
-      <option value="$PROJECT_DIR$/App/Views/Notifications/Index.cshtml" />
       <option value="$PROJECT_DIR$/App/Controllers/AccountController.cs" />
       <option value="$PROJECT_DIR$/App/Views/Account/Index.cshtml" />
       <option value="$PROJECT_DIR$/App.Database/DatabaseModels/RoadMap.cs" />
@@ -64,18 +63,19 @@
       <option value="$PROJECT_DIR$/App.Database/ApplicationContext.cs" />
       <option value="$PROJECT_DIR$/App/Startup.cs" />
       <option value="$PROJECT_DIR$/App.Database/RoadMap/RMStepRepository.cs" />
-      <option value="$PROJECT_DIR$/App.Database/Task/ITaskRepository.cs" />
-      <option value="$PROJECT_DIR$/App/Services/Task/ITaskService.cs" />
-      <option value="$PROJECT_DIR$/App/Services/Task/TaskService.cs" />
       <option value="$PROJECT_DIR$/App.Database/Project/ProjectRepository.cs" />
       <option value="$PROJECT_DIR$/App.Database/RoadMap/RoadMapRepository.cs" />
       <option value="$PROJECT_DIR$/App/ViewModels/TaskViewModel.cs" />
-      <option value="$PROJECT_DIR$/App.Database/Task/TaskRepository.cs" />
       <option value="$PROJECT_DIR$/App/Views/ProjectView/Index.cshtml" />
       <option value="$PROJECT_DIR$/App/Controllers/ProjectViewController.cs" />
       <option value="$PROJECT_DIR$/App/Views/ProjectView/RoadMap.cshtml" />
       <option value="$PROJECT_DIR$/App/Views/TaskView/Index.cshtml" />
       <option value="$PROJECT_DIR$/App/Views/Shared/_Layout.cshtml" />
+      <option value="$PROJECT_DIR$/App/Views/Notifications/Index.cshtml" />
+      <option value="$PROJECT_DIR$/App.Database/Task/ITaskRepository.cs" />
+      <option value="$PROJECT_DIR$/App.Database/Task/TaskRepository.cs" />
+      <option value="$PROJECT_DIR$/App/Services/Task/ITaskService.cs" />
+      <option value="$PROJECT_DIR$/App/Services/Task/TaskService.cs" />
       <option value="$PROJECT_DIR$/App/Controllers/TaskViewController.cs" />
     </changedPaths>
   </component>
@@ -172,7 +172,7 @@
       <workItem from="1620288866732" duration="3983000" />
       <workItem from="1620370209403" duration="12774000" />
       <workItem from="1620452549094" duration="4330000" />
-      <workItem from="1620475392610" duration="7867000" />
+      <workItem from="1620475392610" duration="9275000" />
     </task>
     <servers />
   </component>
@@ -357,13 +357,13 @@
         </line-breakpoint>
         <line-breakpoint type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/App/Controllers/TaskViewController.cs</url>
-          <line>49</line>
+          <line>51</line>
           <properties documentPath="D:\Git\Project\App\App\Controllers\TaskViewController.cs" initialLine="30" containingFunctionPresentation="method 'AssignUserToTask'">
             <startOffsets>
-              <option value="1961" />
+              <option value="2094" />
             </startOffsets>
             <endOffsets>
-              <option value="2012" />
+              <option value="2145" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="31" />

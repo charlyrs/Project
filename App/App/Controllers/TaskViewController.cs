@@ -33,6 +33,8 @@ namespace App.Controllers
         {
             _link = new string($"{HttpContext.Request.Path}{HttpContext.Request.QueryString}");
             var task = await _taskService.FindTaskById(taskId);
+            var project = await _taskService.GetTasksProject(task);
+            CurrentProjectService.currentProjectId = project.Id;
             var users = await _projectService.GetUsers(CurrentProjectService.currentProjectId);
             _taskId = taskId;
             ViewBag.projectUsers = users.Where(u => u.AssignedTasks.TrueForAll(t => t.Id != _taskId));
