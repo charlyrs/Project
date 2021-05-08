@@ -1,0 +1,54 @@
+﻿@model  App.ViewModels.RoadMapViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<style >
+    body{
+    background-color:  #C0DCEC;
+    color: white;
+    size: landscape;
+    
+   }
+   
+   text {
+   color: white;
+   }
+   form{
+   width: 400px;
+   }
+   .container {
+      display: flex;
+       align-items: center;
+       justify-content: center;
+     
+       
+   }
+  
+</style>
+<div class="container">
+    <img src="https://webrost.ru/upload/images/speed%20page.png" width="400px">
+    <div style="margin-top: 20px">
+        @foreach (var step in Model.Steps)
+        {
+            <div class="card" style="width: 18rem; margin-top: 20px; border-radius: 12px ">
+                <div class="card-body">
+                    <h6 style="color: #60bcdc">@step.Title</h6>
+                </div>
+            </div>
+        }
+
+        @using (Html.BeginForm("AddStep", "ProjectView", FormMethod.Get))
+        {
+            <div class="form-group" style="margin-top: 10px; ">
+
+                <input style="border-radius: 12px; width: 15rem;  height: 35px" type="text" name="title" class="form-control" placeholder="Add step">
+
+            </div>
+        }
+    </div>
+
+</div>
+
+

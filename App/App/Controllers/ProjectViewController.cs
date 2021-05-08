@@ -4,6 +4,7 @@ using App.Database.Models;
 using App.Services;
 using App.Services.Notification;
 using App.Services.Project;
+using App.Services.RoadMap;
 using App.Services.User;
 using App.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -14,14 +15,16 @@ namespace App.Controllers
     {
         private readonly IProjectService _projectService;
         private readonly IUserService _userService;
+        private readonly IRoadMapService _roadMapService;
         private readonly INotificationService _notificationService;
         private static string _path;
 
-        public ProjectViewController(IProjectService projectService, IUserService userService, INotificationService notificationService)
+        public ProjectViewController(IProjectService projectService, IUserService userService, INotificationService notificationService, IRoadMapService roadMapService)
         {
             _projectService = projectService;
             _userService = userService;
             _notificationService = notificationService;
+            _roadMapService = roadMapService;
             //_projectId = projectId;
         }
         [HttpGet]
@@ -80,6 +83,28 @@ namespace App.Controllers
             }
             return RedirectToAction("ProjectInfo");
         } 
+        public async Task<IActionResult> RoadMap()
+        {
+            var id = CurrentProjectService.currentProjectId;
+            var project = await _projectService.GetProjectByIdWithAllFields(id);
+            var model = new RoadMapViewModel()
+            {
+                Steps = project.RoadMap.Steps
+            };
+            return View(model);
+        }
+
+        public async Task<IActionResult> AddStep(string title)
+        {
+            var step = new RMStep()
+            {
+                Title = title,
+                RoadMap = await _projectService.GetRoadMap(CurrentProjectService.currentProjectId)
+            };
+            await _roadMapService.AddStep(step);
+            return RedirectToAction("RoadMap");
+
+        }
 
     }
 }

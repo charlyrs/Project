@@ -37,7 +37,7 @@ namespace App.Database.Task
 
         public async Task<ProjectTask> GetTaskById(int id)
         {
-            var task = await _databaseContext.Tasks.Include(t => t.AssignedUsers).Include(t => t.RmStep).FirstOrDefaultAsync(t => t.Id ==id);
+            var task = await _databaseContext.Tasks.Include(t => t.AssignedUsers).Include(t => t.RmStep).Include(t => t.RmStep).FirstOrDefaultAsync(t => t.Id ==id);
             var result = new ProjectTask()
             {
                 Id = task.Id,
@@ -49,13 +49,17 @@ namespace App.Database.Task
                     Nickname = u.Nickname
 
                 }).ToList(),
-                RmStep = new RMStep()
+                Deadline = task.Deadline
+            };
+            if (task.RmStep != null)
+            {
+                result.RmStep = new RMStep()
                 {
                     Id = task.RmStep.Id,
                     Title = task.RmStep.Title
-                },
-                Deadline = task.Deadline
-            };
+                };
+            }
+            
             return result;
         }
 

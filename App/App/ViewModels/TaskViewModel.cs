@@ -10,6 +10,7 @@ namespace App.ViewModels
         public DateTime Deadline { get; set; }
         public  List<User> AssignedUsers { get; set; }
         public Column Column { get; set; }
+        public RMStep RmStep { get; set; }
 
         public TaskViewModel(ProjectTask task)
         {
@@ -17,6 +18,7 @@ namespace App.ViewModels
             Deadline = task.Deadline;
             AssignedUsers = task.AssignedUsers;
             Column = task.Column;
+            RmStep = task.RmStep;
         }
     }
 }

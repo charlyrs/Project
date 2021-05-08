@@ -22,7 +22,7 @@
    }
   
 </style>
-
+<body>
 <div class="container"  style="margin-top: 20px; "  >
     
     <div >
@@ -52,22 +52,52 @@
 
                     </a>
                 }
+                <button style="background-color: #60bcdc; margin-top: 15px; width: 200px; border-radius: 12px; border-color:#C0DCEC" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                              @if (Model.RmStep == null)
+                              {
+                                  <h5>Choose step</h5>
+                              }
+                              else
+                              {
+                                  <h5>@Model.RmStep.Title</h5>
+                              }
+                            </button>
 
             </div>
         </div>
-        @foreach (var step in ViewBag.Steps)
-        {
-            <a style="color: #60bcdc" href='@Url.Action("LinkTaskToStep", "TaskView", new {stepId=step.Id})'>
-                <h6>@step.Title</h6>
-            </a>
-        }
-
-
-
-
     </div>
-    <img style="margin-left: 200px" src="https://www.pinclipart.com/picdir/big/67-672993_asana-timeline-asana-timeline-asana-timeline-asana-illustration.png" width="400">
     @*
-    <img style="margin-left: 200px" src="https://fiai.azniirkh.ru/assets/img/why-us.png" width="600">
-*@
+    <img style="margin-left: 200px" src="https://www.pinclipart.com/picdir/big/67-672993_asana-timeline-asana-timeline-asana-timeline-asana-illustration.png" width="400">
+    *@
+    <img style="margin-left: 200px; margin-top: 20px" src="https://static.tildacdn.com/tild3366-6537-4262-a465-653833363134/CTA_Graphics1.png" width="570">
 </div>
+
+
+</body>
+
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #a4dfed; ">
+                <h5 class="modal-title" id="staticBackdropLabel">Add project</h5>
+            </div>
+            <div class="modal-body">
+                @foreach (var step in ViewBag.Steps)
+                  {
+                      <a style="color: #60bcdc" href='@Url.Action("LinkTaskToStep", new {stepId = step.Id})'>
+                          <h5>@step.Title</h5>
+                      </a>
+                  }
+
+                </div>
+            
+
+        </div>
+    </div>
+</div>
+
+<script>
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+</script>

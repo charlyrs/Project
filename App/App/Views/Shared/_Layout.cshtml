@@ -29,7 +29,7 @@
                             <a class="nav-link text-light" asp-area="" asp-controller="Account" asp-action="AllTasks"><h6>My tasks</h6></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Notifications" asp-action="Index"><h6>Notifications</h6></a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Notifications" asp-action="Index"><img src="https://cdn.pixabay.com/photo/2015/12/16/17/41/bell-1096280_1280.png" width="25"></a>
                         </li>
                         
                         
@@ -41,35 +41,7 @@
             </div>
         </div>
     </nav>
-    @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-teal ">
-
-        <div class="container">
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <div class="mycontainer" style="background-color: #86cfda; width: 100px">
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Projects</a>
-                        </li>
-                    </div>
-                    @{
-                        if (!CurrentUserService.loggedIn)
-                        {
-                            <div class="container" style="background-color: #86cfda"></div>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Registration" asp-action="Index">Registration</a>
-                            </li>
-                        }
-                    }
-
-                </ul>
-            </div>
-        </div>
-    </nav>*@
+    
 </header>
 <div class="container">
     <main role="main" class="pb-3">
