@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using App.Database.DatabaseModels;
 using App.Database.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace App.Database.RoadMap
 {
@@ -26,6 +28,22 @@ namespace App.Database.RoadMap
             await _databaseContext.RoadMapSteps.AddAsync(dbStep);
             await _databaseContext.SaveChangesAsync();
             return true;
+        }
+
+        public async Task<RMStep> GetStepById(int id)
+        {
+            var step = await _databaseContext.RoadMapSteps.Include(s => s.LinkedTasks).FirstOrDefaultAsync(s => s.Id == id);
+            var result = new RMStep()
+            {
+                Id = step.Id,
+                Title = step.Title,
+                LinkedTasks = step.LinkedTasks.Select(t => new ProjectTask()
+                {
+                    Id = t.Id,
+                    Title = t.Title
+                }).ToList()
+            };
+            return result;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using App.Database.Models;
@@ -23,8 +24,8 @@ namespace App.Services.Project
         public async Task<int> AddProject(Database.Models.Project project)
         {
             var id = await _projectRepository.AddProjectAsync(project);
-            //await _projectRepository.AddDefaultColumnsToProject(id);
             await _projectRepository.AddUserToProjectAsync(CurrentUserService.currentUserId, id);
+            await _projectRepository.AddRoleToUserInProject(id, CurrentUserService.currentUserId);
             return id;
         }
 
@@ -34,6 +35,13 @@ namespace App.Services.Project
             project.Users = await _projectRepository.GetUsers(project);
             project.Columns = await _projectRepository.GetColumns(id);
             project.RoadMap = await _projectRepository.GetRoadMap(id);
+            var role = await _projectRepository.GetRole(id);
+            project.BossUsers = role.BossUsers.Select(u => new Database.Models.User
+            {
+                Id = u.Id,
+                Nickname = u.Nickname,
+                Email = u.Email
+            }).ToList();
             return project;
         }
 
@@ -67,6 +75,12 @@ namespace App.Services.Project
         {
             var project = await _projectRepository.GetProjectByIdAsync(id);
             return project;
+        }
+
+        public async Task<List<Tag>> GetTags(int projectId)
+        {
+            var result = await _projectRepository.GetTags(projectId);
+            return result;
         }
     }
 }

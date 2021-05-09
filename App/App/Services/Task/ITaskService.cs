@@ -14,5 +14,6 @@ namespace App.Services.Task
         Task<bool> SetDeadline(DateTime deadline, int taskId);
 
         Task<bool> AddTagToTask(Tag tag, int taskId);
+        Task<bool> LinkTagToTask(int tagId, int taskId);
     }
 }

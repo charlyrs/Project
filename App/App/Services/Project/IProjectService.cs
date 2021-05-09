@@ -13,5 +13,6 @@ namespace App.Services.Project
         Task<List<Database.Models.User>> GetUsers(int projectId);
         Task<Database.Models.RoadMap> GetRoadMap(int projectId);
         Task<Database.Models.Project> GetProjectById(int id);
+        Task<List<Database.Models.Tag>> GetTags(int projectId);
     }
 }

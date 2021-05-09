@@ -103,8 +103,18 @@ namespace App.Controllers
             };
             await _roadMapService.AddStep(step);
             return RedirectToAction("RoadMap");
-
         }
+        /*[HttpGet]
+        public async Task<IAsyncResult> StepTasks(int stepId)
+        {
+            var step = await _roadMapService.GetStepByIdWithTasks(stepId);
+            var model = new RMStepViewModel()
+            {
+                Title = step.Title,
+                Tasks = step.LinkedTasks
+            };
+            return View(model);
+        }*/
 
     }
 }

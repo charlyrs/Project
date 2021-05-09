@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using App.Database.DatabaseModels;
 
 namespace App.Database.Project
 {
@@ -14,5 +15,8 @@ namespace App.Database.Project
         Task<bool> RemoveProjectFromUser(int projectId, int userId);
         Task<bool> DeleteProject(int projectId);
         Task<Models.RoadMap> GetRoadMap(int projectId);
+        Task<List<Models.Tag>> GetTags(int projectId);
+        Task<bool> AddRoleToUserInProject(int projectId, int userId);
+        Task<BossRoleDB> GetRole(int projectId);
     }
 }

@@ -21,6 +21,7 @@ namespace App.Database
         public DbSet<RMStepDB> RoadMapSteps { get; set; }
         public DbSet<RoadMapDB> RoadMaps { get; set; }
         public DbSet<TagDB> Tags { get; set; }
+        public DbSet<BossRoleDB> Roles { get; set; }
 
         public ApplicationContext()
         { 

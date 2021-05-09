@@ -19,5 +19,11 @@ namespace App.Services.RoadMap
             await _stepRepository.AddStep(step);
             return true;
         }
+
+        public async Task<RMStep> GetStepByIdWithTasks(int id)
+        {
+            var step = await _stepRepository.GetStepById(id);
+            return step;
+        }
     }
 }

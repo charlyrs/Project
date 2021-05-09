@@ -1,4 +1,5 @@
-﻿@model App.ViewModels.TaskViewModel
+﻿@using App.Database.Models
+@model App.ViewModels.TaskViewModel
 
 @{
     ViewBag.Title = "title";
@@ -32,6 +33,7 @@
         <h1 class="display-3" style="margin-bottom: 20px">@Model.Title</h1>
         @if (Model.Deadline == DateTime.MinValue)
         {
+            <h6 style="color: white">Set deadline</h6>
             @using(Html.BeginForm("SetDeadline", "TaskView", FormMethod.Get))
             {
                 <p>
@@ -42,15 +44,14 @@
         }
         else
         {
-            <div class="card" style="width: 18rem; height: 45px">
-                <div class="card-body">
-                    
-                        <h6 style="color: #60bcdc">@Model.Deadline.Date</h6>
-                   
-                </div>
-            </div>
-            
+            <h6 style="color: white">Deadline: @Model.Deadline.ToString("dd.MM.yyyy")</h6>
         }
+        <div class="container">
+                    @foreach (var tag in Model.Tags)
+                    {
+                        <h5 style="color: white; margin-right: 4px">#@tag.Text </h5>
+                    }
+                </div>
 
 
         @if (Model.AssignedUsers.Count!=0)
@@ -65,49 +66,47 @@
                 </div>
             </div>
         }
+        <div class="card" style="width: 18rem; margin-top: 25px">
+                    <div class="card-body">
+                        
+                        <button style="background-color: #ff9292; margin-top: 15px; width: 200px; border-radius: 12px; border-color:#C0DCEC" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                            @if (Model.RmStep == null)
+                            {
+                                <div>Choose step</div>
+                            }
+                            else
+                            {
+                                @Model.RmStep.Title
+                            }
+                        </button>
+        
+                    </div>
+                </div>
         
         <div class="card" style="width: 18rem; margin-top: 25px">
             <div class="card-body">
 
-                <h6 style="color: #60bcdc">Add user</h6>
+                @if(Model.NotAssignedUsers.Count!=0){
+                    <h6 style="color: #60bcdc">Add user</h6>
+                }
+                
 
-                @foreach (var user in ViewBag.projectUsers)
+                @foreach (var user in Model.NotAssignedUsers)
                 {
                     <a style="color: #60bcdc" href='@Url.Action("AssignUserToTask", "TaskView", new {username = user.Nickname})'>
                         <h6 style="color: #C0DCEC;"> @user.Nickname</h6>
 
                     </a>
                 }
-                <button style="background-color: #60bcdc; margin-top: 15px; width: 200px; border-radius: 12px; border-color:#C0DCEC" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                    @if (Model.RmStep == null)
-                    {
-                        <h5>Choose step</h5>
-                    }
-                    else
-                    {
-                        <h5>@Model.RmStep.Title</h5>
-                    }
-                </button>
-                
-                @using(Html.BeginForm("AddTag", "TaskView", FormMethod.Get))
-                {
-                    <div class="input-group mb-3" style="width: 200px;">
-                        <span class="input-group-text" id="basic-addon1">#</span>
-                        <input type="text" class="form-control" name="tagText" placeholder="Add tag"  aria-describedby="basic-addon1">
-                    </div>
-                    <button style="background-color: #60bcdc; width: 200px; border-color: darkturquoise; border-radius: 12px " type="submit" class="btn btn-primary">Submit</button>
-                }
-                
                 
 
             </div>
         </div>
-        <div class="container">
-                        @foreach (var tag in Model.Tags)
-                        {
-                            <h6 style="color: #60bcdc">#@tag.Text</h6>
-                        }
-                        </div>
+        
+        
+        <button style="background-color: #acd4f4; margin-top: 15px; width: 200px; border-radius: 12px; border-color:#C0DCEC" type="button" class="btn btn-primary" data-toggle="modal" data-target="#tagModal">
+                                           Add tag
+                                        </button>
     </div>
     @*
     <img style="margin-left: 200px" src="https://www.pinclipart.com/picdir/big/67-672993_asana-timeline-asana-timeline-asana-timeline-asana-illustration.png" width="400">
@@ -133,14 +132,44 @@
                   }
 
                 </div>
-            
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="tagModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #a4dfed; ">
+                <h5 class="modal-title" id="staticBackdropLabel">Add tag to task</h5>
+            </div>
+            <div class="modal-body">
+                @foreach (var tag in ViewBag.Tags)
+                {
+                    <a style="color: #60bcdc" href='@Url.Action("LinkTag", new {tagId = tag.Id})'>
+                        @tag.Text
+                    </a>
+                    <h6>#@tag.Text</h6>
+                }
+                @using (Html.BeginForm("AddTag", "TaskView", FormMethod.Get))
+                {
+                    <div class="input-group mb-3" style="width: 200px;">
+                        <span class="input-group-text" id="basic-addon1">#</span>
+                        <input type="text" class="form-control" name="tagText" placeholder="Add tag" aria-describedby="basic-addon1">
+                    </div>
+                    <button style="background-color: #60bcdc; width: 200px; border-color: darkturquoise; border-radius: 12px " type="submit" class="btn btn-primary">Submit</button>
+                }
 
+            </div>
         </div>
     </div>
 </div>
 
 <script>
 $('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+</script>
+<script>
+$('#tagModal').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus')
 })
 </script>

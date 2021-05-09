@@ -11,6 +11,6 @@ namespace App.Database.DatabaseModels
         public List<ColumnDB> Columns { get; set; }
         public RoadMapDB RoadMap { get; set; }
         public List<TagDB> Tags { get; set; }
-        //public List<UserDB> Role { get; set; }
+        public BossRoleDB BossRole { get; set; }
     }
 }

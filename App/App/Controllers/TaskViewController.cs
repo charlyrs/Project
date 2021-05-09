@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using App.Database.Models;
@@ -8,6 +9,7 @@ using App.Services.Project;
 using App.Services.Task;
 using App.Services.User;
 using App.ViewModels;
+using App.Database.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace App.Controllers
@@ -39,10 +41,12 @@ namespace App.Controllers
             CurrentProjectService.currentProjectId = project.Id;
             var users = await _projectService.GetUsers(CurrentProjectService.currentProjectId);
             _taskId = taskId;
-            ViewBag.projectUsers = users.Where(u => u.AssignedTasks.TrueForAll(t => t.Id != _taskId));
             var taskViewModel = new TaskViewModel(task);
+            taskViewModel.NotAssignedUsers = users.Where(u => u.AssignedTasks.TrueForAll(t => t.Id != _taskId)).ToList();
             var roadMap = await _projectService.GetRoadMap(CurrentProjectService.currentProjectId);
             ViewBag.Steps = roadMap.Steps;
+            var tags = await _projectService.GetTags(CurrentProjectService.currentProjectId);
+            ViewBag.Tags = tags.Where(t => t.Tasks.TrueForAll(t => t.Id != _taskId));
             return View(taskViewModel);
         }
 
@@ -77,6 +81,12 @@ namespace App.Controllers
                 Text = tagText
             };
             await _taskService.AddTagToTask(tag, _taskId);
+            return RedirectToAction("Index", new {taskId = _taskId});
+        }
+
+        public async Task<IActionResult> LinkTag(int tagId)
+        {
+            await _taskService.LinkTagToTask(tagId, _taskId);
             return RedirectToAction("Index", new {taskId = _taskId});
         }
 

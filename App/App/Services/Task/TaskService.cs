@@ -61,5 +61,11 @@ namespace App.Services.Task
             await _tagRepository.AddTagToTask(tagId, taskId);
             return true;
         }
+
+        public async Task<bool> LinkTagToTask(int tagId, int taskId)
+        {
+            await _tagRepository.AddTagToTask(tagId, taskId);
+            return true;
+        }
     }
 }

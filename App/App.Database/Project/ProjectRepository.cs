@@ -44,13 +44,23 @@ namespace App.Database.Project
                 Users = new List<UserDB>(),
                 Columns = new List<ColumnDB>(),
             };
+            
             await _databaseContext.Projects.AddAsync(dbProject);
+            await _databaseContext.SaveChangesAsync();
+            var role = new BossRoleDB()
+            {
+                BossUsers = new List<UserDB>(),
+                Project = dbProject,
+                ProjectDBId = dbProject.Id
+            };
+            await _databaseContext.Roles.AddAsync(role);
             await _databaseContext.SaveChangesAsync();
             await AddDefaultColumnsToProject(dbProject.Id);
             await AddRoadMap(dbProject.Id);
             return dbProject.Id;
            
         }
+        
         public async Task<bool> AddUserToProjectAsync(int userId, int projectId)
         {
             var user = await _databaseContext.Users.FindAsync(userId);
@@ -78,6 +88,7 @@ namespace App.Database.Project
             }).ToList();
                 return result;
         }
+        
         
         private async Task<bool> AddDefaultColumnsToProject(int projectId)
         {
@@ -174,6 +185,38 @@ namespace App.Database.Project
                 
             };
             return result;
+        }
+
+        public async Task<List<Models.Tag>> GetTags(int projectId)
+        {
+            var tags = await _databaseContext.Tags.Include(p => p.Tasks).Include(t => t.Project).Where(p => p.Project.Id == projectId).ToListAsync();
+            var result = tags.Select(t => new Models.Tag()
+            {
+                Id = t.Id,
+                Text = t.Text,
+                Tasks = t.Tasks.Select(task => new ProjectTask()
+                {
+                    Id = task.Id
+                }).ToList()
+            }).ToList();
+            return result;
+        }
+
+        public async Task<bool> AddRoleToUserInProject(int projectId, int userId)
+        {
+            var project = await _databaseContext.Projects.Include(p => p.BossRole.BossUsers)
+                .FirstOrDefaultAsync(p => p.Id == projectId);
+            var user = await _databaseContext.Users.FindAsync(userId);
+            project.BossRole.BossUsers.Add(user);
+            await _databaseContext.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<BossRoleDB> GetRole(int projectId)
+        {
+            var role = await _databaseContext.Roles.Include(r => r.BossUsers)
+                .FirstOrDefaultAsync(r => r.Project.Id == projectId);
+            return role;
         }
     }
 }

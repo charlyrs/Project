@@ -14,6 +14,7 @@ namespace App.Database.Models
         public List<Column> Columns { get; set; }
         public RoadMap RoadMap { get; set; }
         public List<Tag> Tags { get; set; }
+        public List<User> BossUsers { get; set; }
         
     }
 }

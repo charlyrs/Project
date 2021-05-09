@@ -26,27 +26,11 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/App/Controllers/AccountController.cs" />
-      <option value="$PROJECT_DIR$/App.Database/DatabaseModels/RoadMap.cs" />
-      <option value="$PROJECT_DIR$/App.Database/DatabaseModels/RoadMapStepDB.cs" />
-      <option value="$PROJECT_DIR$/App.Database/Models/RoadMapStep.cs" />
-      <option value="$PROJECT_DIR$/App.Database/Models/RoadMap.cs" />
-      <option value="$PROJECT_DIR$/App.Database/DatabaseModels/RoadMapDB.cs" />
-      <option value="$PROJECT_DIR$/App/Pages/RoadMap/Index.cshtml" />
-      <option value="$PROJECT_DIR$/App.Database/Project/IProjectRepository.cs" />
-      <option value="$PROJECT_DIR$/App/ViewModels/RoadMapViewModel.cs" />
-      <option value="$PROJECT_DIR$/App.Database/DatabaseModels/RMStepDB.cs" />
       <option value="$PROJECT_DIR$/App.Database/Models/RMStep.cs" />
-      <option value="$PROJECT_DIR$/App/Services/RoadMap/IRoadMapService.cs" />
       <option value="$PROJECT_DIR$/App.Database/RoadMap/IRoadMapRepository.cs" />
-      <option value="$PROJECT_DIR$/App.Database/RoadMap/IRMStepRepository.cs" />
-      <option value="$PROJECT_DIR$/App/Services/RoadMap/RoadMapService.cs" />
       <option value="$PROJECT_DIR$/App/Controllers/RoadMapController.cs" />
       <option value="$PROJECT_DIR$/App/Views/RoadMap/Index.cshtml" />
-      <option value="$PROJECT_DIR$/App.Database/RoadMap/RMStepRepository.cs" />
-      <option value="$PROJECT_DIR$/App.Database/Project/ProjectRepository.cs" />
       <option value="$PROJECT_DIR$/App.Database/RoadMap/RoadMapRepository.cs" />
-      <option value="$PROJECT_DIR$/App/Controllers/ProjectViewController.cs" />
       <option value="$PROJECT_DIR$/App/Views/Shared/_Layout.cshtml" />
       <option value="$PROJECT_DIR$/App.Database/Task/ITaskRepository.cs" />
       <option value="$PROJECT_DIR$/App/Views/Account/EditPassword.cshtml" />
@@ -55,28 +39,44 @@
       <option value="$PROJECT_DIR$/App/Views/Notifications/Index.cshtml" />
       <option value="$PROJECT_DIR$/App/Views/ProjectView/Index.cshtml" />
       <option value="$PROJECT_DIR$/App/Views/ProjectView/ProjectInfo.cshtml" />
-      <option value="$PROJECT_DIR$/App/Views/ProjectView/RoadMap.cshtml" />
       <option value="$PROJECT_DIR$/App/Views/Registration/Index.cshtml" />
       <option value="$PROJECT_DIR$/App/Views/Registration/LogIn.cshtml" />
       <option value="$PROJECT_DIR$/App/Controllers/AddTaskController.cs" />
-      <option value="$PROJECT_DIR$/App.Database/DatabaseModels/ProjectDB.cs" />
-      <option value="$PROJECT_DIR$/App.Database/Models/Project.cs" />
       <option value="$PROJECT_DIR$/App.Database/DatabaseModels/ProjectTaskDB.cs" />
       <option value="$PROJECT_DIR$/App.Database/Models/ProjectTask.cs" />
       <option value="$PROJECT_DIR$/App.Database/DatabaseModels/TagDB.cs" />
       <option value="$PROJECT_DIR$/App.Database/Models/Tag.cs" />
       <option value="$PROJECT_DIR$/App.Database/Tag/ITagRepository.cs" />
-      <option value="$PROJECT_DIR$/App/Services/Task/ITaskService.cs" />
-      <option value="$PROJECT_DIR$/App/Services/Task/TaskService.cs" />
-      <option value="$PROJECT_DIR$/App/ViewModels/TaskViewModel.cs" />
       <option value="$PROJECT_DIR$/App.Database/Task/TaskRepository.cs" />
-      <option value="$PROJECT_DIR$/App/Services/Project/IProjectService.cs" />
-      <option value="$PROJECT_DIR$/App/Services/Project/ProjectService.cs" />
-      <option value="$PROJECT_DIR$/App/Controllers/TaskViewController.cs" />
-      <option value="$PROJECT_DIR$/App.Database/ApplicationContext.cs" />
       <option value="$PROJECT_DIR$/App.Database/Tag/TagRepository.cs" />
       <option value="$PROJECT_DIR$/App/Startup.cs" />
+      <option value="$PROJECT_DIR$/App/Services/Project/IProjectService.cs" />
+      <option value="$PROJECT_DIR$/App/Services/Task/ITaskService.cs" />
+      <option value="$PROJECT_DIR$/App/Services/Task/TaskService.cs" />
+      <option value="$PROJECT_DIR$/App.Database/RoadMap/IRMStepRepository.cs" />
+      <option value="$PROJECT_DIR$/App.Database/RoadMap/RMStepRepository.cs" />
+      <option value="$PROJECT_DIR$/App/Services/RoadMap/IRoadMapService.cs" />
+      <option value="$PROJECT_DIR$/App/Services/RoadMap/RoadMapService.cs" />
+      <option value="$PROJECT_DIR$/App/ViewModels/RMStepViewModel.cs" />
+      <option value="$PROJECT_DIR$/App/Views/ProjectView/StepTasks.cshtml" />
+      <option value="$PROJECT_DIR$/App/Pages/RoadMapTasks/Index.cshtml" />
+      <option value="$PROJECT_DIR$/App/Controllers/ProjectViewController.cs" />
+      <option value="$PROJECT_DIR$/App/Controllers/RoadMapTasksController.cs" />
+      <option value="$PROJECT_DIR$/App/Views/ProjectView/RoadMap.cshtml" />
+      <option value="$PROJECT_DIR$/App/Views/Account/AllTasks.cshtml" />
+      <option value="$PROJECT_DIR$/App/Views/RoadMapTasks/Index.cshtml" />
+      <option value="$PROJECT_DIR$/App/ViewModels/TaskViewModel.cs" />
+      <option value="$PROJECT_DIR$/App/Controllers/TaskViewController.cs" />
       <option value="$PROJECT_DIR$/App/Views/TaskView/Index.cshtml" />
+      <option value="$PROJECT_DIR$/App.Database/DatabaseModels/BossRole.cs" />
+      <option value="$PROJECT_DIR$/App.Database/DatabaseModels/BossRoleDB.cs" />
+      <option value="$PROJECT_DIR$/App.Database/DatabaseModels/ProjectDB.cs" />
+      <option value="$PROJECT_DIR$/App.Database/DatabaseModels/UserDB.cs" />
+      <option value="$PROJECT_DIR$/App.Database/ApplicationContext.cs" />
+      <option value="$PROJECT_DIR$/App.Database/Project/IProjectRepository.cs" />
+      <option value="$PROJECT_DIR$/App.Database/Project/ProjectRepository.cs" />
+      <option value="$PROJECT_DIR$/App.Database/Models/Project.cs" />
+      <option value="$PROJECT_DIR$/App/Services/Project/ProjectService.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rOlePqmrhZBxXy0wA2B6oTP2Kf" />
@@ -173,7 +173,9 @@
       <workItem from="1620370209403" duration="12774000" />
       <workItem from="1620452549094" duration="4330000" />
       <workItem from="1620475392610" duration="12317000" />
-      <workItem from="1620498298359" duration="7356000" />
+      <workItem from="1620498298359" duration="7941000" />
+      <workItem from="1620551707205" duration="9095000" />
+      <workItem from="1620588829339" duration="5809000" />
     </task>
     <servers />
   </component>
@@ -215,26 +217,26 @@
         </line-breakpoint>
         <line-breakpoint type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/App/Services/Project/ProjectService.cs</url>
-          <line>23</line>
+          <line>24</line>
           <properties documentPath="D:\Git\Project\App\App\Services\Project\ProjectService.cs" initialLine="20" containingFunctionPresentation="method 'AddProject'">
             <startOffsets>
-              <option value="739" />
+              <option value="758" />
             </startOffsets>
             <endOffsets>
-              <option value="740" />
+              <option value="759" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/App.Database/Project/ProjectRepository.cs</url>
-          <line>54</line>
+          <line>64</line>
           <properties documentPath="D:\Git\Project\App\App.Database\Project\ProjectRepository.cs" initialLine="56" containingFunctionPresentation="method 'AddUserToProjectAsync'">
             <startOffsets>
-              <option value="1993" />
+              <option value="2324" />
             </startOffsets>
             <endOffsets>
-              <option value="1994" />
+              <option value="2325" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="6" />
@@ -293,13 +295,13 @@
         </line-breakpoint>
         <line-breakpoint type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/App.Database/Project/ProjectRepository.cs</url>
-          <line>134</line>
+          <line>145</line>
           <properties documentPath="D:\Git\Project\App\App.Database\Project\ProjectRepository.cs" initialLine="115" containingFunctionPresentation="method 'RemoveProjectFromUser'">
             <startOffsets>
-              <option value="5467" />
+              <option value="5807" />
             </startOffsets>
             <endOffsets>
-              <option value="5497" />
+              <option value="5837" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="24" />
@@ -345,13 +347,13 @@
         </line-breakpoint>
         <line-breakpoint type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/App/Controllers/TaskViewController.cs</url>
-          <line>53</line>
+          <line>57</line>
           <properties documentPath="D:\Git\Project\App\App\Controllers\TaskViewController.cs" initialLine="30" containingFunctionPresentation="method 'AssignUserToTask'">
             <startOffsets>
-              <option value="2135" />
+              <option value="2395" />
             </startOffsets>
             <endOffsets>
-              <option value="2186" />
+              <option value="2446" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="31" />
@@ -462,13 +464,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/App/Controllers/TaskViewController.cs</url>
-          <line>73</line>
+          <line>77</line>
           <properties documentPath="D:\Git\Project\App\App\Controllers\TaskViewController.cs" initialLine="73" containingFunctionPresentation="method 'AddTag'">
             <startOffsets>
-              <option value="2938" />
+              <option value="3198" />
             </startOffsets>
             <endOffsets>
-              <option value="3121" />
+              <option value="3381" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="46" />
