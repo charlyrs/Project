@@ -134,6 +134,7 @@ namespace App.Controllers
         public async Task<IActionResult> SetRoleToTheUser(int userId)
         {
             await _projectService.SetUsersRole(userId, CurrentProjectService.currentProjectId);
+            await _notificationService.FormNotification("You got a new role in project", _path, userId);
             return RedirectToAction("ProjectSettings");
         }
 
