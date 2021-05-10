@@ -10,6 +10,8 @@ namespace App.ViewModels
         
         public  List<User> Users { get; set; }
         public List<Column> Columns { get; set; }
+        
+        public bool BossRole { get; set; }
 
         public ProjectViewModel(Project project)
         {

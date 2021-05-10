@@ -67,6 +67,7 @@ namespace App.Controllers
         public async Task<IActionResult> AllTasks()
         {
             var id = CurrentUserService.currentUserId;
+            
             var user = await _userService.GetUserById(id);
             var model = new UserViewModel(user);
             return View(model);
@@ -74,7 +75,7 @@ namespace App.Controllers
 
         public async Task<IActionResult> LogOut()
         {
-            HttpContext.Response.Cookies.Append("currentUserId","0");
+            HttpContext.Response.Cookies.Delete("currentUserId");
             CurrentUserService.currentUserId = 0;
             CurrentUserService.loggedIn = false;
             CurrentProjectService.currentProjectId = 0;

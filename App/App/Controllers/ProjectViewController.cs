@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using App.Database.Models;
 using App.Services;
@@ -33,8 +34,10 @@ namespace App.Controllers
             _path = new string($"{HttpContext.Request.Path}{HttpContext.Request.QueryString}");
             var project = await _projectService.GetProjectByIdWithAllFields(projectId);
             CurrentProjectService.currentProjectId = projectId;
-            var projectViewModel = new ProjectViewModel(project);
-            
+            CurrentProjectService.bossRole =
+                await _projectService.CheckUserRole(CurrentUserService.currentUserId, projectId);
+            var projectViewModel = new ProjectViewModel(project) {BossRole = CurrentProjectService.bossRole};
+
             return View(projectViewModel);
         }
         [HttpGet]
@@ -52,7 +55,7 @@ namespace App.Controllers
             }
             
             var project = await _projectService.GetProjectByIdWithAllFields(CurrentProjectService.currentProjectId);
-            var projectViewModel = new ProjectViewModel(project);
+            var projectViewModel = new ProjectViewModel(project) {BossRole = CurrentProjectService.bossRole};
             return View(projectViewModel);
         }
         
@@ -104,8 +107,8 @@ namespace App.Controllers
             await _roadMapService.AddStep(step);
             return RedirectToAction("RoadMap");
         }
-        /*[HttpGet]
-        public async Task<IAsyncResult> StepTasks(int stepId)
+        [HttpGet]
+        public async Task<IActionResult> StepTasks(int stepId)
         {
             var step = await _roadMapService.GetStepByIdWithTasks(stepId);
             var model = new RMStepViewModel()
@@ -114,7 +117,25 @@ namespace App.Controllers
                 Tasks = step.LinkedTasks
             };
             return View(model);
-        }*/
+        }
+
+        public async Task<IActionResult> ProjectSettings()
+        {
+            var bossUsers =await _projectService.GetBossUsers(CurrentProjectService.currentProjectId);
+            var regularUsers = await _projectService.GetRegularUsers(CurrentProjectService.currentProjectId);
+            var model = new RoleViewModel()
+            {
+                BossUsers = bossUsers,
+                RegularUsers = regularUsers
+            };
+            return View(model);
+        }
+
+        public async Task<IActionResult> SetRoleToTheUser(int userId)
+        {
+            await _projectService.SetUsersRole(userId, CurrentProjectService.currentProjectId);
+            return RedirectToAction("ProjectSettings");
+        }
 
     }
 }

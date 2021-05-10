@@ -9,7 +9,7 @@ namespace App.Database.Project
         Task<Models.Project> GetProjectByIdAsync(int projectId);
         Task<int> AddProjectAsync(Models.Project project);
         Task<bool> AddUserToProjectAsync(int userId, int projectId);
-        Task<List<Models.User>> GetUsers(Models.Project project);
+        Task<List<Models.User>> GetUsers(int projectId);
         
         Task<List<Models.Column>> GetColumns(int projectId);
         Task<bool> RemoveProjectFromUser(int projectId, int userId);
@@ -18,5 +18,7 @@ namespace App.Database.Project
         Task<List<Models.Tag>> GetTags(int projectId);
         Task<bool> AddRoleToUserInProject(int projectId, int userId);
         Task<BossRoleDB> GetRole(int projectId);
+        Task<List<Models.User>> GetRegularUsers(int projectId);
+
     }
 }

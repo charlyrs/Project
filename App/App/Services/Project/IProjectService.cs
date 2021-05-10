@@ -14,5 +14,9 @@ namespace App.Services.Project
         Task<Database.Models.RoadMap> GetRoadMap(int projectId);
         Task<Database.Models.Project> GetProjectById(int id);
         Task<List<Database.Models.Tag>> GetTags(int projectId);
+        Task<bool> CheckUserRole(int userId, int projectId);
+        Task<List<Database.Models.User>> GetRegularUsers(int projectId);
+        Task<List<Database.Models.User>> GetBossUsers(int projectId);
+        Task<bool> SetUsersRole(int userId, int projectId);
     }
 }

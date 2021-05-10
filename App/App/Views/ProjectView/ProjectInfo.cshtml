@@ -38,17 +38,21 @@
                 <h5 class="card-title" style="color: #60bcdc">Users</h5>
                 @foreach (var user in Model.Users)
                 {
+                    
                     <li class="list-group-item" style="color: #60bcdc">@user.Nickname</li>
                 }
-                <h7 style="color: @ViewBag.messageColor; margin-top: 15px; margin-left: 10px">@ViewBag.userMessage</h7>
-                @using (Html.BeginForm("AddUserToProject","ProjectView",FormMethod.Post))
-                                {
-                                    <div class="form-group" style="margin-top: 10px; ">
-                
-                                        <input style="border-radius: 12px; width: 15rem;  height: 35px" type="text" name="username" class="form-control" placeholder="Add user" >
-                
-                                    </div>
-                                }
+                @if (Model.BossRole)
+                {
+                    <h7 style="color: @ViewBag.messageColor; margin-top: 15px; margin-left: 10px">@ViewBag.userMessage</h7>
+                    @using (Html.BeginForm("AddUserToProject", "ProjectView", FormMethod.Post))
+                    {
+                        <div class="form-group" style="margin-top: 10px; ">
+
+                            <input style="border-radius: 12px; width: 15rem;  height: 35px" type="text" name="username" class="form-control" placeholder="Add user">
+
+                        </div>
+                    }
+                }
            
             </div>
         </div>

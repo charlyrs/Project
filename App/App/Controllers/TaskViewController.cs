@@ -41,8 +41,10 @@ namespace App.Controllers
             CurrentProjectService.currentProjectId = project.Id;
             var users = await _projectService.GetUsers(CurrentProjectService.currentProjectId);
             _taskId = taskId;
-            var taskViewModel = new TaskViewModel(task);
-            taskViewModel.NotAssignedUsers = users.Where(u => u.AssignedTasks.TrueForAll(t => t.Id != _taskId)).ToList();
+            var taskViewModel = new TaskViewModel(task)
+            {
+                NotAssignedUsers = users.Where(u => u.AssignedTasks.TrueForAll(t => t.Id != _taskId)).ToList()
+            };
             var roadMap = await _projectService.GetRoadMap(CurrentProjectService.currentProjectId);
             ViewBag.Steps = roadMap.Steps;
             var tags = await _projectService.GetTags(CurrentProjectService.currentProjectId);
@@ -56,7 +58,7 @@ namespace App.Controllers
             var task = await _taskService.FindTaskById(_taskId);
             var user = await _userService.GetUserByNickname(username);
             await _taskService.AddUserToTask(user.Id, _taskId);
-            await _notificationService.FormNotification($"You were assigned to task {task.Title}", _link, user.Id);
+            await _notificationService.FormNotification($"You were assigned to task \"{task.Title}\"", _link, user.Id);
             return RedirectToAction("Index", new {taskId = _taskId});
         }
 

@@ -17,7 +17,6 @@
           <e p="ProjectsListController.cs" t="Include" />
           <e p="ProjectViewController.cs" t="Include" />
           <e p="RegistrationController.cs" t="Include" />
-          <e p="RoadMapTasksController.cs" t="Include" />
           <e p="TaskViewController.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
@@ -73,6 +72,7 @@
           <e p="ProjectViewModel.cs" t="Include" />
           <e p="RMStepViewModel.cs" t="Include" />
           <e p="RoadMapViewModel.cs" t="Include" />
+          <e p="RoleViewModel.cs" t="Include" />
           <e p="TaskViewModel.cs" t="Include" />
           <e p="UserViewModel.cs" t="Include" />
         </e>
@@ -98,15 +98,13 @@
           <e p="ProjectView" t="Include">
             <e p="Index.cshtml" t="Include" />
             <e p="ProjectInfo.cshtml" t="Include" />
+            <e p="ProjectSettings.cshtml" t="Include" />
             <e p="RoadMap.cshtml" t="Include" />
             <e p="StepTasks.cshtml" t="Include" />
           </e>
           <e p="Registration" t="Include">
             <e p="Index.cshtml" t="Include" />
             <e p="LogIn.cshtml" t="Include" />
-          </e>
-          <e p="RoadMapTasks" t="Include">
-            <e p="Index.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
             <e p="_Layout.cshtml" t="Include" />

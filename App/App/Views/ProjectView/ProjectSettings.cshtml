@@ -1,0 +1,61 @@
+﻿@using App.Services
+@model App.ViewModels.RoleViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<style >
+  body{
+  background-color: #60bcdc ;
+  color: white;
+  
+  }
+  text {
+  color: white;
+  }
+  .container {
+         display: flex;
+         justify-content: center;
+     }
+     nav{
+          height: 45px;
+          }
+     
+  
+  
+</style>
+<div class="container">
+    <div class="card" style="width: 12rem; margin-left: 15px">
+                            <div class="card-body">
+                                @foreach (var boss in Model.BossUsers)
+                                {
+                                    <h5 style="color: #60bcdc ">@boss.Nickname</h5>
+                                }
+    
+                            </div>
+    </div> 
+    <div class="card" style="width: 12rem; margin-left: 15px">
+        <div class="card-body">
+            @if (CurrentProjectService.bossRole)
+            {
+                @foreach (var user in Model.RegularUsers)
+                {
+                    <a href='@Url.Action("SetRoleToTheUser", new {userId = user.Id})'>
+
+                        <h5 style="color:#60bcdc ;">@user.Nickname</h5>
+                    </a>
+                }
+            }
+            else
+            {
+                @foreach (var user in Model.RegularUsers)
+                {
+                    <h5 style="color:#60bcdc ;">@user.Nickname</h5>
+                   
+                }
+            }
+
+        </div>
+                        </div>
+</div>

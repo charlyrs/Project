@@ -22,6 +22,7 @@ namespace App.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
+            var id = CurrentUserService.currentUserId;
             
             var user = await _userService.GetUserById(CurrentUserService.currentUserId);
             _userViewModel = new UserViewModel(user);

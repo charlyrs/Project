@@ -37,13 +37,16 @@
             <div class="card-body">
 
                 <h5 class="card-title" style="color: #60bcdc;">@column.Title</h5>
-                @using (Html.BeginForm("Index", "AddTask", new {columnId = column.Id}, FormMethod.Post))
+                @if (Model.BossRole)
                 {
-                    <div class="form-group" style="margin-top: 10px; ">
+                    @using (Html.BeginForm("Index", "AddTask", new {columnId = column.Id}, FormMethod.Post))
+                    {
+                        <div class="form-group" style="margin-top: 10px; ">
 
-                        <input style="border-radius: 12px;  height: 35px" type="text" name="title" class="form-control" placeholder="Add task" >
+                            <input style="border-radius: 12px;  height: 35px" type="text" name="title" class="form-control" placeholder="Add task">
 
-                    </div>
+                        </div>
+                    }
                 }
                 @foreach (var task in column.Tasks)
                 {

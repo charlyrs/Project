@@ -32,7 +32,7 @@ namespace App.Services.Project
         public async Task<Database.Models.Project> GetProjectByIdWithAllFields(int id)
         {
             var project = await _projectRepository.GetProjectByIdAsync(id);
-            project.Users = await _projectRepository.GetUsers(project);
+            project.Users = await _projectRepository.GetUsers(id);
             project.Columns = await _projectRepository.GetColumns(id);
             project.RoadMap = await _projectRepository.GetRoadMap(id);
             var role = await _projectRepository.GetRole(id);
@@ -60,8 +60,8 @@ namespace App.Services.Project
 
         public async Task<List<Database.Models.User>> GetUsers(int projectId)
         {
-            var project = await _projectRepository.GetProjectByIdAsync(projectId);
-            var result = await _projectRepository.GetUsers(project);
+            //var project = await _projectRepository.GetProjectByIdAsync(projectId);
+            var result = await _projectRepository.GetUsers(projectId);
             return result;
         }
 
@@ -81,6 +81,36 @@ namespace App.Services.Project
         {
             var result = await _projectRepository.GetTags(projectId);
             return result;
+        }
+
+        public async Task<bool> CheckUserRole(int userId, int projectId)
+        {
+            var role = await _projectRepository.GetRole(projectId);
+            return role.BossUsers.Any(u => u.Id == userId);
+        }
+
+        public async Task<List<Database.Models.User>> GetRegularUsers(int projectId)
+        {
+            var result = await _projectRepository.GetRegularUsers(projectId);
+            return result;
+        }
+
+        public async Task<List<Database.Models.User>> GetBossUsers(int projectId)
+        {
+            var role = await _projectRepository.GetRole(projectId);
+            var result = role.BossUsers.Select(u => new Database.Models.User
+            {
+                Id = u.Id,
+                Nickname = u.Nickname,
+                Email = u.Email
+            }).ToList();
+            return result;
+        }
+
+        public async Task<bool> SetUsersRole(int userId, int projectId)
+        {
+            await _projectRepository.AddRoleToUserInProject(projectId, userId);
+            return true;
         }
     }
 }

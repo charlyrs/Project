@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace App.Database.Project
 {
+    
     public class ProjectRepository : IProjectRepository
     {
         private readonly ApplicationContext _databaseContext;
@@ -69,9 +70,9 @@ namespace App.Database.Project
             await _databaseContext.SaveChangesAsync();
             return true;
         }
-        public async Task<List<Models.User>> GetUsers(Models.Project project)
+        public async Task<List<Models.User>> GetUsers(int projectId)
         {
-            var users = _databaseContext.Users.Include(u=> u.AssignedTasks).Where(u => u.Projects.Any(p => p.Id == project.Id));
+            var users = _databaseContext.Users.Include(u=> u.AssignedTasks).Where(u => u.Projects.Any(p => p.Id == projectId));
             var usersList = await users.ToListAsync();
             var result = usersList.Select(u => new Models.User()
             {
@@ -217,6 +218,23 @@ namespace App.Database.Project
             var role = await _databaseContext.Roles.Include(r => r.BossUsers)
                 .FirstOrDefaultAsync(r => r.Project.Id == projectId);
             return role;
+        }
+
+        public async Task<List<Models.User>> GetRegularUsers(int projectId)
+        {
+            
+            var users = await GetUsers(projectId);
+            var role = await GetRole(projectId);
+            var bossUsers = role.BossUsers.Select(u => new Database.Models.User
+            {
+                Id = u.Id,
+                Nickname = u.Nickname,
+                Email = u.Email
+            }).ToList();
+
+
+            var regularUsers = users.Where(u => bossUsers.TrueForAll(b => b.Id != u.Id)).ToList();
+            return regularUsers;
         }
     }
 }

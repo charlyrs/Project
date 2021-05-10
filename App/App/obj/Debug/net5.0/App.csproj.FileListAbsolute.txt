@@ -60,4 +60,4 @@ D:\Git\Project\App\App\obj\Debug\net5.0\Razor\Views\Account\AllTasks.cshtml.g.cs
 D:\Git\Project\App\App\obj\Debug\net5.0\Razor\Views\Notifications\Index.cshtml.g.cs
 D:\Git\Project\App\App\obj\Debug\net5.0\Razor\Views\ProjectView\RoadMap.cshtml.g.cs
 D:\Git\Project\App\App\obj\Debug\net5.0\Razor\Views\ProjectView\StepTasks.cshtml.g.cs
-D:\Git\Project\App\App\obj\Debug\net5.0\Razor\Views\RoadMapTasks\Index.cshtml.g.cs
+D:\Git\Project\App\App\obj\Debug\net5.0\Razor\Views\ProjectView\ProjectSettings.cshtml.g.cs
