@@ -11,6 +11,7 @@ namespace App.Database.Task
         Task<bool> LinkTaskToRoadMapStep(int taskId, int stepId);
         Task<Models.Project> GetTasksProject(ProjectTask task);
         Task<bool> UpdateTaskDeadline(ProjectTask task);
+        Task<bool> AddCommentToTask(Comment comment);
 
     }
 }

@@ -92,5 +92,22 @@ namespace App.Controllers
             return RedirectToAction("Index", new {taskId = _taskId});
         }
 
+        public async Task<IActionResult> LeaveComment(string text)
+        {
+            var added = await _taskService.AddCommentToTask(text, CurrentUserService.currentUserId, _taskId);
+            if (added)
+            {
+                var task = await _taskService.FindTaskById(_taskId);
+                foreach (var user in task.AssignedUsers)
+                {
+                    await _notificationService.FormNotification($"A new comment was left under the task \"{task.Title}\"",
+                        _link, user.Id);
+                }
+            }
+
+            return RedirectToAction("Index", new {taskId = _taskId});
+
+        }
+
 }
 }

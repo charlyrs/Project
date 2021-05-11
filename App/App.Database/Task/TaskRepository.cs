@@ -27,7 +27,8 @@ namespace App.Database.Task
                 {
                     Id = task.Column.Id
                 },
-                Deadline = task.Deadline
+                Deadline = task.Deadline,
+                Comments = new List<CommentDB>()
             };
                 await _databaseContext.Tasks.AddAsync(taskDb);
                 await _databaseContext.SaveChangesAsync();
@@ -42,6 +43,7 @@ namespace App.Database.Task
                 Include(t => t.Tags).
                 Include(t => t.RmStep).
                 Include(t => t.RmStep).
+                Include(t => t.Comments).
                 FirstOrDefaultAsync(t => t.Id == id);
             var result = new ProjectTask
             {
@@ -58,6 +60,16 @@ namespace App.Database.Task
                 {
                     Id = tag.Id,
                     Text = tag.Text
+                }).ToList(),
+                Comments = task.Comments.Select(c => new Comment()
+                {
+                    Id = c.Id,
+                    Text = c.Text,
+                    User = new Models.User()
+                    {
+                        Id = c.User.Id,
+                        Nickname = c.User.Nickname
+                    }
                 }).ToList()
             };
             if (task.RmStep != null)
@@ -109,6 +121,19 @@ namespace App.Database.Task
         {
             var dbTask = await _databaseContext.Tasks.FindAsync(task.Id);
             dbTask.Deadline = task.Deadline;
+            await _databaseContext.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> AddCommentToTask(Comment comment)
+        {
+            var commentDb = new CommentDB()
+            {
+                Task = await _databaseContext.Tasks.FindAsync(comment.Task.Id),
+                Text = comment.Text,
+                User = await _databaseContext.Users.FindAsync(comment.User.Id)
+            };
+            await _databaseContext.Comments.AddAsync(commentDb);
             await _databaseContext.SaveChangesAsync();
             return true;
         }

@@ -15,6 +15,7 @@ namespace App.Database.DatabaseModels
         public List<NotificationDB> Notifications { get; set; }
         //Not used in system
         public List<BossRoleDB> Roles { get; set; }
+        public List<CommentDB> Comments { get; set; }
        
     }
 }

@@ -103,6 +103,15 @@
                         </a>
                     }
                 }
+                @using (Html.BeginForm("LeaveComment", "TaskView", FormMethod.Get))
+                                    {
+                                        <div class="form-group" style="margin-top: 10px; ">
+                
+                                            <input style="border-radius: 12px; width: 15rem;  height: 35px" type="text" name="text" class="form-control" placeholder="Write a comment...">
+                                            <button style="background-color: #60bcdc; width: 200px; border-color: darkturquoise; border-radius: 12px " type="submit" class="btn btn-primary btn-sm">Submit</button>
+                
+                                        </div>
+                                    }
                 
 
             </div>

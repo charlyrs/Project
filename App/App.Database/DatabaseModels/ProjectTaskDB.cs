@@ -12,5 +12,6 @@ namespace App.Database.DatabaseModels
         public RMStepDB RmStep { get; set; }
         public ColumnDB Column { get; set; }
         public List<TagDB> Tags { get; set; }
+        public List<CommentDB> Comments { get; set; }
     }
 }

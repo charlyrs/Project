@@ -67,5 +67,23 @@ namespace App.Services.Task
             await _tagRepository.AddTagToTask(tagId, taskId);
             return true;
         }
+
+        public async Task<bool> AddCommentToTask(string text, int userId, int taskId)
+        {
+            var comment = new Comment()
+            {
+                Task = new ProjectTask()
+                {
+                    Id = taskId
+                },
+                User = new Database.Models.User()
+                {
+                    Id = userId
+                },
+                Text = text
+            };
+            await _taskRepository.AddCommentToTask(comment);
+            return true;
+        }
     }
 }

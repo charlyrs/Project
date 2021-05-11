@@ -190,6 +190,7 @@
         <e p="DatabaseModels" t="Include">
           <e p="BossRoleDB.cs" t="Include" />
           <e p="ColumnDB.cs" t="Include" />
+          <e p="CommentDB.cs" t="Include" />
           <e p="NotificationDB.cs" t="Include" />
           <e p="ProjectDB.cs" t="Include" />
           <e p="ProjectTaskDB.cs" t="Include" />
@@ -200,6 +201,7 @@
         </e>
         <e p="Models" t="Include">
           <e p="Column.cs" t="Include" />
+          <e p="Comment.cs" t="Include" />
           <e p="Notification.cs" t="Include" />
           <e p="Project.cs" t="Include" />
           <e p="ProjectTask.cs" t="Include" />

@@ -22,6 +22,7 @@ namespace App.Database
         public DbSet<RoadMapDB> RoadMaps { get; set; }
         public DbSet<TagDB> Tags { get; set; }
         public DbSet<BossRoleDB> Roles { get; set; }
+        public DbSet<CommentDB> Comments { get; set; }
 
         public ApplicationContext()
         { 
