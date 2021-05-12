@@ -73,6 +73,7 @@
           <e p="RMStepViewModel.cs" t="Include" />
           <e p="RoadMapViewModel.cs" t="Include" />
           <e p="RoleViewModel.cs" t="Include" />
+          <e p="TasksListViewModel.cs" t="Include" />
           <e p="TaskViewModel.cs" t="Include" />
           <e p="UserViewModel.cs" t="Include" />
         </e>
@@ -113,6 +114,7 @@
           </e>
           <e p="TaskView" t="Include">
             <e p="Index.cshtml" t="Include" />
+            <e p="TagTasks.cshtml" t="Include" />
           </e>
         </e>
         <e p="wwwroot" t="Include">
@@ -183,13 +185,11 @@
         <e p="App.Database.csproj" t="IncludeRecursive" />
         <e p="ApplicationContext.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
-        <e p="bla.cs" t="Include" />
         <e p="Column" t="Include">
           <e p="ColumnRepository.cs" t="Include" />
           <e p="IColumnRepository.cs" t="Include" />
         </e>
         <e p="DatabaseModels" t="Include">
-          <e p="BossRoleDB.cs" t="Include" />
           <e p="ColumnDB.cs" t="Include" />
           <e p="CommentDB.cs" t="Include" />
           <e p="NotificationDB.cs" t="Include" />

@@ -109,5 +109,15 @@ namespace App.Controllers
 
         }
 
+        public async Task<IActionResult> TagTasks(int tagId)
+        {
+            var tag = await _taskService.GetTagById(tagId);
+            var model = new TasksListViewModel()
+            {
+                Tasks = tag.Tasks
+            };
+            return View(model);
+        }
+
 }
 }

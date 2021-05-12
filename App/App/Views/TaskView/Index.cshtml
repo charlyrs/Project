@@ -37,11 +37,13 @@
             <h6 style="color: white">Set deadline</h6>
             @using(Html.BeginForm("SetDeadline", "TaskView", FormMethod.Get))
             {
+                
                 <p>
                     <input type="date" id="date" name="deadline"/>
                 </p>
-                <button style="background-color: #60bcdc; width: 200px; border-color: darkturquoise; border-radius: 12px " type="submit" class="btn btn-primary">Submit</button>
-            }
+                <button style="background-color: #60bcdc; width: 100px; border-color: darkturquoise; border-radius: 12px " type="submit" class="btn btn-primary btn-sm">Submit</button>
+                    
+                    }
         }
         else
         {
@@ -50,7 +52,10 @@
         <div class="container">
                     @foreach (var tag in Model.Tags)
                     {
-                        <h5 style="color: white; margin-right: 4px">#@tag.Text </h5>
+                        <a href='@Url.Action("TagTasks", new {tagId = tag.Id})'>
+
+                    <h5 style="color: white; margin-right: 4px">#@tag.Text </h5>
+                    </a>
                     }
                 </div>
 
@@ -125,7 +130,7 @@
     @*
     <img style="margin-left: 200px" src="https://www.pinclipart.com/picdir/big/67-672993_asana-timeline-asana-timeline-asana-timeline-asana-illustration.png" width="400">
     *@
-    <img style="margin-left: 200px; margin-top: 20px" src="https://static.tildacdn.com/tild3366-6537-4262-a465-653833363134/CTA_Graphics1.png" width="570">
+    <img style="margin-left: 100px; margin-top: 20px; max-width: 680px" src="https://static.tildacdn.com/tild3366-6537-4262-a465-653833363134/CTA_Graphics1.png"  >
 </div>
 
 

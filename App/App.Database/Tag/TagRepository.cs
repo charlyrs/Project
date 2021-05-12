@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using App.Database.DatabaseModels;
+using App.Database.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace App.Database.Tag
@@ -35,6 +37,23 @@ namespace App.Database.Tag
             task.Tags.Add(tag);
             await _databaseContext.SaveChangesAsync();
             return true;
+        }
+
+        public async Task<Models.Tag> GetTagByIdWithTasks(int id)
+        {
+            var tag = await _databaseContext.Tags.Include(t => t.Tasks).FirstOrDefaultAsync(t => t.Id == id);
+            var result = new Models.Tag()
+            {
+                Id = tag.Id,
+                Text = tag.Text,
+                Tasks = tag.Tasks.Select(task => new ProjectTask()
+                {
+                    Id = task.Id,
+                    Title = task.Title
+                }).ToList()
+
+            };
+            return result;
         }
     }
 }

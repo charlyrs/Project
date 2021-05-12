@@ -26,10 +26,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/App.Database/DatabaseModels/TagDB.cs" />
-      <option value="$PROJECT_DIR$/App.Database/Models/Tag.cs" />
-      <option value="$PROJECT_DIR$/App.Database/Tag/ITagRepository.cs" />
-      <option value="$PROJECT_DIR$/App.Database/Tag/TagRepository.cs" />
       <option value="$PROJECT_DIR$/App/Startup.cs" />
       <option value="$PROJECT_DIR$/App.Database/RoadMap/IRMStepRepository.cs" />
       <option value="$PROJECT_DIR$/App.Database/RoadMap/RMStepRepository.cs" />
@@ -47,7 +43,6 @@
       <option value="$PROJECT_DIR$/App/Views/ProjectView/StepTasks.cshtml" />
       <option value="$PROJECT_DIR$/App/Views/ProjectView/RoadMap.cshtml" />
       <option value="$PROJECT_DIR$/App/Services/CurrentProjectService.cs" />
-      <option value="$PROJECT_DIR$/App/Views/ProjectView/Index.cshtml" />
       <option value="$PROJECT_DIR$/App/Controllers/AccountController.cs" />
       <option value="$PROJECT_DIR$/App/Controllers/ProjectsListController.cs" />
       <option value="$PROJECT_DIR$/App/Views/ProjectView/ProjectInfo.cshtml" />
@@ -55,17 +50,12 @@
       <option value="$PROJECT_DIR$/App/ViewModels/RoleViewModel.cs" />
       <option value="$PROJECT_DIR$/App/Services/Project/IProjectService.cs" />
       <option value="$PROJECT_DIR$/App/Views/ProjectView/ProjectSettings.cshtml" />
-      <option value="$PROJECT_DIR$/App/Controllers/ProjectViewController.cs" />
       <option value="$PROJECT_DIR$/App.Database/DatabaseModels/ColumnDB.cs" />
       <option value="$PROJECT_DIR$/App.Database/DatabaseModels/CommentDB.cs" />
       <option value="$PROJECT_DIR$/App.Database/DatabaseModels/ProjectTaskDB.cs" />
       <option value="$PROJECT_DIR$/App.Database/Models/Comment.cs" />
       <option value="$PROJECT_DIR$/App.Database/Models/ProjectTask.cs" />
       <option value="$PROJECT_DIR$/App.Database/Task/ITaskRepository.cs" />
-      <option value="$PROJECT_DIR$/App/Services/Task/ITaskService.cs" />
-      <option value="$PROJECT_DIR$/App/Services/Task/TaskService.cs" />
-      <option value="$PROJECT_DIR$/App/Controllers/TaskViewController.cs" />
-      <option value="$PROJECT_DIR$/App/Views/TaskView/Index.cshtml" />
       <option value="$PROJECT_DIR$/App.Database/Task/TaskRepository.cs" />
       <option value="$PROJECT_DIR$/App.Database/bla.cs" />
       <option value="$PROJECT_DIR$/App.Database/ProjectMapper.cs" />
@@ -77,6 +67,16 @@
       <option value="$PROJECT_DIR$/App.Database/ApplicationContext.cs" />
       <option value="$PROJECT_DIR$/App.Database/DatabaseModels/ProjectDB.cs" />
       <option value="$PROJECT_DIR$/App/Properties/launchSettings.json" />
+      <option value="$PROJECT_DIR$/App/Views/ProjectView/Index.cshtml" />
+      <option value="$PROJECT_DIR$/App.Database/Tag/ITagRepository.cs" />
+      <option value="$PROJECT_DIR$/App.Database/Tag/TagRepository.cs" />
+      <option value="$PROJECT_DIR$/App/Controllers/ProjectViewController.cs" />
+      <option value="$PROJECT_DIR$/App/Services/Task/ITaskService.cs" />
+      <option value="$PROJECT_DIR$/App/Services/Task/TaskService.cs" />
+      <option value="$PROJECT_DIR$/App/ViewModels/TasksListViewModel.cs" />
+      <option value="$PROJECT_DIR$/App/Controllers/TaskViewController.cs" />
+      <option value="$PROJECT_DIR$/App/Views/TaskView/TagTasks.cshtml" />
+      <option value="$PROJECT_DIR$/App/Views/TaskView/Index.cshtml" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rOlePqmrhZBxXy0wA2B6oTP2Kf" />
@@ -181,7 +181,7 @@
       <workItem from="1620716932798" duration="3036000" />
       <workItem from="1620797115771" duration="7325000" />
       <workItem from="1620839808209" duration="1773000" />
-      <workItem from="1620841707111" duration="342000" />
+      <workItem from="1620841707111" duration="2786000" />
     </task>
     <servers />
   </component>

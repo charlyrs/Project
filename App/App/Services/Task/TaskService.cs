@@ -85,5 +85,11 @@ namespace App.Services.Task
             await _taskRepository.AddCommentToTask(comment);
             return true;
         }
+
+        public async Task<Tag> GetTagById(int tagId)
+        {
+            var tag = await _tagRepository.GetTagByIdWithTasks(tagId);
+            return tag;
+        }
     }
 }

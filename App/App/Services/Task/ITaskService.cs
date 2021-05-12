@@ -16,5 +16,6 @@ namespace App.Services.Task
         Task<bool> AddTagToTask(Tag tag, int taskId);
         Task<bool> LinkTagToTask(int tagId, int taskId);
         Task<bool> AddCommentToTask(string text, int userId, int taskId);
+        Task<Tag> GetTagById(int tagId);
     }
 }

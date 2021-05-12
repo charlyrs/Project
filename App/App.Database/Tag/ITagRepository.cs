@@ -6,5 +6,6 @@ namespace App.Database.Tag
     {
         public Task<int> AddTag(Models.Tag tag);
         public Task<bool> AddTagToTask(int tagId, int taskId);
+        public Task<Models.Tag> GetTagByIdWithTasks(int id);
     }
 }
