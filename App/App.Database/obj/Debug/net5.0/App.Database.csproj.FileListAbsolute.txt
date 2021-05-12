@@ -10,3 +10,6 @@ D:\Git\Project\App\App.Database\obj\Debug\net5.0\App.Database.csproj.CoreCompile
 D:\Git\Project\App\App.Database\obj\Debug\net5.0\App.Database.dll
 D:\Git\Project\App\App.Database\obj\Debug\net5.0\ref\App.Database.dll
 D:\Git\Project\App\App.Database\obj\Debug\net5.0\App.Database.pdb
+D:\Git\Project\App\App.Database\bin\Debug\net5.0\App.Database.runtimeconfig.json
+D:\Git\Project\App\App.Database\bin\Debug\net5.0\App.Database.runtimeconfig.dev.json
+D:\Git\Project\App\App.Database\obj\Debug\net5.0\App.Database.genruntimeconfig.cache

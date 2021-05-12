@@ -35,13 +35,8 @@ namespace App.Services.Project
             project.Users = await _projectRepository.GetUsers(id);
             project.Columns = await _projectRepository.GetColumns(id);
             project.RoadMap = await _projectRepository.GetRoadMap(id);
-            var role = await _projectRepository.GetRole(id);
-            project.BossUsers = role.BossUsers.Select(u => new Database.Models.User
-            {
-                Id = u.Id,
-                Nickname = u.Nickname,
-                Email = u.Email
-            }).ToList();
+
+            project.BossUsers = await _projectRepository.GetBossUsers(id);
             return project;
         }
 
@@ -85,8 +80,8 @@ namespace App.Services.Project
 
         public async Task<bool> CheckUserRole(int userId, int projectId)
         {
-            var role = await _projectRepository.GetRole(projectId);
-            return role.BossUsers.Any(u => u.Id == userId);
+            var bossUsers = await _projectRepository.GetBossUsers(projectId);
+            return bossUsers.Any(u => u.Id == userId);
         }
 
         public async Task<List<Database.Models.User>> GetRegularUsers(int projectId)
@@ -97,13 +92,8 @@ namespace App.Services.Project
 
         public async Task<List<Database.Models.User>> GetBossUsers(int projectId)
         {
-            var role = await _projectRepository.GetRole(projectId);
-            var result = role.BossUsers.Select(u => new Database.Models.User
-            {
-                Id = u.Id,
-                Nickname = u.Nickname,
-                Email = u.Email
-            }).ToList();
+            //var role = await _projectRepository.GetRole(projectId);
+            var result = await _projectRepository.GetBossUsers(projectId);
             return result;
         }
 

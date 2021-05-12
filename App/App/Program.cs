@@ -18,6 +18,7 @@ namespace App
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
+            //var db = new ApplicationContext();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

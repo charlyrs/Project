@@ -183,6 +183,7 @@
         <e p="App.Database.csproj" t="IncludeRecursive" />
         <e p="ApplicationContext.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="bla.cs" t="Include" />
         <e p="Column" t="Include">
           <e p="ColumnRepository.cs" t="Include" />
           <e p="IColumnRepository.cs" t="Include" />

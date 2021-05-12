@@ -13,9 +13,9 @@ namespace App.Database.DatabaseModels
         public  List<ProjectDB> Projects { get; set; }
         public List<ProjectTaskDB> AssignedTasks { get; set; }
         public List<NotificationDB> Notifications { get; set; }
-        //Not used in system
-        public List<BossRoleDB> Roles { get; set; }
+        
         public List<CommentDB> Comments { get; set; }
+        public List<ProjectDB> BossProjects { get; set; }
        
     }
 }

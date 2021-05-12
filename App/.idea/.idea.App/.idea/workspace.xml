@@ -26,10 +26,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/App/Views/Notifications/Index.cshtml" />
-      <option value="$PROJECT_DIR$/App/Views/Registration/Index.cshtml" />
-      <option value="$PROJECT_DIR$/App/Views/Registration/LogIn.cshtml" />
-      <option value="$PROJECT_DIR$/App/Controllers/AddTaskController.cs" />
       <option value="$PROJECT_DIR$/App.Database/DatabaseModels/TagDB.cs" />
       <option value="$PROJECT_DIR$/App.Database/Models/Tag.cs" />
       <option value="$PROJECT_DIR$/App.Database/Tag/ITagRepository.cs" />
@@ -47,7 +43,6 @@
       <option value="$PROJECT_DIR$/App/ViewModels/TaskViewModel.cs" />
       <option value="$PROJECT_DIR$/App.Database/DatabaseModels/BossRole.cs" />
       <option value="$PROJECT_DIR$/App.Database/DatabaseModels/BossRoleDB.cs" />
-      <option value="$PROJECT_DIR$/App.Database/DatabaseModels/ProjectDB.cs" />
       <option value="$PROJECT_DIR$/App.Database/Models/Project.cs" />
       <option value="$PROJECT_DIR$/App/Views/ProjectView/StepTasks.cshtml" />
       <option value="$PROJECT_DIR$/App/Views/ProjectView/RoadMap.cshtml" />
@@ -58,25 +53,30 @@
       <option value="$PROJECT_DIR$/App/Views/ProjectView/ProjectInfo.cshtml" />
       <option value="$PROJECT_DIR$/App/ViewModels/ProjectViewModel.cs" />
       <option value="$PROJECT_DIR$/App/ViewModels/RoleViewModel.cs" />
-      <option value="$PROJECT_DIR$/App.Database/Project/IProjectRepository.cs" />
-      <option value="$PROJECT_DIR$/App.Database/Project/ProjectRepository.cs" />
       <option value="$PROJECT_DIR$/App/Services/Project/IProjectService.cs" />
-      <option value="$PROJECT_DIR$/App/Services/Project/ProjectService.cs" />
       <option value="$PROJECT_DIR$/App/Views/ProjectView/ProjectSettings.cshtml" />
       <option value="$PROJECT_DIR$/App/Controllers/ProjectViewController.cs" />
       <option value="$PROJECT_DIR$/App.Database/DatabaseModels/ColumnDB.cs" />
       <option value="$PROJECT_DIR$/App.Database/DatabaseModels/CommentDB.cs" />
       <option value="$PROJECT_DIR$/App.Database/DatabaseModels/ProjectTaskDB.cs" />
-      <option value="$PROJECT_DIR$/App.Database/DatabaseModels/UserDB.cs" />
       <option value="$PROJECT_DIR$/App.Database/Models/Comment.cs" />
       <option value="$PROJECT_DIR$/App.Database/Models/ProjectTask.cs" />
-      <option value="$PROJECT_DIR$/App.Database/ApplicationContext.cs" />
       <option value="$PROJECT_DIR$/App.Database/Task/ITaskRepository.cs" />
       <option value="$PROJECT_DIR$/App/Services/Task/ITaskService.cs" />
       <option value="$PROJECT_DIR$/App/Services/Task/TaskService.cs" />
       <option value="$PROJECT_DIR$/App/Controllers/TaskViewController.cs" />
       <option value="$PROJECT_DIR$/App/Views/TaskView/Index.cshtml" />
       <option value="$PROJECT_DIR$/App.Database/Task/TaskRepository.cs" />
+      <option value="$PROJECT_DIR$/App.Database/bla.cs" />
+      <option value="$PROJECT_DIR$/App.Database/ProjectMapper.cs" />
+      <option value="$PROJECT_DIR$/App.Database/DatabaseModels/UserDB.cs" />
+      <option value="$PROJECT_DIR$/App.Database/Project/ProjectRepository.cs" />
+      <option value="$PROJECT_DIR$/App.Database/Project/IProjectRepository.cs" />
+      <option value="$PROJECT_DIR$/App/Services/Project/ProjectService.cs" />
+      <option value="$PROJECT_DIR$/App/Program.cs" />
+      <option value="$PROJECT_DIR$/App.Database/ApplicationContext.cs" />
+      <option value="$PROJECT_DIR$/App.Database/DatabaseModels/ProjectDB.cs" />
+      <option value="$PROJECT_DIR$/App/Properties/launchSettings.json" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rOlePqmrhZBxXy0wA2B6oTP2Kf" />
@@ -179,6 +179,9 @@
       <workItem from="1620637067332" duration="5338000" />
       <workItem from="1620647764130" duration="8107000" />
       <workItem from="1620716932798" duration="3036000" />
+      <workItem from="1620797115771" duration="7325000" />
+      <workItem from="1620839808209" duration="1773000" />
+      <workItem from="1620841707111" duration="342000" />
     </task>
     <servers />
   </component>
@@ -233,13 +236,13 @@
         </line-breakpoint>
         <line-breakpoint type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/App.Database/Project/ProjectRepository.cs</url>
-          <line>65</line>
+          <line>61</line>
           <properties documentPath="D:\Git\Project\App\App.Database\Project\ProjectRepository.cs" initialLine="56" containingFunctionPresentation="method 'AddUserToProjectAsync'">
             <startOffsets>
-              <option value="2329" />
+              <option value="2147" />
             </startOffsets>
             <endOffsets>
-              <option value="2330" />
+              <option value="2148" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="6" />
@@ -298,13 +301,13 @@
         </line-breakpoint>
         <line-breakpoint type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/App.Database/Project/ProjectRepository.cs</url>
-          <line>146</line>
+          <line>143</line>
           <properties documentPath="D:\Git\Project\App\App.Database\Project\ProjectRepository.cs" initialLine="115" containingFunctionPresentation="method 'RemoveProjectFromUser'">
             <startOffsets>
-              <option value="5802" />
+              <option value="5633" />
             </startOffsets>
             <endOffsets>
-              <option value="5832" />
+              <option value="5663" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="24" />
