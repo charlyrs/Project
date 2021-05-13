@@ -194,7 +194,8 @@ namespace App.Database.Project
                 Text = t.Text,
                 Tasks = t.Tasks.Select(task => new ProjectTask()
                 {
-                    Id = task.Id
+                    Id = task.Id,
+                    Title = task.Title
                 }).ToList()
             }).ToList();
             return result;

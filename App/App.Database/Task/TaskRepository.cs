@@ -65,11 +65,7 @@ namespace App.Database.Task
                 {
                     Id = c.Id,
                     Text = c.Text,
-                    User = new Models.User()
-                    {
-                        Id = c.User.Id,
-                        Nickname = c.User.Nickname
-                    }
+                    
                 }).ToList()
             };
             if (task.RmStep != null)
@@ -136,6 +132,24 @@ namespace App.Database.Task
             await _databaseContext.Comments.AddAsync(commentDb);
             await _databaseContext.SaveChangesAsync();
             return true;
+        }
+
+        public async Task<List<Comment>> GetCommentsByTaskId(int taskId)
+        {
+            var comments = await _databaseContext.Comments.Include(c => c.User)
+                .Where(c => c.Task.Id == taskId).ToListAsync();
+            var result = comments.Select(c => new Comment()
+            {
+                Id = c.Id,
+                Text = c.Text,
+                User = new Models.User()
+                {
+                    Id = c.User.Id,
+                    Nickname = c.User.Nickname,
+                    Email = c.User.Email
+                }
+            }).ToList();
+            return result;
         }
     }
 }

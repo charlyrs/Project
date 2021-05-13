@@ -1,0 +1,38 @@
+﻿@model App.ViewModels.TasksListViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<style >
+  body{
+  background-color: #60bcdc;
+  
+  color: white;
+  }
+  text {
+  color: white;
+  }
+  .container {
+         display: flex;
+        
+         
+     }
+     nav{
+     height: 45px;
+     }
+  
+  
+</style>
+<form method="post">
+<div class="input-group mb-3" style="width: 200px;">
+    <span class="input-group-text" id="basic-addon1">#</span>
+    <input type="text" class="form-control" name="tagPart" placeholder="Enter tag" aria-describedby="basic-addon1">
+</div>
+
+<button style="background-color: #60bcdc; width: 200px; border-color: darkturquoise; border-radius: 12px " type="submit" class="btn btn-primary">Search</button>
+</form>
+@foreach (var task in Model.Tasks)
+{
+    <h5 style="color: white">@task.Title</h5>
+}

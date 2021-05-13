@@ -74,3 +74,4 @@ D:\Git\Project\App\App\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.D
 D:\Git\Project\App\App\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\Git\Project\App\App\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\Git\Project\App\App\obj\Debug\net5.0\Razor\Views\TaskView\TagTasks.cshtml.g.cs
+D:\Git\Project\App\App\obj\Debug\net5.0\Razor\Views\ProjectView\SearchTasksByTags.cshtml.g.cs

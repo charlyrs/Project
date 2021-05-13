@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using App.Database.Models;
 
 namespace App.Database.Task
@@ -12,6 +13,7 @@ namespace App.Database.Task
         Task<Models.Project> GetTasksProject(ProjectTask task);
         Task<bool> UpdateTaskDeadline(ProjectTask task);
         Task<bool> AddCommentToTask(Comment comment);
+        Task<List<Comment>> GetCommentsByTaskId(int taskId);
 
     }
 }

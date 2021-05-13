@@ -101,6 +101,7 @@
             <e p="ProjectInfo.cshtml" t="Include" />
             <e p="ProjectSettings.cshtml" t="Include" />
             <e p="RoadMap.cshtml" t="Include" />
+            <e p="SearchTasksByTags.cshtml" t="Include" />
             <e p="StepTasks.cshtml" t="Include" />
           </e>
           <e p="Registration" t="Include">

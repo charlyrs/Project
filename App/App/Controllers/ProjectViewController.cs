@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using App.Database.Models;
 using App.Services;
@@ -19,6 +22,8 @@ namespace App.Controllers
         private readonly IRoadMapService _roadMapService;
         private readonly INotificationService _notificationService;
         private static string _path;
+        private static List<ProjectTask> _tasks ;
+        
 
         public ProjectViewController(IProjectService projectService, IUserService userService, INotificationService notificationService, IRoadMapService roadMapService)
         {
@@ -26,7 +31,8 @@ namespace App.Controllers
             _userService = userService;
             _notificationService = notificationService;
             _roadMapService = roadMapService;
-            //_projectId = projectId;
+            _tasks = new List<ProjectTask>();
+
         }
         [HttpGet]
         public async Task <IActionResult> Index(int projectId)
@@ -138,7 +144,41 @@ namespace App.Controllers
             return RedirectToAction("ProjectSettings");
         }
 
-        
+        [HttpGet]
+        public IActionResult SearchTasksByTags()
+        {
+            var model = new TasksListViewModel();
+            if (_tasks == null)
+            {
+                _tasks = new List<ProjectTask>();
+            }
+
+            model.Tasks = _tasks;
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SearchTasksByTags(string tagPart)
+        {
+            var tagRegex = $@"{tagPart}((.)+)?";
+            
+            var tags = await _projectService.GetTags(CurrentProjectService.currentProjectId);
+            var foundTags = tags.Where(tag => Regex.IsMatch(tag.Text, tagRegex)).ToList();
+            //var output = new Dictionary<string, List<ProjectTask>>();
+            
+            foreach (var tag in foundTags)
+            {
+                //output[tag.Text] = tag.Tasks;
+                _tasks.AddRange(tag.Tasks);
+            }
+
+            var model = new TasksListViewModel()
+            {
+                Tasks = _tasks
+            };
+            
+            return View(model);
+        }
 
     }
 }
