@@ -16,7 +16,7 @@ namespace App.Database.RoadMap
             _databaseContext = databaseContext;
         }
 
-        public async Task<bool> AddStep(RMStep step)
+        public async Task<int> AddStep(RMStep step)
         {
             var rm =  await _databaseContext.RoadMaps.FindAsync(step.RoadMap.Id);
             var dbStep = new RMStepDB()
@@ -27,7 +27,7 @@ namespace App.Database.RoadMap
             };
             await _databaseContext.RoadMapSteps.AddAsync(dbStep);
             await _databaseContext.SaveChangesAsync();
-            return true;
+            return dbStep.Id;
         }
 
         public async Task<RMStep> GetStepById(int id)

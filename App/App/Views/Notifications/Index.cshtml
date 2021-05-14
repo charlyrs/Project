@@ -36,7 +36,8 @@
     <div style="margin-top: 20px">
         @foreach (var n in Model.Notifications)
         {
-            <div class="card" style="width: 40rem; height: 52px; margin-top: 5px">
+            
+            <div class="card" style="width: 390px; height: 52px; margin-top: 7px; border-radius: 16px; background-color: #E7F2F8">
                 <div class="card-body">
                     <a href='@Url.Action("RedirectController", new {path = n.Link})'>
 

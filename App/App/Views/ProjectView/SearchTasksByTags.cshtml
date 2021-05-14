@@ -34,5 +34,8 @@
 </form>
 @foreach (var task in Model.Tasks)
 {
+    <a href='@Url.Action("Index","TaskView", new {taskId = task.Id})' >
+
     <h5 style="color: white">@task.Title</h5>
+    </a>
 }

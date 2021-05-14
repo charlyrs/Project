@@ -14,10 +14,10 @@ namespace App.Services.RoadMap
             _roadMapRepository = roadMapRepository;
             _stepRepository = stepRepository;
         }
-        public async Task<bool> AddStep(RMStep step)
+        public async Task<int> AddStep(RMStep step)
         {
-            await _stepRepository.AddStep(step);
-            return true;
+            var id = await _stepRepository.AddStep(step);
+            return id;
         }
 
         public async Task<RMStep> GetStepByIdWithTasks(int id)

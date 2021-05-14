@@ -13,6 +13,7 @@ namespace App.ViewModels
         public RMStep RmStep { get; set; }
         public List<Tag> Tags { get; set; }
         public List<User> NotAssignedUsers { get; set; }
+        public List<Comment> Comments { get; set; }
 
         public TaskViewModel(ProjectTask task)
         {
@@ -22,6 +23,7 @@ namespace App.ViewModels
             Column = task.Column;
             RmStep = task.RmStep;
             Tags = task.Tags;
+            Comments = task.Comments;
         }
     }
 }

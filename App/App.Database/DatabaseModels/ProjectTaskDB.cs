@@ -13,5 +13,6 @@ namespace App.Database.DatabaseModels
         public ColumnDB Column { get; set; }
         public List<TagDB> Tags { get; set; }
         public List<CommentDB> Comments { get; set; }
+        public ProjectDB Project { get; set; }
     }
 }

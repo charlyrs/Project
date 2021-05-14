@@ -25,6 +25,10 @@
    nav{
         height: 45px;
         }
+ 
+       
+       
+       
   
 </style>
 <body>
@@ -34,36 +38,27 @@
         <h1 class="display-3" style="margin-bottom: 20px">@Model.Title</h1>
         @if (Model.Deadline == DateTime.MinValue)
         {
-            <h6 style="color: white">Set deadline</h6>
-            @using(Html.BeginForm("SetDeadline", "TaskView", FormMethod.Get))
-            {
-                
-                <p>
-                    <input type="date" id="date" name="deadline"/>
-                </p>
-                <button style="background-color: #60bcdc; width: 100px; border-color: darkturquoise; border-radius: 12px " type="submit" class="btn btn-primary btn-sm">Submit</button>
-                    
-                    }
+            
         }
         else
         {
             <h6 style="color: white">Deadline: @Model.Deadline.ToString("dd.MM.yyyy")</h6>
         }
         <div class="container">
-                    @foreach (var tag in Model.Tags)
-                    {
-                        <a href='@Url.Action("TagTasks", new {tagId = tag.Id})'>
+            @foreach (var tag in Model.Tags)
+            {
+                <a href='@Url.Action("TagTasks", new {tagId = tag.Id})'>
 
                     <h5 style="color: white; margin-right: 4px">#@tag.Text </h5>
-                    </a>
-                    }
-                </div>
+                </a>
+            }
+        </div>
 
 
         @if (Model.AssignedUsers.Count!=0)
         {
-            <div class="card" style="width: 18rem; margin-top: 10px">
-                <div class="card-body" >
+            <div class="card" style="width: 25rem; margin-top: 10px">
+                <div class="card-body"  >
                 
                     @foreach (var user in Model.AssignedUsers)
                     {
@@ -72,65 +67,101 @@
                 </div>
             </div>
         }
-        <div class="card" style="width: 18rem; margin-top: 25px">
-                    <div class="card-body">
-                        
-                        <button style="background-color: #ff9292; margin-top: 15px; width: 200px; border-radius: 12px; border-color:#C0DCEC" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                            @if (Model.RmStep == null)
-                            {
-                                <div>Choose step</div>
-                            }
-                            else
-                            {
-                                @Model.RmStep.Title
-                            }
-                        </button>
-        
+        <div style="max-width: 25rem">
+        @foreach (var comment in Model.Comments)
+        {
+            
+            <div class="comment" style="background-color: #E7F2F8; border-radius: 16px">
+                
+                <div class="comment-body" style="margin: 20px" >
+                   
+                    <div class="text" style="margin-top: 15px; color: #145DA0">
+                       
+                        @comment.Text
                     </div>
+                        <p class="attribution"><a href="#" style="color: #60bcdc">@comment.User.Nickname</a> at 14:23pm, 4 Dec 2015</p>
+                       
                 </div>
-        
-        <div class="card" style="width: 18rem; margin-top: 25px">
-            <div class="card-body">
-
-                @if (CurrentProjectService.bossRole)
-                {
-                    @if (Model.NotAssignedUsers.Count != 0)
-                    {
-                        <h6 style="color: #60bcdc">Add user</h6>
-                    }
-
-
-                    @foreach (var user in Model.NotAssignedUsers)
-                    {
-                        <a style="color: #60bcdc" href='@Url.Action("AssignUserToTask", "TaskView", new {username = user.Nickname})'>
-                            <h6 style="color: #C0DCEC;"> @user.Nickname</h6>
-
-                        </a>
-                    }
-                }
-                @using (Html.BeginForm("LeaveComment", "TaskView", FormMethod.Get))
-                                    {
-                                        <div class="form-group" style="margin-top: 10px; ">
-                
-                                            <input style="border-radius: 12px; width: 15rem;  height: 35px" type="text" name="text" class="form-control" placeholder="Write a comment...">
-                                            <button style="background-color: #60bcdc; width: 200px; border-color: darkturquoise; border-radius: 12px " type="submit" class="btn btn-primary btn-sm">Submit</button>
-                
-                                        </div>
-                                    }
-                
-
             </div>
+        }
         </div>
+        @using (Html.BeginForm("LeaveComment", "TaskView", FormMethod.Get))
+        {
+            <div class="form-group" style="margin-top: 10px; ">
+                            
+                <textarea style="border-radius: 12px; width: 25rem;  height: 35px" type="text" name="text" class="form-control" placeholder="Write a comment...">Write something... </textarea>
+                <button style="background-color:#acd4f4 ; width: 200px; border-color: darkturquoise; border-radius: 12px; margin-top: 20px  " type="submit" class="btn btn-primary btn-sm">Submit</button>
+                            
+                </div>
+        }
+      
         
         
-        <button style="background-color: #acd4f4; margin-top: 15px; width: 200px; border-radius: 12px; border-color:#C0DCEC" type="button" class="btn btn-primary" data-toggle="modal" data-target="#tagModal">
-                                           Add tag
-                                        </button>
+       
     </div>
+     
+            
+            <div class="card" style="width: 20rem; margin-top: 25px; margin-left: 200px; margin-top: 60px">
+                <div class="card-body">
+                    @if (Model.Deadline == DateTime.MinValue)
+                    {
+
+
+                        <h6 style="color: white">Set deadline</h6>
+                        @using (Html.BeginForm("SetDeadline", "TaskView", FormMethod.Get))
+                        {
+
+                            <p>
+                                <input type="date" id="date" name="deadline"/>
+                            </p>
+                            <button style="background-color: #60bcdc; width: 100px; border-color: darkturquoise; border-radius: 12px " type="submit" class="btn btn-primary btn-sm">Submit</button>
+
+                        }
+                    }
+
+                    <button style="background-color: #acd4f4; margin-top: 15px; width: 250px; border-radius: 12px; border-color:#C0DCEC" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                        @if (Model.RmStep == null)
+                        {
+                            <div>Choose step</div>
+                        }
+                        else
+                        {
+                            @Model.RmStep.Title
+                        }
+                    </button>
+
+
+                    <button style="background-color: #acd4f4; margin-top: 15px; width: 250px; border-radius: 12px; border-color:#C0DCEC" type="button" class="btn btn-primary" data-toggle="modal" data-target="#tagModal">
+                        Add tag
+                    </button>
+                    <a href='@Url.Action("ArchiveTask")'>
+                        <button style="background-color: #a4dfed; margin-top: 20px; margin-left: 50px; width: 200px; border-color: #a4dfed; border-radius: 12px " type="submit" class="btn btn-primary">Archive task</button>
+                    </a>
+                    @if (CurrentProjectService.bossRole)
+                    {
+                        @if (Model.NotAssignedUsers.Count != 0)
+                        {
+                            <h6 style="color: #60bcdc">Add user</h6>
+                        }
+
+
+                        @foreach (var user in Model.NotAssignedUsers)
+                        {
+                            <a style="color: #60bcdc" href='@Url.Action("AssignUserToTask", "TaskView", new {username = user.Nickname})'>
+                                <h6 style="color: #C0DCEC;"> @user.Nickname</h6>
+
+                            </a>
+                        }
+                    }
+
+                </div>
+            </div>
     @*
     <img style="margin-left: 200px" src="https://www.pinclipart.com/picdir/big/67-672993_asana-timeline-asana-timeline-asana-timeline-asana-illustration.png" width="400">
     *@
+    @*
     <img style="margin-left: 100px; margin-top: 20px; max-width: 680px" src="https://static.tildacdn.com/tild3366-6537-4262-a465-653833363134/CTA_Graphics1.png"  >
+*@
 </div>
 
 

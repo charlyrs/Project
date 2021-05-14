@@ -10,6 +10,7 @@ using App.Services.Task;
 using App.Services.User;
 using App.ViewModels;
 using App.Database.Models;
+using App.Services.RoadMap;
 using Microsoft.AspNetCore.Mvc;
 
 namespace App.Controllers
@@ -21,15 +22,17 @@ namespace App.Controllers
         private readonly IUserService _userService;
         private readonly IProjectService _projectService;
         private readonly INotificationService _notificationService;
+        private readonly IRoadMapService _roadMapService;
         private static int _taskId;
         private static string _link;
 
-        public TaskViewController(ITaskService taskService, IUserService userService, IProjectService projectService, INotificationService notificationService)
+        public TaskViewController(ITaskService taskService, IUserService userService, IProjectService projectService, INotificationService notificationService, IRoadMapService roadMapService)
         {
             _taskService = taskService;
             _userService = userService;
             _projectService = projectService;
             _notificationService = notificationService;
+            _roadMapService = roadMapService;
         }
 
         // GET
@@ -95,14 +98,13 @@ namespace App.Controllers
         public async Task<IActionResult> LeaveComment(string text)
         {
             var added = await _taskService.AddCommentToTask(text, CurrentUserService.currentUserId, _taskId);
-            if (added)
+            if (!added) return RedirectToAction("Index", new {taskId = _taskId});
+            var task = await _taskService.FindTaskById(_taskId);
+            foreach (var user in task.AssignedUsers)
             {
-                var task = await _taskService.FindTaskById(_taskId);
-                foreach (var user in task.AssignedUsers)
-                {
-                    await _notificationService.FormNotification($"A new comment was left under the task \"{task.Title}\"",
-                        _link, user.Id);
-                }
+                if(user.Id == CurrentUserService.currentUserId) continue;
+                await _notificationService.FormNotification($"A new comment was left under the task \"{task.Title}\"",
+                    _link, user.Id);
             }
 
             return RedirectToAction("Index", new {taskId = _taskId});
@@ -117,6 +119,26 @@ namespace App.Controllers
                 Tasks = tag.Tasks
             };
             return View(model);
+        }
+
+        public async Task<IActionResult> AddStep(string title)
+        {
+            var step = new RMStep()
+            {
+                Title = title,
+                RoadMap = await _projectService.GetRoadMap(CurrentProjectService.currentProjectId)
+            };
+            var id = await _roadMapService.AddStep(step);
+            await _taskService.LinkTaskToRoadMapStep(_taskId, id);
+            return RedirectToAction("");
+
+        }
+
+        public async Task<IActionResult> ArchiveTask()
+        {
+            await _taskService.ArchiveTask(_taskId);
+            return RedirectToAction("Index", "ProjectView", new {projectId = CurrentProjectService.currentProjectId});
+
         }
 
 }

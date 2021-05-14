@@ -14,6 +14,8 @@ namespace App.Database.Task
         Task<bool> UpdateTaskDeadline(ProjectTask task);
         Task<bool> AddCommentToTask(Comment comment);
         Task<List<Comment>> GetCommentsByTaskId(int taskId);
+        Task<bool> RemoveTaskFromColumn(int taskId);
+        Task<bool> AddTaskToArchive(int taskId);
 
     }
 }

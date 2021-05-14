@@ -61,12 +61,7 @@ namespace App.Database.Task
                     Id = tag.Id,
                     Text = tag.Text
                 }).ToList(),
-                Comments = task.Comments.Select(c => new Comment()
-                {
-                    Id = c.Id,
-                    Text = c.Text,
-                    
-                }).ToList()
+                
             };
             if (task.RmStep != null)
             {
@@ -150,6 +145,23 @@ namespace App.Database.Task
                 }
             }).ToList();
             return result;
+        }
+
+        public async Task<bool> RemoveTaskFromColumn(int taskId)
+        {
+            var task = await _databaseContext.Tasks.Include(t => t.Column).FirstOrDefaultAsync(t => t.Id == taskId);
+            var column = task.Column;
+            column.Tasks.Remove(task);
+            await _databaseContext.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> AddTaskToArchive(int taskId)
+        {
+            var task = await _databaseContext.Tasks.Include(t => t.Column.Project).FirstOrDefaultAsync(t => t.Id == taskId);
+            task.Project = task.Column.Project;
+            await _databaseContext.SaveChangesAsync();
+            return true;
         }
     }
 }

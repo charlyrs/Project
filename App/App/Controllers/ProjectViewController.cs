@@ -147,20 +147,14 @@ namespace App.Controllers
         [HttpGet]
         public IActionResult SearchTasksByTags()
         {
-            var model = new TasksListViewModel();
-            if (_tasks == null)
-            {
-                _tasks = new List<ProjectTask>();
-            }
-
-            model.Tasks = _tasks;
+            var model = new TasksListViewModel {Tasks = _tasks};
             return View(model);
         }
 
         [HttpPost]
         public async Task<IActionResult> SearchTasksByTags(string tagPart)
         {
-            var tagRegex = $@"{tagPart}((.)+)?";
+            var tagRegex = $@"(.+)?{tagPart}(.+)?";
             
             var tags = await _projectService.GetTags(CurrentProjectService.currentProjectId);
             var foundTags = tags.Where(tag => Regex.IsMatch(tag.Text, tagRegex)).ToList();

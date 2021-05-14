@@ -5,7 +5,7 @@ namespace App.Services.RoadMap
 {
     public interface IRoadMapService
     {
-        Task<bool> AddStep(RMStep step);
+        Task<int> AddStep(RMStep step);
         Task<RMStep> GetStepByIdWithTasks(int id);
     }
 }

@@ -26,6 +26,7 @@ namespace App.Services.Task
         public async Task<ProjectTask> FindTaskById(int id)
         {
             var task = await _taskRepository.GetTaskById(id);
+            task.Comments = await _taskRepository.GetCommentsByTaskId(id);
             return task;
         }
 
@@ -90,6 +91,13 @@ namespace App.Services.Task
         {
             var tag = await _tagRepository.GetTagByIdWithTasks(tagId);
             return tag;
+        }
+
+        public async Task<bool> ArchiveTask(int taskId)
+        {
+            await _taskRepository.AddTaskToArchive(taskId);
+            await _taskRepository.RemoveTaskFromColumn(taskId);
+            return true;
         }
     }
 }

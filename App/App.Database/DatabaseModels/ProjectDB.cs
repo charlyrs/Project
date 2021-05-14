@@ -18,6 +18,7 @@ namespace App.Database.DatabaseModels
         
         [InverseProperty("Projects")]
         public  List<UserDB> Users { get; set; }
+        public List<ProjectTaskDB> ArchivedTasks { get; set; }
         
     }
 }
