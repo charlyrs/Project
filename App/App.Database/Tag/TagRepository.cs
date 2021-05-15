@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace App.Database.Tag
 {
-    public class TagRepository:ITagRepository
+    public class TagRepository : ITagRepository
     {
         private readonly ApplicationContext _databaseContext;
 
@@ -16,7 +16,7 @@ namespace App.Database.Tag
             _databaseContext = databaseContext;
         }
 
-        public  async Task<int> AddTag(Models.Tag tag)
+        public async Task<int> AddTag(Models.Tag tag)
         {
             var project = await _databaseContext.Projects.FindAsync(tag.Project.Id);
             var dbTag = new TagDB()
@@ -55,5 +55,6 @@ namespace App.Database.Tag
             };
             return result;
         }
+
     }
 }

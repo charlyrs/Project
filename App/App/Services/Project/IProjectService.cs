@@ -18,5 +18,6 @@ namespace App.Services.Project
         Task<List<Database.Models.User>> GetRegularUsers(int projectId);
         Task<List<Database.Models.User>> GetBossUsers(int projectId);
         Task<bool> SetUsersRole(int userId, int projectId);
+        
     }
 }

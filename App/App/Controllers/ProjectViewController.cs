@@ -158,8 +158,7 @@ namespace App.Controllers
             
             var tags = await _projectService.GetTags(CurrentProjectService.currentProjectId);
             var foundTags = tags.Where(tag => Regex.IsMatch(tag.Text, tagRegex)).ToList();
-            //var output = new Dictionary<string, List<ProjectTask>>();
-            
+
             foreach (var tag in foundTags)
             {
                 //output[tag.Text] = tag.Tasks;

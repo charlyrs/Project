@@ -18,8 +18,7 @@ namespace App.Services.User
 
         public async Task<int> AddUser(Database.Models.User user)
         {
-            bool uniqueNickname = await _checkInputService.UniqueUsername(user);
-
+            var uniqueNickname = await _checkInputService.UniqueUsername(user);
             if (!uniqueNickname) return 0;
             var id = await _userRepository.AddUserAsync(user);
             return id;

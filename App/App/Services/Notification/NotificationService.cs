@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using App.Database.Notification;
 using App.Services.User;
 
@@ -11,17 +12,10 @@ namespace App.Services.Notification
         {
             _notificationRepository = notificationRepository;
         }
-
-
-        /*public async Task<bool> AddNotification(Database.Models.Notification notification)
-        {
-            
-        }*/
-
+        
         public  async Task<bool> FormNotification(string text, string link, int recieverId)
         {
-            //var text = new string($"{sender} {action}");
-            
+            if (link == null || recieverId == 0) throw new Exception("Invalid notification data");
             var notification = new Database.Models.Notification()
             {
                 Text = text,

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using App.Database.User;
 using App.ViewModels;
 
@@ -23,9 +24,8 @@ namespace App.Services.User
 
         public async Task<Database.Models.User> GetUserByNickname(string name)
         {
-            if (name == null) return null;
+            if (string.IsNullOrEmpty(name)) throw new Exception("Name can't be empty");
             var user = await _userRepository.GetUserByNickname(name);
-            //var userViewModel = new UserViewModel(user);
             return user;
         }
 
@@ -35,7 +35,6 @@ namespace App.Services.User
             if (!unique) return false;
             await _userRepository.UpdateUserAsync(user);
             return true;
-
         }
 
         public async Task<bool> UpdateUserPassword(string password, string newPassword, int id)

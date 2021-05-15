@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using App.Database.Models;
 
@@ -18,5 +19,6 @@ namespace App.Services.Task
         Task<bool> AddCommentToTask(string text, int userId, int taskId);
         Task<Tag> GetTagById(int tagId);
         Task<bool> ArchiveTask(int taskId);
+        
     }
 }

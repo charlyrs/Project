@@ -23,11 +23,11 @@
            <h1 style="margin-bottom: 20px; color: white">Edit</h1>
            <div class="form-group">
 
-               <input style="border-radius: 12px; " class="form-control"  placeholder="@Model.Nickname" name="username" >
+               <textarea style="border-radius: 12px; " class="form-control" cols="20"  placeholder="@Model.Nickname" name="username" >@Model.Nickname</textarea>
            </div>
 
            <div class="form-group">
-               <input style="border-radius: 12px; " type="email"  class="form-control" placeholder="@Model.Email" name="email">
+               <textarea style="border-radius: 12px; " type="email" cols="20" class="form-control" placeholder="@Model.Email" name="email">@Model.Email</textarea>
            </div>
 
            <button style="background-color: #C0DCEC; width: 200px; border-color: darkturquoise; border-radius: 12px " type="submit" class="btn btn-primary">Submit</button>
