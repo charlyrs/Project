@@ -54,17 +54,11 @@
       <option value="$PROJECT_DIR$/App.Database/DatabaseModels/ProjectTaskDB.cs" />
       <option value="$PROJECT_DIR$/App.Database/Task/ITaskRepository.cs" />
       <option value="$PROJECT_DIR$/App.Database/Task/TaskRepository.cs" />
-      <option value="$PROJECT_DIR$/App/Controllers/TaskViewController.cs" />
-      <option value="$PROJECT_DIR$/App/Program.cs" />
       <option value="$PROJECT_DIR$/App.Database/ApplicationContext.cs" />
-      <option value="$PROJECT_DIR$/App/Views/Shared/_Layout.cshtml" />
       <option value="$PROJECT_DIR$/App/Views/ProjectsList/Index.cshtml" />
       <option value="$PROJECT_DIR$/App/Views/Notifications/Index.cshtml" />
-      <option value="$PROJECT_DIR$/App/Views/TaskView/Index.cshtml" />
       <option value="$PROJECT_DIR$/App/wwwroot/js/site.js" />
-      <option value="$PROJECT_DIR$/App/Views/ProjectView/Index.cshtml" />
       <option value="$PROJECT_DIR$/App/Views/Account/EditUserData.cshtml" />
-      <option value="$PROJECT_DIR$/App/Views/Account/Index.cshtml" />
       <option value="$PROJECT_DIR$/App/Services/Column/ColumnService.cs" />
       <option value="$PROJECT_DIR$/App/Services/Notification/NotificationService.cs" />
       <option value="$PROJECT_DIR$/App/Services/Project/ProjectService.cs" />
@@ -77,6 +71,12 @@
       <option value="$PROJECT_DIR$/App.Database/Tag/TagRepository.cs" />
       <option value="$PROJECT_DIR$/App/Services/Task/TaskService.cs" />
       <option value="$PROJECT_DIR$/App/Services/Task/ITaskService.cs" />
+      <option value="$PROJECT_DIR$/App/Program.cs" />
+      <option value="$PROJECT_DIR$/App/Views/Account/Index.cshtml" />
+      <option value="$PROJECT_DIR$/App/Views/Shared/_Layout.cshtml" />
+      <option value="$PROJECT_DIR$/App/Views/TaskView/Index.cshtml" />
+      <option value="$PROJECT_DIR$/App/Views/ProjectView/Index.cshtml" />
+      <option value="$PROJECT_DIR$/App/Controllers/TaskViewController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rOlePqmrhZBxXy0wA2B6oTP2Kf" />
@@ -189,7 +189,12 @@
       <workItem from="1620985262655" duration="3205000" />
       <workItem from="1621011172157" duration="7167000" />
       <workItem from="1621095655213" duration="2332000" />
-      <workItem from="1621112360181" duration="3014000" />
+      <workItem from="1621112360181" duration="3620000" />
+      <workItem from="1621156369740" duration="7858000" />
+      <workItem from="1621168264690" duration="763000" />
+      <workItem from="1621174483642" duration="2487000" />
+      <workItem from="1621199142681" duration="2073000" />
+      <workItem from="1621234546541" duration="513000" />
     </task>
     <servers />
   </component>
@@ -504,8 +509,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/App/Views/TaskView/Index.cshtml</url>
-          <line>49</line>
-          <properties documentPath="D:\Git\Project\App\App\Views\TaskView\Index.cshtml" initialLine="54" isMultiMethodBreakpoint="true">
+          <line>199</line>
+          <properties documentPath="D:\Git\Project\App\App\Views\TaskView\Index.cshtml" initialLine="198" isMultiMethodBreakpoint="true">
             <option name="multiMethodBreakpoint" value="true" />
             <startOffsets>
               <option value="-1" />
@@ -514,7 +519,7 @@
               <option value="-1" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="55" />
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
