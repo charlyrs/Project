@@ -26,7 +26,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/App/Services/CurrentProjectService.cs" />
       <option value="$PROJECT_DIR$/App/Controllers/AccountController.cs" />
       <option value="$PROJECT_DIR$/App/Controllers/ProjectsListController.cs" />
       <option value="$PROJECT_DIR$/App/Views/ProjectView/ProjectInfo.cshtml" />
@@ -77,6 +76,7 @@
       <option value="$PROJECT_DIR$/App/Views/TaskView/Index.cshtml" />
       <option value="$PROJECT_DIR$/App/Views/ProjectView/Index.cshtml" />
       <option value="$PROJECT_DIR$/App/Controllers/TaskViewController.cs" />
+      <option value="$PROJECT_DIR$/App/Startup.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rOlePqmrhZBxXy0wA2B6oTP2Kf" />
@@ -194,7 +194,10 @@
       <workItem from="1621168264690" duration="763000" />
       <workItem from="1621174483642" duration="2487000" />
       <workItem from="1621199142681" duration="2073000" />
-      <workItem from="1621234546541" duration="513000" />
+      <workItem from="1621234546541" duration="5251000" />
+      <workItem from="1621244403239" duration="670000" />
+      <workItem from="1621257787672" duration="380000" />
+      <workItem from="1621322006524" duration="600000" />
     </task>
     <servers />
   </component>

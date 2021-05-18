@@ -25,6 +25,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
 
 namespace App
 {
@@ -52,13 +53,14 @@ namespace App
             services.AddTransient<IColumnService, ColumnService>();
             services.AddTransient<ITaskRepository, TaskRepository>();
             services.AddTransient<ITaskService, TaskService>();
-            services.AddScoped<ApplicationContext>();
+           // services.AddScoped<ApplicationContext>();
             services.AddTransient<INotificationRepository, NotificationRepository>();
             services.AddTransient<INotificationService, NotificationService>();
             services.AddTransient<IRoadMapRepository, RoadMapRepository>();
             services.AddTransient<IRMStepRepository, RMStepRepository>();
             services.AddTransient<IRoadMapService, RoadMapService>();
             services.AddTransient<ITagRepository, TagRepository>();
+            services.AddDbContext<ApplicationContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1592,7 +1592,6 @@
   "projectFileDependencyGroups": {
     "net5.0": [
       "EntityFramework >= 6.4.4",
-      "Microsoft.EntityFrameworkCore >= 5.0.5",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 5.0.5"
     ]
   },
@@ -1643,10 +1642,6 @@
           "EntityFramework": {
             "target": "Package",
             "version": "[6.4.4, )"
-          },
-          "Microsoft.EntityFrameworkCore": {
-            "target": "Package",
-            "version": "[5.0.5, )"
           },
           "Npgsql.EntityFrameworkCore.PostgreSQL": {
             "target": "Package",

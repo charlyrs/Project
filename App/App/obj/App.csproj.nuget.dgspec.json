@@ -48,10 +48,6 @@
               "target": "Package",
               "version": "[6.4.4, )"
             },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[5.0.5, )"
-            },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[5.0.5, )"
@@ -123,10 +119,6 @@
             "EntityFramework": {
               "target": "Package",
               "version": "[6.4.4, )"
-            },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[5.0.5, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
