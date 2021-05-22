@@ -6,7 +6,7 @@
 }
 <style>
     body{
-    background-color: #60bcdc;
+    background-color: #C0DCEC;
     }
     .container{
     
@@ -34,17 +34,63 @@
           transition: .3s;
         }
         .floating-button:hover {
-          background: #2EE59D;
-          box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+          background: #60bcdc;
+          box-shadow: 0 15px 20px #a4dfed;
           color: white;
           transform: translateY(-7px);
         }
+             .btn {
+                  position: relative;
+                  overflow: hidden;
+                  z-index: 1;
+                  padding: 10px 40px;
+                  margin: 0 20px;
+                  font-family: 'Montserrat Alternates', sans-serif;
+                  font-weight: 600;
+                  line-height: 30px;
+                  color: white;
+                  font-size: 15px;
+                  text-transform: uppercase;
+                  background: #60bcdc ;
+                  border-width: 0;
+                  box-shadow: 5px 5px 0 #145DA0;
+                  outline: none;
+                  cursor: pointer;
+                  transition: 1.5s;
+               }
+               .btn:before, .btn:after {
+                  content: "";
+                  position: absolute;
+                  height: 200px;
+                  left: -50%;
+                  margin-top: -100px;
+                  top: 50%;
+                  width: 200px;
+                  border-radius: 50%;
+                  opacity: 0.3;
+                  z-index: -1;
+                  transform: scale(0);
+               }
+               .btn:before {
+                  background: #a4dfed;
+                  transition: .8s ease-out;
+               }
+               .btn:after {
+                  transition: .4s ease-in .3s;
+               }
+               .btn:hover {
+                  color: #145DA0;
+               }
+               .btn:hover:before, .btn:hover:after {
+                  opacity: 1;
+                  transform: scale(4);
+               }
 </style>
 <body>
  <div >
         
      <div class="container" style="display: flex">
-         <div style="margin-top: 30px">
+         <div style="margin-top: 30px;">
              <h1 class="display-4" style="margin-bottom: 20px; color: white">Account info</h1>
              <div class="form-group">
 
@@ -54,18 +100,22 @@
              <div class="form-group">
                  <input style="border-radius: 12px; width: 350px " class="form-control" placeholder="@Model.Email" readonly>
              </div>
-
-             <a href='@Url.Action("EditUserData")'>
-                 <button style="background-color: #C0DCEC; width: 150px; border-color: darkturquoise; border-radius: 12px " type="submit" class="btn btn-primary">Edit</button>
+             
+             <a href='@Url.Action("EditPassword")' >
+                 <h6 style="color:#145DA0; margin-top: 10px">Change password</h6>
              </a>
+             <div>
+                 <a href='@Url.Action("EditUserData")' >
+                     <div class="btn">Edit</div>
+                 </a>
+                 </div>
 
-
-             <a href='@Url.Action("EditPassword")'>
-                 <h6 style="color: white; margin-top: 20px;width: 150px ">Change password</h6>
-             </a>
-             <a href='@Url.Action("LogOut")'>
-                 <button style="background-color: #C0DCEC; width: 150px; border-color: darkturquoise; border-radius: 12px " type="submit" class="btn btn-primary">Log out</button>
-             </a>
+             
+             <div>
+                 <a href='@Url.Action("LogOut")' >
+                     <div class="btn" style="background-color: #C0DCEC; margin-top: 100px">Log out</div>
+                 </a>
+                 </div>
          </div>
          
                  <div class="card mb-4 rounded-3 shadow-sm" style="width: 20rem; margin-left: 200px; margin-top: 60px">

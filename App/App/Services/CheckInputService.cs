@@ -15,11 +15,7 @@ namespace App.Services
         public async Task<bool> UniqueUsername(Database.Models.User user)
         {
             var foundUser = await _userRepository.GetUserByNickname(user.Nickname);
-            if (foundUser == null)
-            {
-                return true;
-            }
-            return false;
+            return foundUser == null;
         }
     }
 }

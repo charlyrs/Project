@@ -11,6 +11,52 @@ body{
     size: landscape;
     
    }
+   .btn {
+             position: relative;
+             overflow: hidden;
+             z-index: 1;
+             padding: 10px 40px;
+             margin: 0 20px;
+             font-family: 'Montserrat Alternates', sans-serif;
+             font-weight: 600;
+             line-height: 30px;
+             color: white;
+             font-size: 15px;
+             text-transform: uppercase;
+             background: #60bcdc ;
+             border-width: 0;
+             box-shadow: 5px 5px 0 #145DA0;
+             outline: none;
+             cursor: pointer;
+             transition: 1.5s;
+          }
+          .btn:before, .btn:after {
+             content: "";
+             position: absolute;
+             height: 200px;
+             left: -50%;
+             margin-top: -100px;
+             top: 50%;
+             width: 200px;
+             border-radius: 50%;
+             opacity: 0.3;
+             z-index: -1;
+             transform: scale(0);
+          }
+          .btn:before {
+             background: #a4dfed;
+             transition: .8s ease-out;
+          }
+          .btn:after {
+             transition: .4s ease-in .3s;
+          }
+          .btn:hover {
+             color: #145DA0;
+          }
+          .btn:hover:before, .btn:hover:after {
+             opacity: 1;
+             transform: scale(4);
+          }
    
    text {
    color: white;
@@ -41,7 +87,7 @@ body{
             <input style="border-radius: 12px" type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
 
-        <button style="background-color: #5EB7CA; width: 200px; border-color: darkturquoise; border-radius: 12px " type="submit" class="btn btn-primary">Submit</button>
+        <button  type="submit" class="btn">Submit</button>
     </form>
 </div>
 </body>

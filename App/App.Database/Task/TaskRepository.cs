@@ -120,6 +120,7 @@ namespace App.Database.Task
         {
             var commentDb = new CommentDB()
             {
+                Time = comment.Time,
                 Task = await _databaseContext.Tasks.FindAsync(comment.Task.Id),
                 Text = comment.Text,
                 User = await _databaseContext.Users.FindAsync(comment.User.Id)
@@ -137,6 +138,7 @@ namespace App.Database.Task
             {
                 Id = c.Id,
                 Text = c.Text,
+                Time = c.Time,
                 User = new Models.User()
                 {
                     Id = c.User.Id,

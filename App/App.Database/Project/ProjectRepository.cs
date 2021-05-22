@@ -143,10 +143,10 @@ namespace App.Database.Project
             var project = await _databaseContext.Projects.Include(p => p.Users).FirstOrDefaultAsync(p => p.Id == projectId);
             user.Projects.Remove(project);
             await _databaseContext.SaveChangesAsync();
-            /*if (project.Users.Count == 0)
+            if (project.Users.Count == 0)
             {
                 await DeleteProject(projectId);
-            }*/
+            }
 
             await _databaseContext.SaveChangesAsync();
             return true;
@@ -156,9 +156,10 @@ namespace App.Database.Project
         {
             var project = await _databaseContext.Projects.Include(p => p.Columns)
                 .FirstOrDefaultAsync(p => p.Id == projectId);
-            foreach (var column in project.Columns)
+            var columns = project.Columns.Select(c => c.Id).ToList();
+            foreach (var columnId in columns)
             {
-                await _columnRepository.DeleteColumn(column.Id);
+                await _columnRepository.DeleteColumn(columnId);
             }
 
             _databaseContext.Projects.Remove(project);

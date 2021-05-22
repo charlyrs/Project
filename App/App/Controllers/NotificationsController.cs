@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using App.Services.Notification;
 using App.Services.User;
 using App.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -8,9 +9,11 @@ namespace App.Controllers
     public class NotificationsController : Controller
     {
         private readonly IUserService _userService;
-        public NotificationsController(IUserService userService)
+        private readonly INotificationService _notificationService;
+        public NotificationsController(IUserService userService, INotificationService notificationService)
         {
             _userService = userService;
+            _notificationService = notificationService;
         }
         // GET
         public async Task<IActionResult> Index()
@@ -25,6 +28,12 @@ namespace App.Controllers
         public IActionResult RedirectController(string path)
         {
             return Redirect(path);
+        }
+
+        public async Task<IActionResult> ClearNotifications()
+        {
+            await _notificationService.RemoveUsersNotifications(CurrentUserService.currentUserId);
+            return RedirectToAction("Index");
         }
     }
 }

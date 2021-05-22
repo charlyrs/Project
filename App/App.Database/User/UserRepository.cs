@@ -54,7 +54,6 @@ namespace App.Database.User
                 }).ToList()
             };
             return result;
-
         }
 
         public async Task<Models.User> GetUserByIdAsync(int id)

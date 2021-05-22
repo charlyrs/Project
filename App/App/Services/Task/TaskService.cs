@@ -90,7 +90,8 @@ namespace App.Services.Task
                 {
                     Id = userId
                 },
-                Text = text
+                Text = text,
+                Time = DateTime.Now
             };
             await _taskRepository.AddCommentToTask(comment);
             return true;

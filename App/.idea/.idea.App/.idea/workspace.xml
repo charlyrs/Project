@@ -26,25 +26,10 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/App/Controllers/AccountController.cs" />
-      <option value="$PROJECT_DIR$/App/Controllers/ProjectsListController.cs" />
-      <option value="$PROJECT_DIR$/App/Views/ProjectView/ProjectInfo.cshtml" />
-      <option value="$PROJECT_DIR$/App/ViewModels/ProjectViewModel.cs" />
-      <option value="$PROJECT_DIR$/App/ViewModels/RoleViewModel.cs" />
-      <option value="$PROJECT_DIR$/App/Views/ProjectView/ProjectSettings.cshtml" />
-      <option value="$PROJECT_DIR$/App.Database/DatabaseModels/ColumnDB.cs" />
-      <option value="$PROJECT_DIR$/App.Database/DatabaseModels/CommentDB.cs" />
-      <option value="$PROJECT_DIR$/App.Database/Models/Comment.cs" />
-      <option value="$PROJECT_DIR$/App.Database/Models/ProjectTask.cs" />
-      <option value="$PROJECT_DIR$/App.Database/bla.cs" />
-      <option value="$PROJECT_DIR$/App.Database/ProjectMapper.cs" />
-      <option value="$PROJECT_DIR$/App.Database/DatabaseModels/UserDB.cs" />
       <option value="$PROJECT_DIR$/App.Database/Project/IProjectRepository.cs" />
       <option value="$PROJECT_DIR$/App/Properties/launchSettings.json" />
       <option value="$PROJECT_DIR$/App/ViewModels/TasksListViewModel.cs" />
       <option value="$PROJECT_DIR$/App/Views/TaskView/TagTasks.cshtml" />
-      <option value="$PROJECT_DIR$/App.Database/Project/ProjectRepository.cs" />
-      <option value="$PROJECT_DIR$/App/Views/ProjectView/SearchTasksByTags.cshtml" />
       <option value="$PROJECT_DIR$/App/Services/RoadMap/IRoadMapService.cs" />
       <option value="$PROJECT_DIR$/App.Database/RoadMap/IRMStepRepository.cs" />
       <option value="$PROJECT_DIR$/App.Database/RoadMap/RMStepRepository.cs" />
@@ -52,31 +37,46 @@
       <option value="$PROJECT_DIR$/App.Database/DatabaseModels/ProjectDB.cs" />
       <option value="$PROJECT_DIR$/App.Database/DatabaseModels/ProjectTaskDB.cs" />
       <option value="$PROJECT_DIR$/App.Database/Task/ITaskRepository.cs" />
-      <option value="$PROJECT_DIR$/App.Database/Task/TaskRepository.cs" />
-      <option value="$PROJECT_DIR$/App.Database/ApplicationContext.cs" />
-      <option value="$PROJECT_DIR$/App/Views/ProjectsList/Index.cshtml" />
-      <option value="$PROJECT_DIR$/App/Views/Notifications/Index.cshtml" />
       <option value="$PROJECT_DIR$/App/wwwroot/js/site.js" />
       <option value="$PROJECT_DIR$/App/Views/Account/EditUserData.cshtml" />
       <option value="$PROJECT_DIR$/App/Services/Column/ColumnService.cs" />
-      <option value="$PROJECT_DIR$/App/Services/Notification/NotificationService.cs" />
-      <option value="$PROJECT_DIR$/App/Services/Project/ProjectService.cs" />
       <option value="$PROJECT_DIR$/App/Services/RoadMap/RoadMapService.cs" />
       <option value="$PROJECT_DIR$/App/Services/User/RegistrationService.cs" />
       <option value="$PROJECT_DIR$/App/Services/User/UserService.cs" />
       <option value="$PROJECT_DIR$/App/Services/Project/IProjectService.cs" />
-      <option value="$PROJECT_DIR$/App/Controllers/ProjectViewController.cs" />
       <option value="$PROJECT_DIR$/App.Database/Tag/ITagRepository.cs" />
       <option value="$PROJECT_DIR$/App.Database/Tag/TagRepository.cs" />
-      <option value="$PROJECT_DIR$/App/Services/Task/TaskService.cs" />
       <option value="$PROJECT_DIR$/App/Services/Task/ITaskService.cs" />
-      <option value="$PROJECT_DIR$/App/Program.cs" />
-      <option value="$PROJECT_DIR$/App/Views/Account/Index.cshtml" />
       <option value="$PROJECT_DIR$/App/Views/Shared/_Layout.cshtml" />
-      <option value="$PROJECT_DIR$/App/Views/TaskView/Index.cshtml" />
-      <option value="$PROJECT_DIR$/App/Views/ProjectView/Index.cshtml" />
       <option value="$PROJECT_DIR$/App/Controllers/TaskViewController.cs" />
       <option value="$PROJECT_DIR$/App/Startup.cs" />
+      <option value="$PROJECT_DIR$/App/Views/Registration/LogIn.cshtml" />
+      <option value="$PROJECT_DIR$/App/Views/Registration/Index.cshtml" />
+      <option value="$PROJECT_DIR$/App/Views/ProjectView/Index.cshtml" />
+      <option value="$PROJECT_DIR$/App/Views/ProjectView/RoadMap.cshtml" />
+      <option value="$PROJECT_DIR$/App/Views/Account/Index.cshtml" />
+      <option value="$PROJECT_DIR$/App/Views/Account/AllTasks.cshtml" />
+      <option value="$PROJECT_DIR$/App/Views/ProjectsList/Index.cshtml" />
+      <option value="$PROJECT_DIR$/App/Views/ProjectView/SearchTasksByTags.cshtml" />
+      <option value="$PROJECT_DIR$/App/Controllers/ProjectViewController.cs" />
+      <option value="$PROJECT_DIR$/App.Database/DatabaseModels/CommentDB.cs" />
+      <option value="$PROJECT_DIR$/App.Database/Models/Comment.cs" />
+      <option value="$PROJECT_DIR$/App.Database/Task/TaskRepository.cs" />
+      <option value="$PROJECT_DIR$/App/Services/Task/TaskService.cs" />
+      <option value="$PROJECT_DIR$/App/Views/TaskView/Index.cshtml" />
+      <option value="$PROJECT_DIR$/App/Program.cs" />
+      <option value="$PROJECT_DIR$/App.Database/ApplicationContext.cs" />
+      <option value="$PROJECT_DIR$/App/Services/CheckInputService.cs" />
+      <option value="$PROJECT_DIR$/App.Database/User/UserRepository.cs" />
+      <option value="$PROJECT_DIR$/App/Controllers/HomeController.cs" />
+      <option value="$PROJECT_DIR$/App/Services/Project/ProjectService.cs" />
+      <option value="$PROJECT_DIR$/App.Database/Project/ProjectRepository.cs" />
+      <option value="$PROJECT_DIR$/App/Services/Notification/INotificationService.cs" />
+      <option value="$PROJECT_DIR$/App.Database/Notification/INotificationRepository.cs" />
+      <option value="$PROJECT_DIR$/App.Database/Notification/NotificationRepository.cs" />
+      <option value="$PROJECT_DIR$/App/Services/Notification/NotificationService.cs" />
+      <option value="$PROJECT_DIR$/App/Controllers/NotificationsController.cs" />
+      <option value="$PROJECT_DIR$/App/Views/Notifications/Index.cshtml" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rOlePqmrhZBxXy0wA2B6oTP2Kf" />
@@ -198,6 +198,14 @@
       <workItem from="1621244403239" duration="670000" />
       <workItem from="1621257787672" duration="380000" />
       <workItem from="1621322006524" duration="600000" />
+      <workItem from="1621325927047" duration="3631000" />
+      <workItem from="1621332555480" duration="4359000" />
+      <workItem from="1621343283269" duration="4155000" />
+      <workItem from="1621353163713" duration="410000" />
+      <workItem from="1621372717254" duration="7164000" />
+      <workItem from="1621401832300" duration="4542000" />
+      <workItem from="1621421330551" duration="1177000" />
+      <workItem from="1621698204274" duration="4009000" />
     </task>
     <servers />
   </component>
@@ -291,13 +299,13 @@
         </line-breakpoint>
         <line-breakpoint type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/App.Database/User/UserRepository.cs</url>
-          <line>99</line>
+          <line>98</line>
           <properties documentPath="D:\Git\Project\App\App.Database\User\UserRepository.cs" initialLine="78" containingFunctionPresentation="method 'AddUserAsync'">
             <startOffsets>
-              <option value="3704" />
+              <option value="3703" />
             </startOffsets>
             <endOffsets>
-              <option value="3705" />
+              <option value="3704" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="21" />
@@ -314,32 +322,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/App.Database/Project/ProjectRepository.cs</url>
-          <line>143</line>
-          <properties documentPath="D:\Git\Project\App\App.Database\Project\ProjectRepository.cs" initialLine="115" containingFunctionPresentation="method 'RemoveProjectFromUser'">
-            <startOffsets>
-              <option value="5633" />
-            </startOffsets>
-            <endOffsets>
-              <option value="5663" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/App/Controllers/ProjectViewController.cs</url>
-          <line>70</line>
-          <properties documentPath="D:\Git\Project\App\App\Controllers\ProjectViewController.cs" initialLine="34" containingFunctionPresentation="method 'LeaveProject'">
-            <startOffsets>
-              <option value="2684" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2685" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/App/Controllers/ProjectViewController.cs</url>
@@ -382,13 +364,13 @@
         </line-breakpoint>
         <line-breakpoint type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/App/Controllers/NotificationsController.cs</url>
-          <line>25</line>
+          <line>28</line>
           <properties documentPath="D:\Git\Project\App\App\Controllers\NotificationsController.cs" initialLine="25" containingFunctionPresentation="method 'RedirectController'">
             <startOffsets>
-              <option value="737" />
+              <option value="936" />
             </startOffsets>
             <endOffsets>
-              <option value="738" />
+              <option value="937" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="33" />
@@ -460,13 +442,13 @@
         </line-breakpoint>
         <line-breakpoint type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/App.Database/User/UserRepository.cs</url>
-          <line>63</line>
+          <line>62</line>
           <properties documentPath="D:\Git\Project\App\App.Database\User\UserRepository.cs" initialLine="63" containingFunctionPresentation="method 'GetUserByIdAsync'">
             <startOffsets>
-              <option value="2385" />
+              <option value="2384" />
             </startOffsets>
             <endOffsets>
-              <option value="3096" />
+              <option value="3095" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="42" />
@@ -499,7 +481,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/App.Database/Project/ProjectRepository.cs</url>
-          <line>236</line>
+          <line>237</line>
           <properties documentPath="D:\Git\Project\App\App.Database\Project\ProjectRepository.cs" initialLine="235" containingFunctionPresentation="method 'GetRegularUsers'">
             <startOffsets>
               <option value="-1" />
@@ -512,7 +494,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/App/Views/TaskView/Index.cshtml</url>
-          <line>199</line>
+          <line>297</line>
           <properties documentPath="D:\Git\Project\App\App\Views\TaskView\Index.cshtml" initialLine="198" isMultiMethodBreakpoint="true">
             <option name="multiMethodBreakpoint" value="true" />
             <startOffsets>
@@ -523,6 +505,46 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/App/Views/ProjectView/SearchTasksByTags.cshtml</url>
+          <line>61</line>
+          <properties documentPath="D:\Git\Project\App\App\Views\ProjectView\SearchTasksByTags.cshtml" initialLine="61" isMultiMethodBreakpoint="true">
+            <option name="multiMethodBreakpoint" value="true" />
+            <startOffsets>
+              <option value="-1" />
+            </startOffsets>
+            <endOffsets>
+              <option value="-1" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/App.Database/Project/ProjectRepository.cs</url>
+          <line>144</line>
+          <properties documentPath="D:\Git\Project\App\App.Database\Project\ProjectRepository.cs" initialLine="144" containingFunctionPresentation="method 'RemoveProjectFromUser'">
+            <startOffsets>
+              <option value="5676" />
+            </startOffsets>
+            <endOffsets>
+              <option value="5718" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/App/Controllers/ProjectViewController.cs</url>
+          <line>70</line>
+          <properties documentPath="D:\Git\Project\App\App\Controllers\ProjectViewController.cs" initialLine="70" containingFunctionPresentation="method 'ProjectInfo'">
+            <startOffsets>
+              <option value="2684" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2685" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="54" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

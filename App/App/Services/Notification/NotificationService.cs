@@ -25,5 +25,16 @@ namespace App.Services.Notification
             await _notificationRepository.AddNotificationToUser(recieverId, id);
             return true;
         }
+        
+
+        public async Task<bool> RemoveUsersNotifications(int userId)
+        {
+            var noteIds = await _notificationRepository.GetUsersNotificationsId(userId);
+            foreach (var id in noteIds)
+            {
+                await _notificationRepository.RemoveNotificationFromUser(userId, id);
+            }
+            return true;
+        }
     }
 }

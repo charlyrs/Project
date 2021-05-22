@@ -69,8 +69,102 @@
              background-position: 0 0;
              color:#fff;
              }
+             .push {
+               list-style: none;
+               font-family: "Lucida Sans";
+             }
+             .push li {
+               position: relative;
+               padding: 20px 0 20px 40px;
+               color: white;
+               font-variant: small-caps;
+               font-weight: bold;
+               cursor: pointer;
+             }
+             .push li:before {
+               position: absolute;
+               width: 7px;
+               height: 7px;
+               border-radius: 50%;
+               background: #4F5151;
+               content: "";
+               left: 0;
+               transition: .3s ease-in-out;
+               top: 27px;
+             }
+             .push li:after {
+               position: absolute;
+               border-left: 1px dotted #4F5151;
+               width: 1px;
+               bottom: -12px;
+               content: "";
+               left: 3px;
+               top: 48px;
+             }
+             .push li:hover:before{box-shadow: 0 0 0 10px rgba(0,0,0,.2)}
+             .push li:last-child:after {content: none;}
  
-       
+       .list3a {
+           padding:0;
+           list-style: none;
+           counter-reset: li;
+       }    
+       .list3a li {
+           position: relative;
+           border-left: 4px solid #337AB7;
+           padding:16px 20px 16px 28px;
+           margin:12px 0 12px 80px;
+           -webkit-transition-duration: 0.3s;
+           transition-duration: 0.3s;
+       }
+       .list3a li:before {
+           line-height: 32px;
+           position: absolute;
+           top: 10px;
+           left:-80px;
+           width:80px;
+           text-align:center;
+           font-size: 24px;
+           font-weight: bold;
+           color: #77AEDB;
+           counter-increment: li;
+           content: counter(li);
+           -webkit-transition-duration: 0.3s;
+           transition-duration: 0.3s;
+           -webkit-box-sizing: border-box;
+           -moz-box-sizing: border-box;
+           box-sizing: border-box;    
+       }
+       .list3a li:hover:before {
+           color: #337AB7;
+       }
+       .list3a li:after {
+           position: absolute;
+           top: 26px;
+           left: -40px;
+           width: 60px;
+           height: 60px;
+           border: 8px solid #3399FF;
+           border-radius: 50%;
+           content: '';
+           opacity: 0;
+           -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+           -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+           transition: transform 0.3s, opacity 0.3s;
+           -webkit-transform: translateX(-50%) translateY(-50%) scale(0.1);
+           -moz-transform: translateX(-50%) translateY(-50%) scale(0.1);
+           transform: translateX(-50%) translateY(-50%) scale(0.1);
+           pointer-events: none;
+           -webkit-box-sizing: border-box;
+           -moz-box-sizing: border-box;
+           box-sizing: border-box;        
+       }
+       .list3a li:hover:after {
+           opacity: 0.2;
+           -webkit-transform: translateX(-50%) translateY(-50%) scale(1);
+           -moz-transform: translateX(-50%) translateY(-50%) scale(1);
+           transform: translateX(-50%) translateY(-50%) scale(1);
+       }    
        
        
   
@@ -96,18 +190,7 @@
         </div>
 
 
-        @if (Model.AssignedUsers.Count != 0)
-        {
-            <div class="card" style="width: 25rem; margin-top: 10px">
-                <div class="card-body">
-
-                    @foreach (var user in Model.AssignedUsers)
-                    {
-                        <h6 style="color: #60bcdc">@user.Nickname</h6>
-                    }
-                </div>
-            </div>
-        }
+        
         <div style="max-width: 25rem">
             @foreach (var comment in Model.Comments)
             {
@@ -120,7 +203,7 @@
 
                             @comment.Text
                         </div>
-                        <p class="attribution"><a href="#" style="color: #60bcdc">@comment.User.Nickname</a> at 14:23pm, 4 Dec 2015</p>
+                        <p class="attribution"><a href="#" style="color: #60bcdc">@comment.User.Nickname</a> at @comment.Time</p>
 
                     </div>
                 </div>
@@ -140,9 +223,24 @@
 
 
     </div>
+    <div style="margin-top: 60px; margin-left: 20px; margin-right: 20px">
+    @if (Model.AssignedUsers.Count != 0)
+            {
+                
+               <ul class="push">
+                        @foreach (var user in Model.AssignedUsers)
+                        {
+                            <li>
+                                @user.Nickname
+                            </li>
+                           
+                        }
+            </ul>
+            }
+    </div>
 
 
-    <div class="card" style="width: 20rem;  margin-left: 200px; margin-top: 60px; max-height: 500px">
+    <div class="card" style="width: 20rem;  margin-left: 40px; margin-top: 60px; max-height: 500px">
         <div class="card-body">
             @if (Model.Deadline == DateTime.MinValue)
             {
@@ -195,7 +293,7 @@
 
             }
            
-            <a href='@Url.Action("ArchiveTask")' style=" background-image: linear-gradient(to left,transparent,transparent 50%,crimson 50%,crimson);
+            <a href='@Url.Action("ArchiveTask")' style=" background-image: linear-gradient(to left,transparent,transparent 50%,red 50%,red);
 " class="glo" >
                 Archive task
             </a>
@@ -217,16 +315,20 @@
 <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header" style="background-color: #a4dfed; ">
-                <h5 class="modal-title" id="staticBackdropLabel">Set roadmap step</h5>
+            <div class="modal-header"  >
+                <h5 class="modal-title" id="staticBackdropLabel" style="color: #145DA0">Set roadmap step</h5>
             </div>
             <div class="modal-body">
+                <ul class="list3a">
                 @foreach (var step in ViewBag.Steps)
                 {
-                    <a style="color: #60bcdc" href='@Url.Action("LinkTaskToStep", new {stepId = step.Id})'>
-                        <h5>@step.Title</h5>
-                    </a>
+                    <li>
+                <a style="color: #60bcdc" href='@Url.Action("LinkTaskToStep", new {stepId = step.Id})'>
+                    <h5>@step.Title</h5>
+                </a>
+                </li>
                 }
+                </ul>
 
             </div>
         </div>
@@ -235,34 +337,38 @@
 <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header" style="background-color: #a4dfed; ">
-                <h5 class="modal-title" id="staticBackdropLabel">Set roadmap step</h5>
+            <div class="modal-header"  >
+                <h5 class="modal-title" id="staticBackdropLabel" style="color: #145DA0">Add User</h5>
             </div>
             <div class="modal-body">
-                 @foreach (var user in Model.NotAssignedUsers)
-                                        {
-                                            <a style="color: #60bcdc" href='@Url.Action("AssignUserToTask", "TaskView", new {username = user.Nickname})'>
-                                                <h6 style="color: #C0DCEC;"> @user.Nickname</h6>
-                
-                                            </a>
-                                        }
-                </div>
+                <ul class="list3a">
+                @foreach (var user in Model.NotAssignedUsers)
+                {
+                    <li>
+                <a style="color: #60bcdc" href='@Url.Action("AssignUserToTask", "TaskView", new {username = user.Nickname})'>
+                    <h6 style="color: #C0DCEC;"> @user.Nickname</h6>
+
+                </a>
+                </li>
+                }
+                </ul>
+            </div>
         </div>
     </div>
 </div>
 <div class="modal fade" id="tagModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header" style="background-color: #a4dfed; ">
+            <div class="modal-header"  >
                 <h5 class="modal-title" id="staticBackdropLabel">Add tag to task</h5>
             </div>
             <div class="modal-body">
                 @foreach (var tag in ViewBag.Tags)
                 {
                     <a style="color: #60bcdc" href='@Url.Action("LinkTag", new {tagId = tag.Id})'>
-                        @tag.Text
+                        #@tag.Text
                     </a>
-                    <h6>#@tag.Text</h6>
+                    
                 }
                 @using (Html.BeginForm("AddTag", "TaskView", FormMethod.Get))
                 {

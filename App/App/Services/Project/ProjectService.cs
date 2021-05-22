@@ -52,7 +52,7 @@ namespace App.Services.Project
 
         public async Task<bool> RemoveProjectFromTheUser(int projectId, int userId)
         {
-            var users = await _projectRepository.GetUsers(userId);
+            var users = await _projectRepository.GetUsers(projectId);
             if (users.Any(u => u.Id == userId))
             {
                 await _projectRepository.RemoveProjectFromUser(projectId, userId);

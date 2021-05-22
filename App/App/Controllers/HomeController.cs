@@ -18,24 +18,24 @@ namespace App.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IUserRepository _userRepository;
+        private readonly IUserService _userService;
 
-        public HomeController(ILogger<HomeController> logger, IUserRepository userRepository)
+        public HomeController(ILogger<HomeController> logger, IUserService userService)
         {
             _logger = logger;
-            _userRepository = userRepository;
+            _userService = userService;
         }
 
         public async Task<IActionResult> Index()
         {
-            if (HttpContext.Request.Cookies.ContainsKey("currentUserId"))
-            {
-                var id = int.Parse(HttpContext.Request.Cookies["currentUserId"]);
-                CurrentUserService.loggedIn = true;
-                CurrentUserService.currentUserId = id;
-                return RedirectToAction("Index", "ProjectsList");
-            }
-            return RedirectToAction("Index", "Registration");
+            if (!HttpContext.Request.Cookies.ContainsKey("currentUserId"))
+                return RedirectToAction("Index", "Registration");
+            var id = int.Parse(HttpContext.Request.Cookies["currentUserId"]);
+            var user = await _userService.GetUserById(id);
+            if (user == null) return RedirectToAction("Index", "Registration");
+            CurrentUserService.loggedIn = true;
+            CurrentUserService.currentUserId = id;
+            return RedirectToAction("Index", "ProjectsList");
 
         }
 

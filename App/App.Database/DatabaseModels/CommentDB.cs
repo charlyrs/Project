@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace App.Database.DatabaseModels
 {
@@ -7,6 +8,7 @@ namespace App.Database.DatabaseModels
         public int Id { get; set; }
         public string Text { get; set; }
         public ProjectTaskDB Task { get; set; }
+        public DateTime Time { get; set; }
         public UserDB User { get; set; }
     }
 }
